@@ -50,39 +50,7 @@ export default function HeroSection() {
               transform: visible ? 'translateY(0)' : 'translateY(60px)',
             }}
           >
-            <span className="relative inline-block">
-              <span className="relative z-10">RE</span>
-              {/* Green strikethrough */}
-              <span
-                className="absolute inset-0 flex items-center pointer-events-none"
-                aria-hidden
-              >
-                <span
-                  className="block h-[0.18em] w-full bg-neon-green"
-                  style={{
-                    transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)',
-                    transitionDelay: '900ms',
-                    width: visible ? '100%' : '0%',
-                  }}
-                />
-              </span>
-              {/* Red animated line */}
-              <span
-                className="absolute inset-0 flex items-center pointer-events-none"
-                aria-hidden
-              >
-                <span
-                  className="block h-[0.07em] bg-[#FF0033]"
-                  style={{
-                    boxShadow: '0 0 8px #FF0033',
-                    transition: 'width 0.6s cubic-bezier(0.16,1,0.3,1)',
-                    transitionDelay: '1000ms',
-                    width: visible ? '100%' : '0%',
-                  }}
-                />
-              </span>
-            </span>
-            SONANCE
+            RESONANCE
           </h1>
         </div>
 

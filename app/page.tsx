@@ -1,18 +1,20 @@
 import HeroSection from '@/components/sections/HeroSection'
-import WhatWeDoSection from '@/components/sections/WhatWeDoSection'
-import WhyResonanceSection from '@/components/sections/WhyResonanceSection'
-import OurProcessSection from '@/components/sections/OurProcessSection'
-import GlobalFocusSection from '@/components/sections/GlobalFocusSection'
+import HowItWorksSection from '@/components/sections/HowItWorksSection'
+import InfluencerPreviewSection from '@/components/sections/InfluencerPreviewSection'
+import CaseStudiesSection from '@/components/sections/CaseStudiesSection'
+import CredentialsSection from '@/components/sections/CredentialsSection'
+import FreeTrialSection from '@/components/sections/FreeTrialSection'
 import FooterSection from '@/components/sections/FooterSection'
 
 export default function Home() {
   return (
     <main className="relative">
       <HeroSection />
-      <WhatWeDoSection />
-      <WhyResonanceSection />
-      <OurProcessSection />
-      <GlobalFocusSection />
+      <HowItWorksSection />
+      <InfluencerPreviewSection />
+      <CaseStudiesSection />
+      <CredentialsSection />
+      <FreeTrialSection />
       <FooterSection />
     </main>
   )

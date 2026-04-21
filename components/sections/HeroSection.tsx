@@ -32,7 +32,36 @@ export default function HeroSection() {
           className="mb-12"
         >
           <h1 className="heading-xl mb-6 relative inline-block">
-            WHY RESONANCE?
+            <span className="relative inline-block">
+              RE
+              {/* 가로 취소선 — 흰색 */}
+              <motion.svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                {/* 네온그린 취소선 — 고정 */}
+                <line
+                  x1="0" y1="50"
+                  x2="100" y2="50"
+                  stroke="#7CFF00"
+                  strokeWidth="13"
+                  strokeLinecap="round"
+                />
+                {/* 진한 빨간 선 — 애니메이션 */}
+                <motion.line
+                  x1="0" y1="50"
+                  x2="100" y2="50"
+                  stroke="#FF0033"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                />
+              </motion.svg>
+            </span>
+            SONANCE
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: '100%' }}

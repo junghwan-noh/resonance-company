@@ -1,102 +1,141 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import WaveformBackground from '@/components/ui/WaveformBackground'
-import ScrollIndicator from '@/components/ui/ScrollIndicator'
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
+    const t = setTimeout(() => setVisible(true), 300)
+    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY })
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    return () => {
+      clearTimeout(t)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
       <WaveformBackground mousePosition={mousePosition} />
-      
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-7xl">
-        {/* Main Title with Neon Underline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="mb-12"
-        >
-          <h1 className="heading-xl mb-6 relative inline-block">
-            <span className="relative inline-block">
-              RE
-              {/* 가로 취소선 — 흰색 */}
-              <motion.svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-              >
-                {/* 네온그린 취소선 — 고정 */}
-                <line
-                  x1="0" y1="50"
-                  x2="100" y2="50"
-                  stroke="#7CFF00"
-                  strokeWidth="13"
-                  strokeLinecap="round"
-                />
-                {/* 진한 빨간 선 — 애니메이션 */}
-                <motion.line
-                  x1="0" y1="50"
-                  x2="100" y2="50"
-                  stroke="#FF0033"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
-                />
-              </motion.svg>
-            </span>
-            SONANCE
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: '100%' }}
-              transition={{ duration: 1.2, delay: 0.8 }}
-              className="absolute bottom-0 left-0 h-2 md:h-3 bg-neon-green"
-            />
-          </h1>
-        </motion.div>
 
-        {/* Subtitle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="space-y-4"
-        >
-          <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-wide">
-            Selection over Noise.
-          </p>
-          <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-wide">
-            Focus creates results.
-          </p>
-        </motion.div>
-
-        {/* Decorative Line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.5, delay: 1.6 }}
-          className="mt-20 mx-auto w-64 h-px bg-gradient-to-r from-transparent via-neon-green to-transparent"
-        />
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
       </div>
 
-      {/* Scroll Indicator */}
-      <ScrollIndicator />
+      {/* Content */}
+      <div className="relative z-20 text-center px-6 max-w-7xl mx-auto w-full">
+
+        {/* Tag */}
+        <div
+          className="inline-flex items-center gap-2 border border-neon-green/40 px-4 py-2 mb-10 transition-all duration-700"
+          style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)', transitionDelay: '0ms' }}
+        >
+          <span className="w-2 h-2 bg-neon-green rounded-full animate-pulse" />
+          <span className="text-neon-green text-xs tracking-[0.3em] font-medium uppercase">Influencer Seeding Agency</span>
+        </div>
+
+        {/* Main headline */}
+        <div className="mb-6 overflow-hidden">
+          <h1
+            className="font-display font-black leading-none tracking-tight"
+            style={{
+              fontSize: 'clamp(4rem, 12vw, 14rem)',
+              transition: 'opacity 1s, transform 1s cubic-bezier(0.16,1,0.3,1)',
+              transitionDelay: '200ms',
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(60px)',
+            }}
+          >
+            <span className="relative inline-block">
+              <span className="relative z-10">RE</span>
+              {/* Green strikethrough */}
+              <span
+                className="absolute inset-0 flex items-center pointer-events-none"
+                aria-hidden
+              >
+                <span
+                  className="block h-[0.18em] w-full bg-neon-green"
+                  style={{
+                    transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)',
+                    transitionDelay: '900ms',
+                    width: visible ? '100%' : '0%',
+                  }}
+                />
+              </span>
+              {/* Red animated line */}
+              <span
+                className="absolute inset-0 flex items-center pointer-events-none"
+                aria-hidden
+              >
+                <span
+                  className="block h-[0.07em] bg-[#FF0033]"
+                  style={{
+                    boxShadow: '0 0 8px #FF0033',
+                    transition: 'width 0.6s cubic-bezier(0.16,1,0.3,1)',
+                    transitionDelay: '1000ms',
+                    width: visible ? '100%' : '0%',
+                  }}
+                />
+              </span>
+            </span>
+            SONANCE
+          </h1>
+        </div>
+
+        {/* Subline */}
+        <div
+          className="mb-14"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 0.9s, transform 0.9s cubic-bezier(0.16,1,0.3,1)',
+            transitionDelay: '600ms',
+          }}
+        >
+          <p className="text-xl md:text-3xl font-light tracking-wide text-white/80">
+            Selection over Noise.&nbsp;&nbsp;
+            <span className="text-neon-green font-medium">Focus creates results.</span>
+          </p>
+        </div>
+
+        {/* CTA */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 0.9s, transform 0.9s cubic-bezier(0.16,1,0.3,1)',
+            transitionDelay: '850ms',
+          }}
+        >
+          <a href="#contact" className="btn-primary">
+            무료 샘플 받기
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#why" className="btn-secondary">
+            자세히 보기
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        style={{
+          opacity: visible ? 0.5 : 0,
+          transition: 'opacity 1s',
+          transitionDelay: '1.4s',
+        }}
+      >
+        <span className="text-xs tracking-[0.3em] uppercase text-gray-500">Scroll</span>
+        <div className="w-px h-14 bg-gradient-to-b from-gray-500 to-transparent" />
+      </div>
     </section>
   )
 }

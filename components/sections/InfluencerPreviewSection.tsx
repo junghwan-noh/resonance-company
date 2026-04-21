@@ -1,109 +1,171 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 const influencers = [
-  { handle: '@beautywithjess', category: 'Beauty', followers: '284K', er: '4.2%', region: '🇺🇸 US', tier: 'A' },
-  { handle: '@fitlifemike', category: 'Fitness', followers: '512K', er: '3.8%', region: '🇺🇸 US', tier: 'A' },
-  { handle: '@foodie.au', category: 'F&B', followers: '98K', er: '6.1%', region: '🇦🇺 AU', tier: 'B' },
-  { handle: '@stylequeen_la', category: 'Fashion', followers: '1.2M', er: '2.9%', region: '🇺🇸 US', tier: 'S' },
-  { handle: '@wellnessvibes', category: 'Lifestyle', followers: '176K', er: '5.3%', region: '🇦🇺 AU', tier: 'A' },
-  { handle: '@skincareglow', category: 'Beauty', followers: '340K', er: '4.7%', region: '🇺🇸 US', tier: 'A' },
+  { handle: '@beautybyella', followers: '892K', er: '6.2%', category: 'Beauty', market: 'US', tier: 'Macro' },
+  { handle: '@fitlife.james', followers: '1.2M', er: '4.8%', category: 'Fitness', market: 'US', tier: 'Mega' },
+  { handle: '@sydneyfoodie', followers: '340K', er: '8.1%', category: 'F&B', market: 'AU', tier: 'Mid' },
+  { handle: '@glowwithsarah', followers: '560K', er: '5.9%', category: 'Beauty', market: 'AU', tier: 'Macro' },
+  { handle: '@lifestylewithtom', followers: '2.1M', er: '3.7%', category: 'Lifestyle', market: 'US', tier: 'Mega' },
+  { handle: '@healthyeats.mel', followers: '430K', er: '7.4%', category: 'F&B', market: 'AU', tier: 'Mid' },
 ]
 
-const tierColor: Record<string, string> = {
-  S: 'text-yellow-400 border-yellow-400/30 bg-yellow-400/5',
-  A: 'text-neon-green border-neon-green/30 bg-neon-green/5',
-  B: 'text-blue-400 border-blue-400/30 bg-blue-400/5',
-}
+const posts = [
+  {
+    account: '@beautybyella',
+    caption: 'Finally found my holy grail skincare routine 🌿 This brand sent me their new serum and I\'m obsessed…',
+    likes: '24.3K',
+    comments: '1.2K',
+    category: 'Beauty',
+  },
+  {
+    account: '@fitlife.james',
+    caption: 'Post-workout recovery is everything. This brand\'s protein blend has been a game-changer for my training…',
+    likes: '41.8K',
+    comments: '2.7K',
+    category: 'Fitness',
+  },
+  {
+    account: '@sydneyfoodie',
+    caption: 'Sydney\'s best-kept secret just dropped in my DMs 🔥 Had to try it and honestly, no notes…',
+    likes: '18.6K',
+    comments: '890',
+    category: 'F&B',
+  },
+]
 
 export default function InfluencerPreviewSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('[data-reveal]').forEach((el) => {
+              el.classList.add('visible')
+            })
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="section-container bg-black" id="influencers">
-      <div className="max-w-6xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-6 text-center"
-        >
-          <p className="text-sm tracking-widest text-neon-green uppercase mb-4">Influencer Preview</p>
-          <h2 className="heading-lg mb-4">49,000+개 중 일부입니다.</h2>
-          <p className="text-gray-400 text-lg font-light max-w-2xl mx-auto">
-            US·AU 타겟, ER% 1% 이상, 허수 팔로워 필터링 완료된 DB에서 추출했습니다.
-          </p>
-        </motion.div>
+    <section ref={sectionRef} className="bg-black px-6 md:px-16 lg:px-24 py-32" id="preview">
+      <div className="max-w-7xl mx-auto">
 
-        {/* 필터 태그 */}
-        <div className="flex flex-wrap gap-2 justify-center mb-12">
-          {['전체', 'Beauty', 'Fitness', 'F&B', 'Fashion', 'Lifestyle'].map((tag) => (
-            <span
-              key={tag}
-              className={`px-4 py-1.5 text-xs border tracking-wide ${
-                tag === '전체'
-                  ? 'border-neon-green text-neon-green bg-neon-green/10'
-                  : 'border-gray-800 text-gray-500'
-              }`}
-            >
-              {tag}
-            </span>
-          ))}
+        {/* Label */}
+        <div className="flex items-center gap-4 mb-20 reveal" data-reveal>
+          <span className="w-8 h-px bg-neon-green" />
+          <span className="text-neon-green text-xs tracking-[0.3em] uppercase font-medium">Content Preview</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {influencers.map((inf, i) => (
-            <motion.div
-              key={inf.handle}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="border border-gray-800 p-6 hover:border-neon-green transition-all duration-300 group"
-            >
-              <div className="flex items-start justify-between mb-4">
-                {/* 아바타 */}
-                <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-lg">
-                  {inf.category === 'Beauty' ? '💄' :
-                   inf.category === 'Fitness' ? '💪' :
-                   inf.category === 'F&B' ? '🍽️' :
-                   inf.category === 'Fashion' ? '👗' : '✨'}
-                </div>
-                <span className={`text-xs font-bold px-2 py-1 border ${tierColor[inf.tier]}`}>
-                  {inf.tier} TIER
-                </span>
-              </div>
+        {/* Headline */}
+        <div className="mb-4">
+          <h2
+            className="font-display font-black leading-none tracking-tight reveal"
+            data-reveal
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 7rem)' }}
+          >
+            이런 인플루언서들과<br />
+            <span className="text-neon-green">함께합니다.</span>
+          </h2>
+        </div>
+        <p className="text-gray-500 text-lg font-light mb-20 reveal" data-reveal>
+          실제 DB에서 발췌한 인플루언서 샘플입니다.
+        </p>
 
-              <h3 className="font-bold text-sm mb-1 group-hover:text-neon-green transition-colors">
-                {inf.handle}
-              </h3>
-              <p className="text-xs text-gray-500 mb-4">{inf.category} · {inf.region}</p>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <p className="text-xs text-gray-600 mb-1">팔로워</p>
-                  <p className="text-sm font-bold">{inf.followers}</p>
+        {/* Influencer cards — horizontal scroll */}
+        <div className="scroll-x mb-8">
+          <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
+            {influencers.map((inf, i) => (
+              <div
+                key={inf.handle}
+                className="border border-gray-800 p-6 hover:border-neon-green transition-all duration-300 group reveal"
+                data-reveal
+                style={{ width: '220px', transitionDelay: `${i * 80}ms` }}
+              >
+                {/* Avatar placeholder */}
+                <div className="w-12 h-12 bg-gray-900 border border-gray-800 group-hover:border-neon-green/40 mb-4 flex items-center justify-center transition-all duration-300">
+                  <span className="text-neon-green font-bold text-xs">{inf.handle.slice(1, 3).toUpperCase()}</span>
                 </div>
-                <div>
-                  <p className="text-xs text-gray-600 mb-1">ER%</p>
-                  <p className="text-sm font-bold text-neon-green">{inf.er}</p>
+
+                <p className="text-white font-bold text-sm mb-1">{inf.handle}</p>
+                <p className="text-gray-600 text-xs mb-4">{inf.market} · {inf.category}</p>
+
+                <div className="space-y-2 border-t border-gray-800 pt-4">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 text-xs">팔로워</span>
+                    <span className="text-white text-xs font-bold">{inf.followers}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 text-xs">ER%</span>
+                    <span className="text-neon-green text-xs font-bold">{inf.er}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 text-xs">티어</span>
+                    <span className="text-gray-400 text-xs">{inf.tier}</span>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 text-center"
-        >
-          <p className="text-gray-600 text-sm">
-            실제 DB는 49,383개 · 요청 시 카테고리별 샘플 리스트 제공
+        <p className="text-gray-700 text-xs mb-24 reveal" data-reveal>← 가로로 스크롤하세요</p>
+
+        {/* Seeded posts */}
+        <div className="border-t border-gray-800 pt-20">
+          <p className="text-gray-600 text-xs tracking-[0.3em] uppercase mb-12 reveal" data-reveal>
+            시딩된 게시물 샘플
           </p>
-        </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {posts.map((post, i) => (
+              <div
+                key={post.account}
+                className="border border-gray-800 p-6 hover:border-neon-green/50 transition-all duration-300 group reveal"
+                data-reveal
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                {/* Mock post visual */}
+                <div className="w-full aspect-square bg-gray-950 border border-gray-800 mb-5 flex items-center justify-center relative overflow-hidden group-hover:border-neon-green/30 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-neon-green/5 to-transparent" />
+                  <span className="text-gray-700 text-xs">{post.category}</span>
+                </div>
+
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-6 h-6 bg-gray-900 border border-gray-800 flex items-center justify-center">
+                    <span className="text-neon-green text-[10px] font-bold">{post.account.slice(1, 3).toUpperCase()}</span>
+                  </div>
+                  <span className="text-gray-400 text-xs">{post.account}</span>
+                </div>
+
+                <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">{post.caption}</p>
+
+                <div className="flex gap-4 text-xs text-gray-600">
+                  <span>♥ {post.likes}</span>
+                  <span>💬 {post.comments}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center reveal" data-reveal>
+          <a href="#contact" className="btn-secondary">
+            내 브랜드 맞춤 샘플 받기
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
   )

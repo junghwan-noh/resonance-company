@@ -10,6 +10,13 @@ module.exports = {
       colors: {
         neon: {
           green: '#7CFF00',
+          violet: '#7C3AED',
+        },
+        brand: {
+          green: '#7CFF00',
+          violet: '#7C3AED',
+          'violet-light': '#A855F7',
+          'violet-dark': '#4C1D95',
         },
       },
       fontFamily: {

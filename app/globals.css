@@ -54,6 +54,12 @@
            text-base tracking-wide;
   }
 
+  .btn-violet {
+    @apply inline-flex items-center gap-3 px-10 py-5 bg-brand-violet text-white font-bold
+           hover:bg-brand-violet-light transition-all duration-300 border-2 border-brand-violet
+           text-base tracking-wide;
+  }
+
   .neon-line {
     @apply h-px bg-neon-green;
   }

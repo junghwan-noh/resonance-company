@@ -15,7 +15,6 @@ function StatCard({ value, suffix, label, sub, delay, triggered }: {
   value: number; suffix: string; label: string; sub: string; delay: number; triggered: boolean
 }) {
   const [count, setCount] = useState(0)
-
   useEffect(() => {
     if (!triggered) return
     const isFloat = value % 1 !== 0
@@ -32,7 +31,7 @@ function StatCard({ value, suffix, label, sub, delay, triggered }: {
 
   return (
     <div className="border-t border-gray-800 pt-10 pr-8 pb-10 reveal" data-reveal style={{ transitionDelay: `${delay}ms` }}>
-      <p className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-neon-green leading-none mb-4">
+      <p className="font-display font-black text-3xl md:text-4xl lg:text-5xl text-neon-green leading-none mb-4">
         {count}{suffix}
       </p>
       <p className="text-white font-semibold text-base mb-1">{label}</p>
@@ -60,44 +59,60 @@ export default function StatsSection() {
   }, [])
 
   return (
-    <section ref={ref} className="bg-black px-6 md:px-16 lg:px-24 py-32 border-t border-gray-900" id="stats">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="bg-black" id="stats">
 
-        <div className="flex items-center gap-4 mb-6 reveal" data-reveal>
-          <span className="w-6 h-px bg-neon-green" />
-          <span className="text-neon-green text-xs tracking-[0.35em] uppercase font-medium">Real Results</span>
-        </div>
-
-        <div className="mb-20 reveal" data-reveal>
-          <h2 className="font-display font-black leading-none tracking-tight" style={{ fontSize: 'clamp(2.8rem, 7vw, 8rem)' }}>
+      {/* 상단: 좌우 분할 — 텍스트 + 영상 */}
+      <div className="flex flex-col lg:flex-row min-h-[60vh]">
+        {/* 좌: 텍스트 */}
+        <div className="flex-1 flex flex-col justify-center px-6 md:px-16 lg:px-24 py-24 border-b lg:border-b-0 lg:border-r border-gray-900">
+          <div className="flex items-center gap-4 mb-8 reveal" data-reveal>
+            <span className="w-6 h-px bg-neon-green" />
+            <span className="text-neon-green text-xs tracking-[0.35em] uppercase font-medium">Real Results</span>
+          </div>
+          <h2 className="font-display font-black leading-none tracking-tight mb-6 reveal" data-reveal
+            style={{ fontSize: 'clamp(1.4rem, 3vw, 3.5rem)' }}>
             말보다<br />
-            <span className="text-neon-green">숫자입니다.</span>
+            <span className="text-neon-green">숫자</span>
+            <span style={{ color: '#7C3AED' }}>입니다.</span>
           </h2>
+          <p className="text-gray-500 text-base font-light max-w-sm reveal" data-reveal>
+            감이 아닌 데이터로 증명합니다.<br />모든 수치는 실제 캠페인 기준입니다.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 mb-24">
+        {/* 우: 영상 */}
+        <div className="lg:w-[45%] relative overflow-hidden" style={{ minHeight: '400px' }}>
+          <video
+            className="absolute inset-0 w-full h-full object-cover opacity-70"
+            src="/wave1.mp4"
+            autoPlay muted loop playsInline
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </div>
+      </div>
+
+      {/* 수치 그리드 */}
+      <div className="px-6 md:px-16 lg:px-24 py-16 border-t border-gray-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-0">
           {stats.map((s, i) => (
             <StatCard key={s.label} {...s} delay={i * 100} triggered={triggered} />
           ))}
         </div>
+      </div>
 
-        {/* 협업 브랜드 */}
-        <div className="border-t border-gray-900 pt-16 reveal" data-reveal>
-          <p className="text-gray-600 text-xs tracking-[0.35em] uppercase mb-10">협업 브랜드</p>
-          <div className="flex flex-wrap gap-3">
-            {brands.map((b, i) => (
-              <span
-                key={b}
-                className="text-gray-500 text-sm border border-gray-800 px-5 py-2.5 hover:border-neon-green hover:text-white transition-all duration-300 reveal"
-                data-reveal
-                style={{ transitionDelay: `${i * 50}ms` }}
-              >
-                {b}
-              </span>
-            ))}
-            <span className="text-gray-700 text-sm border border-gray-900 px-5 py-2.5 italic">
-              + 다수
-            </span>
+      {/* 가로 스크롤 — 협업 브랜드 */}
+      <div className="border-t border-gray-900 px-6 md:px-16 lg:px-24 py-12">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-gray-600 text-xs tracking-[0.35em] uppercase mb-8 reveal" data-reveal>협업 브랜드</p>
+          <div className="scroll-x">
+            <div className="flex gap-4 pb-2" style={{ width: 'max-content' }}>
+              {[...brands, ...brands].map((b, i) => (
+                <span key={i} className="text-gray-500 text-sm border border-gray-800 px-6 py-3 whitespace-nowrap hover:border-neon-green hover:text-white transition-all duration-300 shrink-0">
+                  {b}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

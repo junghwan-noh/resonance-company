@@ -4,13 +4,13 @@ interface WaveformBackgroundProps {
   mousePosition: { x: number; y: number }
 }
 
-export default function WaveformBackground({ mousePosition }: WaveformBackgroundProps) {
+export default function WaveformBackground({ mousePosition: _ }: WaveformBackgroundProps) {
   return (
     <div className="absolute inset-0 overflow-hidden bg-black">
       {/* Video background */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-60"
-        src="/dark-fluid.mp4"
+        src="/green-fabric.mp4"
         autoPlay
         muted
         loop

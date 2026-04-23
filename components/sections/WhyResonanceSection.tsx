@@ -12,7 +12,7 @@ const othersSteps = [
 const ourSteps = [
   { label: '브리핑', desc: '브랜드·제품·타겟', color: '#7CFF00' },
   { label: 'AI 매칭', desc: 'ER% · 지역 · 콘텐츠 품질', color: '#00D4FF' },
-  { label: '개인화 DM', desc: 'Claude AI 맞춤 작성', color: '#7CFF00' },
+  { label: '개인화 DM', desc: 'AI 기반 맞춤 작성', color: '#7CFF00' },
   { label: '리포트', desc: '응답률 · 도달 · 결과 공유', color: '#00D4FF' },
 ]
 

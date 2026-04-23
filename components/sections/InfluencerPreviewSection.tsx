@@ -46,7 +46,7 @@ export default function InfluencerPreviewSection() {
             style={{ fontSize: 'clamp(1.4rem, 3vw, 3.2rem)' }}>
             이런 인플루언서들과<br />
             <span className="text-neon-green">함께</span>
-            <span style={{ color: '#A855F7' }}>하고 있습니다.</span>
+            <span style={{ color: '#00D4FF' }}>하고 있습니다.</span>
           </h2>
           <p className="text-gray-500 text-sm font-light reveal" data-reveal>
             실제 DB에서 발췌한 샘플입니다. 브랜드에 맞는 리스트는 따로 드립니다.
@@ -143,7 +143,7 @@ export default function InfluencerPreviewSection() {
                       <span>💬 {post.comments}</span>
                     </div>
                     <div className="border-t border-gray-900 pt-4">
-                      <span className="text-xs font-medium" style={{ color: '#A855F7' }}>→ {post.result}</span>
+                      <span className="text-xs font-medium" style={{ color: '#00D4FF' }}>→ {post.result}</span>
                     </div>
                   </div>
                 ))}

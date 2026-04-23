@@ -73,7 +73,7 @@ export default function StatsSection() {
             style={{ fontSize: 'clamp(1.4rem, 3vw, 3.5rem)' }}>
             말보다<br />
             <span className="text-neon-green">숫자</span>
-            <span style={{ color: '#7C3AED' }}>입니다.</span>
+            <span style={{ color: '#00D4FF' }}>입니다.</span>
           </h2>
           <p className="text-gray-500 text-base font-light max-w-sm reveal" data-reveal>
             감이 아닌 데이터로 증명합니다.<br />모든 수치는 실제 캠페인 기준입니다.

@@ -27,7 +27,7 @@ export default function HeroSection() {
       <div className="relative z-20 text-center px-6 max-w-6xl mx-auto w-full">
 
         <div style={fade(0)} className="mb-6">
-          <span className="text-xs tracking-[0.4em] uppercase font-medium" style={{ color: '#A855F7' }}>
+          <span className="text-xs tracking-[0.4em] uppercase font-medium" style={{ color: '#00D4FF' }}>
             Influencer Seeding Agency
           </span>
         </div>

@@ -54,7 +54,7 @@ export default function FooterSection() {
           <h2 className="font-display font-black leading-none tracking-tight mb-6 reveal" data-reveal
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 4.5rem)' }}>
             한 번만<br />
-            <span className="text-neon-green">써</span><span style={{ color: '#A855F7' }}>보세요.</span>
+            <span className="text-neon-green">써</span><span style={{ color: '#00D4FF' }}>보세요.</span>
           </h2>
           <p className="text-gray-400 text-lg font-light max-w-lg reveal" data-reveal>
             브랜드, 제품, 타겟 시장만 알려주시면<br />

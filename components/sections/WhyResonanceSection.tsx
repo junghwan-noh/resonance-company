@@ -10,9 +10,9 @@ const diffs = [
 
 const steps = [
   { n: '01', t: '브리핑', d: '브랜드 · 제품 · 타겟', color: '#7CFF00' },
-  { n: '02', t: '매칭', d: 'AI 필터 + 매니저 검토', color: '#A855F7' },
+  { n: '02', t: '매칭', d: 'AI 필터 + 매니저 검토', color: '#00D4FF' },
   { n: '03', t: '시딩', d: '개인화 DM 발송', color: '#7CFF00' },
-  { n: '04', t: '리포트', d: '응답 · 결과 공유', color: '#A855F7' },
+  { n: '04', t: '리포트', d: '응답 · 결과 공유', color: '#00D4FF' },
 ]
 
 export default function WhyResonanceSection() {
@@ -40,13 +40,13 @@ export default function WhyResonanceSection() {
         className="relative flex items-center"
         style={{
           minHeight: '60vh',
-          background: 'linear-gradient(135deg, #0a0015 0%, #130026 40%, #0d001a 70%, #000000 100%)',
+          background: 'linear-gradient(135deg, #000d14 0%, #001a26 40%, #000e1a 70%, #000000 100%)',
         }}
       >
         {/* 배경 글로우 */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }} />
+            style={{ background: 'radial-gradient(circle, #00D4FF 0%, transparent 70%)' }} />
           <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full opacity-15"
             style={{ background: 'radial-gradient(circle, #7CFF00 0%, transparent 70%)' }} />
         </div>
@@ -81,7 +81,7 @@ export default function WhyResonanceSection() {
             >
               <div className="flex items-center justify-between mb-8">
                 <span className="font-display font-black text-3xl"
-                  style={{ color: i === 0 ? '#7CFF00' : i === 1 ? '#A855F7' : '#7C3AED' }}>
+                  style={{ color: i === 0 ? '#7CFF00' : i === 1 ? '#00D4FF' : '#00D4FF' }}>
                   {d.num}
                 </span>
                 <span className="text-gray-700 text-xs border border-gray-800 px-3 py-1">{d.tag}</span>
@@ -101,7 +101,7 @@ export default function WhyResonanceSection() {
           {/* 다이어그램 */}
           <div className="relative reveal" data-reveal>
             {/* 연결선 */}
-            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px" style={{ background: 'linear-gradient(90deg, #7CFF00, #7C3AED, #7CFF00, #7C3AED)' }}>
+            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px" style={{ background: 'linear-gradient(90deg, #7CFF00, #00D4FF, #7CFF00, #00D4FF)' }}>
               <div className="absolute inset-0 animate-pulse opacity-60" style={{ background: 'inherit' }} />
             </div>
 
@@ -147,7 +147,7 @@ export default function WhyResonanceSection() {
             <h3 className="font-display font-black leading-tight" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.5rem)' }}>
               결과 없으면 재계약 없습니다.<br />
               <span className="text-neon-green">그래서 우리는</span>{' '}
-              <span style={{ color: '#A855F7' }}>결과에 집착합니다.</span>
+              <span style={{ color: '#00D4FF' }}>결과에 집착합니다.</span>
             </h3>
           </div>
           <a href="#contact" className="btn-primary shrink-0 text-base px-10 py-5">

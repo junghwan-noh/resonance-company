@@ -16,30 +16,69 @@ const ourSteps = [
   { label: '리포트', desc: '응답률 · 도달 · 결과 공유', color: '#00D4FF' },
 ]
 
-const influencers = [
+const slides = [
   {
-    type: 'bad',
-    handle: '@random_account99',
+    type: 'bad' as const,
+    label: '타사가 보내는 인플루언서',
+    handle: '@random_acc99',
     followers: '120K',
     er: '0.4%',
-    note: '팔로워 매입, 댓글 봇',
-    image: null,
-    tags: ['저품질', '허위 팔로워', '봇 댓글'],
+    erColor: '#EF4444',
+    image: '/influencer-bad.jpg',
+    likes: '480',
+    comments: '12',
+    grayscale: true,
+    badgeColor: 'bg-red-900/80',
+    badgeText: '⚠ 저품질',
+    badgeTextColor: 'text-red-400',
+    erBadgeBg: 'bg-red-500/20 border-red-500/40',
+    erBadgeText: 'text-red-400',
+    checks: [
+      { ok: false, text: '팔로워 대량 구매 의심' },
+      { ok: false, text: '댓글 대부분 봇' },
+      { ok: false, text: '콘텐츠 일관성 없음' },
+      { ok: false, text: '브랜드 핏 미검증' },
+    ],
+    resultBg: 'border-red-900/40 bg-red-950/20',
+    resultTitle: '평균 결과',
+    resultTitleColor: 'text-red-500',
+    resultDesc: '응답률 ~8% · 브랜드 핏 불일치 · ROI 측정 불가',
   },
   {
-    type: 'good',
+    type: 'good' as const,
+    label: 'Resonance DB 인플루언서',
     handle: '@beautybyella',
     followers: '892K',
     er: '6.2%',
-    note: '실 팬덤, 고참여 Beauty 크리에이터',
-    image: null,
-    tags: ['검증됨', '실팔로워', '높은 ER'],
+    erColor: '#7CFF00',
+    image: '/influencer-good.jpg',
+    likes: '24.3K',
+    comments: '1.2K',
+    grayscale: false,
+    badgeColor: 'bg-neon-green/20',
+    badgeText: '✓ 검증됨',
+    badgeTextColor: 'text-neon-green',
+    erBadgeBg: 'bg-neon-green/20 border-neon-green/50',
+    erBadgeText: 'text-neon-green',
+    checks: [
+      { ok: true, text: '실 팬덤 확인 완료' },
+      { ok: true, text: '댓글 퀄리티 검증' },
+      { ok: true, text: '뷰티 콘텐츠 일관성' },
+      { ok: true, text: '브랜드 핏 AI 매칭' },
+    ],
+    resultBg: 'border-neon-green/30 bg-neon-green/5',
+    resultTitle: '평균 결과',
+    resultTitleColor: 'text-neon-green',
+    resultDesc: '응답률 34% · 브랜드 핏 매칭 · 캠페인 리포트 제공',
   },
 ]
 
 export default function WhyResonanceSection() {
   const ref = useRef<HTMLElement>(null)
-  const [activeTab, setActiveTab] = useState<'process' | 'quality'>('process')
+  const [slide, setSlide] = useState(0)
+  const [animating, setAnimating] = useState(false)
+  const [direction, setDirection] = useState<'left' | 'right'>('right')
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,6 +91,27 @@ export default function WhyResonanceSection() {
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
+
+  const go = (idx: number, dir: 'left' | 'right') => {
+    if (animating) return
+    setDirection(dir)
+    setAnimating(true)
+    setTimeout(() => {
+      setSlide(idx)
+      setAnimating(false)
+    }, 400)
+  }
+
+  const next = () => go((slide + 1) % slides.length, 'right')
+  const prev = () => go((slide - 1 + slides.length) % slides.length, 'left')
+
+  // 자동 슬라이드 3초마다
+  useEffect(() => {
+    autoRef.current = setInterval(next, 3000)
+    return () => { if (autoRef.current) clearInterval(autoRef.current) }
+  }, [slide, animating])
+
+  const s = slides[slide]
 
   return (
     <section ref={ref} className="bg-black" id="why">
@@ -89,261 +149,205 @@ export default function WhyResonanceSection() {
         </div>
       </div>
 
-      {/* 탭 네비게이션 */}
-      <div className="border-t border-gray-900 px-6 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto flex gap-0 reveal" data-reveal>
-          {[
-            { id: 'process', label: '프로세스 비교' },
-            { id: 'quality', label: '인플루언서 퀄리티 비교' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as 'process' | 'quality')}
-              className="px-8 py-5 text-sm font-medium tracking-wide transition-all duration-300 border-b-2"
-              style={{
-                color: activeTab === tab.id ? '#7CFF00' : '#4B5563',
-                borderBottomColor: activeTab === tab.id ? '#7CFF00' : 'transparent',
-              }}
-            >
-              {tab.label}
-            </button>
-          ))}
+      {/* 프로세스 비교 다이어그램 */}
+      <div className="px-6 md:px-16 lg:px-24 py-16 border-t border-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-gray-600 text-xs tracking-[0.35em] uppercase mb-10 reveal" data-reveal>프로세스 비교</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* 타사 */}
+            <div className="border border-gray-800 p-8 reveal" data-reveal>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-2 h-2 rounded-full bg-red-500" />
+                <span className="text-gray-500 text-xs tracking-[0.3em] uppercase font-medium">타사 방식</span>
+              </div>
+              <div className="space-y-0">
+                {othersSteps.map((step, i) => (
+                  <div key={step.label} className="flex items-start gap-4">
+                    <div className="flex flex-col items-center shrink-0">
+                      <div className="w-8 h-8 border border-gray-700 flex items-center justify-center">
+                        <span className="text-gray-600 text-xs">{String(i + 1).padStart(2, '0')}</span>
+                      </div>
+                      {i < othersSteps.length - 1 && <div className="w-px h-10 bg-gray-800" />}
+                    </div>
+                    <div className="pb-8">
+                      <p className="text-gray-400 text-sm font-semibold mb-0.5">{step.label}</p>
+                      <p className="text-gray-700 text-xs">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="border border-red-900/40 bg-red-950/20 p-4 mt-2">
+                <p className="text-red-500 text-xs font-bold mb-1">평균 결과</p>
+                <p className="text-gray-500 text-sm">응답률 ~8% · 브랜드 핏 불일치 · ROI 측정 불가</p>
+              </div>
+            </div>
+
+            {/* 레조넌스 */}
+            <div className="border border-neon-green/30 p-8 reveal" data-reveal style={{ transitionDelay: '120ms' }}>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-2 h-2 rounded-full bg-neon-green" />
+                <span className="text-neon-green text-xs tracking-[0.3em] uppercase font-medium">Resonance 방식</span>
+              </div>
+              <div className="space-y-0">
+                {ourSteps.map((step, i) => (
+                  <div key={step.label} className="flex items-start gap-4">
+                    <div className="flex flex-col items-center shrink-0">
+                      <div className="w-8 h-8 flex items-center justify-center"
+                        style={{ border: `1px solid ${step.color}40`, boxShadow: `0 0 12px ${step.color}20` }}>
+                        <span className="text-xs font-bold" style={{ color: step.color }}>{String(i + 1).padStart(2, '0')}</span>
+                      </div>
+                      {i < ourSteps.length - 1 && (
+                        <div className="w-px h-10" style={{ background: `linear-gradient(to bottom, ${step.color}40, ${ourSteps[i + 1].color}20)` }} />
+                      )}
+                    </div>
+                    <div className="pb-8">
+                      <p className="text-white text-sm font-semibold mb-0.5">{step.label}</p>
+                      <p className="text-gray-500 text-xs">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="border border-neon-green/30 bg-neon-green/5 p-4 mt-2">
+                <p className="text-neon-green text-xs font-bold mb-1">평균 결과</p>
+                <p className="text-gray-300 text-sm">응답률 34% · 브랜드 핏 매칭 · 캠페인 리포트 제공</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 핵심 차이 요약 */}
+          <div className="mt-6 grid grid-cols-3 gap-4 reveal" data-reveal style={{ transitionDelay: '200ms' }}>
+            {[
+              { label: '응답률 차이', others: '~8%', ours: '34%', color: '#7CFF00' },
+              { label: '인플루언서 검증', others: '없음', ours: '49,383건', color: '#00D4FF' },
+              { label: '브랜드 핏', others: '랜덤', ours: 'AI 매칭', color: '#7CFF00' },
+            ].map((item) => (
+              <div key={item.label} className="border border-gray-800 p-5 text-center">
+                <p className="text-gray-600 text-xs mb-4 tracking-wide">{item.label}</p>
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-gray-600 text-sm line-through">{item.others}</span>
+                  <span className="text-gray-700">→</span>
+                  <span className="font-bold text-sm" style={{ color: item.color }}>{item.ours}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* 프로세스 비교 다이어그램 */}
-      {activeTab === 'process' && (
-        <div className="px-6 md:px-16 lg:px-24 py-16 border-t border-gray-900">
-          <div className="max-w-7xl mx-auto">
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-              {/* 타사 프로세스 */}
-              <div className="border border-gray-800 p-8 reveal" data-reveal>
-                <div className="flex items-center gap-3 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-red-500" />
-                  <span className="text-gray-500 text-xs tracking-[0.3em] uppercase font-medium">타사 방식</span>
-                </div>
-
-                <div className="space-y-0">
-                  {othersSteps.map((step, i) => (
-                    <div key={step.label} className="flex items-start gap-4">
-                      {/* 라인 */}
-                      <div className="flex flex-col items-center shrink-0">
-                        <div className="w-8 h-8 border border-gray-700 flex items-center justify-center">
-                          <span className="text-gray-600 text-xs">{String(i + 1).padStart(2, '0')}</span>
-                        </div>
-                        {i < othersSteps.length - 1 && (
-                          <div className="w-px h-10 bg-gray-800" />
-                        )}
-                      </div>
-                      <div className="pb-8">
-                        <p className="text-gray-400 text-sm font-semibold mb-0.5">{step.label}</p>
-                        <p className="text-gray-700 text-xs">{step.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* 결과 */}
-                <div className="border border-red-900/40 bg-red-950/20 p-4 mt-2">
-                  <p className="text-red-500 text-xs font-bold mb-1">평균 결과</p>
-                  <p className="text-gray-500 text-sm">응답률 ~8% · 브랜드 핏 불일치 · ROI 측정 불가</p>
-                </div>
-              </div>
-
-              {/* 레조넌스 프로세스 */}
-              <div className="border border-neon-green/30 p-8 reveal" data-reveal style={{ transitionDelay: '120ms' }}>
-                <div className="flex items-center gap-3 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-neon-green" />
-                  <span className="text-neon-green text-xs tracking-[0.3em] uppercase font-medium">Resonance 방식</span>
-                </div>
-
-                <div className="space-y-0">
-                  {ourSteps.map((step, i) => (
-                    <div key={step.label} className="flex items-start gap-4">
-                      <div className="flex flex-col items-center shrink-0">
-                        <div
-                          className="w-8 h-8 flex items-center justify-center"
-                          style={{ border: `1px solid ${step.color}40`, boxShadow: `0 0 12px ${step.color}20` }}
-                        >
-                          <span className="text-xs font-bold" style={{ color: step.color }}>{String(i + 1).padStart(2, '0')}</span>
-                        </div>
-                        {i < ourSteps.length - 1 && (
-                          <div className="w-px h-10" style={{ background: `linear-gradient(to bottom, ${step.color}40, ${ourSteps[i + 1].color}20)` }} />
-                        )}
-                      </div>
-                      <div className="pb-8">
-                        <p className="text-white text-sm font-semibold mb-0.5">{step.label}</p>
-                        <p className="text-gray-500 text-xs">{step.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* 결과 */}
-                <div className="border border-neon-green/30 bg-neon-green/5 p-4 mt-2">
-                  <p className="text-neon-green text-xs font-bold mb-1">평균 결과</p>
-                  <p className="text-gray-300 text-sm">응답률 34% · 브랜드 핏 매칭 · 캠페인 리포트 제공</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 핵심 차이 요약 */}
-            <div className="mt-6 grid grid-cols-3 gap-4 reveal" data-reveal style={{ transitionDelay: '200ms' }}>
-              {[
-                { label: '응답률 차이', others: '~8%', ours: '34%', color: '#7CFF00' },
-                { label: '인플루언서 검증', others: '없음', ours: '49,383건', color: '#00D4FF' },
-                { label: '브랜드 핏', others: '랜덤', ours: 'AI 매칭', color: '#7CFF00' },
-              ].map((item) => (
-                <div key={item.label} className="border border-gray-800 p-5 text-center">
-                  <p className="text-gray-600 text-xs mb-4 tracking-wide">{item.label}</p>
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-gray-600 text-sm line-through">{item.others}</span>
-                    <span className="text-gray-700">→</span>
-                    <span className="font-bold text-sm" style={{ color: item.color }}>{item.ours}</span>
-                  </div>
-                </div>
+      {/* 인플루언서 퀄리티 비교 — 가로 슬라이더 */}
+      <div className="border-t border-gray-900 px-6 md:px-16 lg:px-24 py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-10 reveal" data-reveal>
+            <p className="text-gray-600 text-xs tracking-[0.35em] uppercase">인플루언서 퀄리티 비교</p>
+            {/* 화살표 */}
+            <div className="flex items-center gap-3">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => go(i, i > slide ? 'right' : 'left')}
+                  className="w-6 h-px transition-all duration-300"
+                  style={{ background: i === slide ? '#7CFF00' : '#374151' }}
+                />
               ))}
+              <button onClick={prev} className="ml-4 w-8 h-8 border border-gray-700 flex items-center justify-center hover:border-neon-green transition-colors">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              </button>
+              <button onClick={next} className="w-8 h-8 border border-gray-700 flex items-center justify-center hover:border-neon-green transition-colors">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
             </div>
           </div>
-        </div>
-      )}
 
-      {/* 인플루언서 퀄리티 비교 */}
-      {activeTab === 'quality' && (
-        <div className="px-6 md:px-16 lg:px-24 py-16 border-t border-gray-900">
-          <div className="max-w-7xl mx-auto">
+          {/* 슬라이드 영역 */}
+          <div className="overflow-hidden reveal" data-reveal>
+            <div
+              style={{
+                transform: animating
+                  ? `translateX(${direction === 'right' ? '-60px' : '60px'})`
+                  : 'translateX(0)',
+                opacity: animating ? 0 : 1,
+                transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease',
+              }}
+            >
+              <div
+                className="border p-0 overflow-hidden"
+                style={{ borderColor: s.type === 'good' ? 'rgba(124,255,0,0.3)' : 'rgba(55,65,81,1)' }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                  {/* 이미지 */}
+                  <div className="relative overflow-hidden" style={{ minHeight: '320px' }}>
+                    <img
+                      src={s.image}
+                      alt={s.handle}
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-700"
+                      style={{ filter: s.grayscale ? 'grayscale(100%)' : 'none', opacity: s.grayscale ? 0.55 : 0.85 }}
+                    />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 50%, #000 100%)' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 50%)' }} />
 
-              {/* 저품질 */}
-              <div className="border border-gray-800 reveal" data-reveal>
-                <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-800">
-                  <span className="w-2 h-2 rounded-full bg-red-500" />
-                  <span className="text-gray-500 text-xs tracking-[0.3em] uppercase">타사가 보내는 인플루언서</span>
-                </div>
+                    {/* 배지 */}
+                    <div className={`absolute top-4 left-4 px-3 py-1.5 ${s.badgeColor}`}>
+                      <span className={`text-xs font-bold uppercase tracking-wider ${s.badgeTextColor}`}>{s.badgeText}</span>
+                    </div>
 
-                {/* 이미지 영역 */}
-                <div className="relative border-b border-gray-800 overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                  <img src="/influencer-bad.jpg" alt="low quality influencer" className="w-full h-full object-cover grayscale opacity-60" />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 60%)' }} />
-                  {/* 가짜 인스타 UI 오버레이 */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                    <div>
-                      <p className="text-white text-xs font-bold">@random_acc99</p>
-                      <div className="flex gap-2 mt-0.5">
-                        <span className="text-gray-400 text-[10px]">♥ 480</span>
-                        <span className="text-gray-400 text-[10px]">💬 12</span>
+                    {/* 소셜 오버레이 */}
+                    <div className="absolute bottom-4 left-4">
+                      <p className="text-white text-sm font-bold">{s.handle}</p>
+                      <div className="flex gap-3 mt-1">
+                        <span className="text-gray-400 text-xs">♥ {s.likes}</span>
+                        <span className="text-gray-400 text-xs">💬 {s.comments}</span>
                       </div>
                     </div>
-                    <div className="bg-red-500/20 border border-red-500/40 px-2 py-0.5">
-                      <span className="text-red-400 text-[9px] font-bold">ER 0.4%</span>
-                    </div>
                   </div>
-                  <div className="absolute top-3 left-3 bg-red-900/80 px-2 py-1">
-                    <span className="text-red-400 text-[10px] font-bold uppercase tracking-wider">⚠ 저품질</span>
-                  </div>
-                </div>
 
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 rounded-full bg-gray-800 border border-gray-700" />
+                  {/* 정보 패널 */}
+                  <div className="p-8 flex flex-col justify-between" style={{ background: '#080808' }}>
                     <div>
-                      <p className="text-gray-400 text-sm font-semibold">@random_account99</p>
-                      <p className="text-gray-700 text-xs">🇺🇸 US · Beauty</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="border border-gray-800 p-3">
-                      <p className="text-gray-600 text-[10px] mb-1">팔로워</p>
-                      <p className="text-gray-400 text-sm font-bold">120K</p>
-                    </div>
-                    <div className="border border-red-900/40 p-3">
-                      <p className="text-gray-600 text-[10px] mb-1">참여율 (ER)</p>
-                      <p className="text-red-500 text-sm font-bold">0.4%</p>
-                    </div>
-                  </div>
-                  <div className="space-y-1.5">
-                    {['팔로워 대량 구매 의심', '댓글 대부분 봇', '콘텐츠 일관성 없음', '브랜드 핏 미검증'].map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <span className="text-red-500 text-xs">✗</span>
-                        <span className="text-gray-600 text-xs">{item}</span>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className={`text-xs tracking-[0.3em] uppercase ${s.badgeTextColor}`}>{s.label}</span>
                       </div>
-                    ))}
+                      <p className="text-white font-bold text-lg mb-6">{s.handle}</p>
+
+                      <div className="grid grid-cols-2 gap-3 mb-6">
+                        <div className="border border-gray-800 p-4">
+                          <p className="text-gray-600 text-[10px] mb-1 uppercase tracking-wider">팔로워</p>
+                          <p className="text-white text-xl font-black">{s.followers}</p>
+                        </div>
+                        <div className={`border p-4 ${s.erBadgeBg}`}>
+                          <p className="text-gray-600 text-[10px] mb-1 uppercase tracking-wider">참여율 ER</p>
+                          <p className={`text-xl font-black ${s.erBadgeText}`}>{s.er}</p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2 mb-6">
+                        {s.checks.map((c) => (
+                          <div key={c.text} className="flex items-center gap-2">
+                            <span className={`text-xs font-bold ${c.ok ? 'text-neon-green' : 'text-red-500'}`}>{c.ok ? '✓' : '✗'}</span>
+                            <span className={`text-xs ${c.ok ? 'text-gray-400' : 'text-gray-600'}`}>{c.text}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className={`border p-4 ${s.resultBg}`}>
+                      <p className={`text-xs font-bold mb-1 ${s.resultTitleColor}`}>{s.resultTitle}</p>
+                      <p className="text-gray-400 text-sm">{s.resultDesc}</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* 고품질 */}
-              <div className="border border-neon-green/30 reveal" data-reveal style={{ transitionDelay: '120ms' }}>
-                <div className="flex items-center gap-3 px-6 py-4 border-b border-neon-green/20">
-                  <span className="w-2 h-2 rounded-full bg-neon-green" />
-                  <span className="text-neon-green text-xs tracking-[0.3em] uppercase">Resonance DB 인플루언서</span>
-                </div>
-
-                {/* 이미지 영역 */}
-                <div className="relative border-b border-gray-800 overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                  <img src="/influencer-good.jpg" alt="verified influencer" className="w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 60%)' }} />
-                  {/* 가짜 인스타 UI 오버레이 */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                    <div>
-                      <p className="text-white text-xs font-bold">@beautybyella</p>
-                      <div className="flex gap-2 mt-0.5">
-                        <span className="text-gray-300 text-[10px]">♥ 24.3K</span>
-                        <span className="text-gray-300 text-[10px]">💬 1.2K</span>
-                      </div>
-                    </div>
-                    <div className="bg-neon-green/20 border border-neon-green/50 px-2 py-0.5">
-                      <span className="text-neon-green text-[9px] font-bold">ER 6.2%</span>
-                    </div>
-                  </div>
-                  <div className="absolute top-3 left-3 bg-neon-green/20 px-2 py-1">
-                    <span className="text-neon-green text-[10px] font-bold uppercase tracking-wider">✓ 검증됨</span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 rounded-full bg-gray-900 border border-neon-green/30 flex items-center justify-center">
-                      <span className="text-neon-green text-[10px] font-bold">BE</span>
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-semibold">@beautybyella</p>
-                      <p className="text-gray-500 text-xs">🇺🇸 US · Beauty</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="border border-gray-800 p-3">
-                      <p className="text-gray-600 text-[10px] mb-1">팔로워</p>
-                      <p className="text-white text-sm font-bold">892K</p>
-                    </div>
-                    <div className="border border-neon-green/30 p-3">
-                      <p className="text-gray-600 text-[10px] mb-1">참여율 (ER)</p>
-                      <p className="text-neon-green text-sm font-bold">6.2%</p>
-                    </div>
-                  </div>
-                  <div className="space-y-1.5">
-                    {['실 팬덤 확인 완료', '댓글 퀄리티 검증', '뷰티 콘텐츠 일관성', '브랜드 핏 AI 매칭'].map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <span className="text-neon-green text-xs">✓</span>
-                        <span className="text-gray-400 text-xs">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 이미지 업로드 안내 */}
-            <div className="border border-dashed border-gray-800 p-6 text-center reveal" data-reveal>
-              <p className="text-gray-600 text-xs mb-1">실제 비교 스크린샷을 <span className="text-neon-green">public/</span> 폴더에 넣으면 자동 반영됩니다</p>
-              <p className="text-gray-800 text-[10px]">권장: influencer-bad.jpg · influencer-good.jpg (16:9 비율)</p>
+              {/* 슬라이드 인디케이터 텍스트 */}
+              <p className="text-gray-700 text-xs mt-4 text-right">
+                {slide + 1} / {slides.length} — 자동 전환 중
+              </p>
             </div>
           </div>
         </div>
-      )}
+      </div>
 
       {/* CTA */}
       <div className="border-t border-gray-900 px-6 md:px-16 lg:px-24 py-16">

@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 
 const othersSteps = [
   { label: '대형 DB 구입', desc: '수십만 건 엑셀' },
@@ -226,11 +225,20 @@ export default function WhyResonanceSection() {
                 </div>
 
                 {/* 이미지 영역 */}
-                <div className="relative bg-gray-950 border-b border-gray-800" style={{ aspectRatio: '16/9' }}>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <div className="border border-dashed border-gray-700 px-6 py-4 text-center">
-                      <p className="text-gray-600 text-xs mb-1">스크린샷 첨부 예정</p>
-                      <p className="text-gray-800 text-[10px]">저품질 인플루언서 프로필 예시</p>
+                <div className="relative border-b border-gray-800 overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                  <img src="/influencer-bad.jpg" alt="low quality influencer" className="w-full h-full object-cover grayscale opacity-60" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 60%)' }} />
+                  {/* 가짜 인스타 UI 오버레이 */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                    <div>
+                      <p className="text-white text-xs font-bold">@random_acc99</p>
+                      <div className="flex gap-2 mt-0.5">
+                        <span className="text-gray-400 text-[10px]">♥ 480</span>
+                        <span className="text-gray-400 text-[10px]">💬 12</span>
+                      </div>
+                    </div>
+                    <div className="bg-red-500/20 border border-red-500/40 px-2 py-0.5">
+                      <span className="text-red-400 text-[9px] font-bold">ER 0.4%</span>
                     </div>
                   </div>
                   <div className="absolute top-3 left-3 bg-red-900/80 px-2 py-1">
@@ -275,11 +283,20 @@ export default function WhyResonanceSection() {
                 </div>
 
                 {/* 이미지 영역 */}
-                <div className="relative bg-gray-950 border-b border-gray-800" style={{ aspectRatio: '16/9' }}>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <div className="border border-dashed border-gray-700 px-6 py-4 text-center">
-                      <p className="text-gray-600 text-xs mb-1">스크린샷 첨부 예정</p>
-                      <p className="text-gray-800 text-[10px]">고퀄리티 인플루언서 프로필 예시</p>
+                <div className="relative border-b border-gray-800 overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                  <img src="/influencer-good.jpg" alt="verified influencer" className="w-full h-full object-cover opacity-80" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #000 0%, transparent 60%)' }} />
+                  {/* 가짜 인스타 UI 오버레이 */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                    <div>
+                      <p className="text-white text-xs font-bold">@beautybyella</p>
+                      <div className="flex gap-2 mt-0.5">
+                        <span className="text-gray-300 text-[10px]">♥ 24.3K</span>
+                        <span className="text-gray-300 text-[10px]">💬 1.2K</span>
+                      </div>
+                    </div>
+                    <div className="bg-neon-green/20 border border-neon-green/50 px-2 py-0.5">
+                      <span className="text-neon-green text-[9px] font-bold">ER 6.2%</span>
                     </div>
                   </div>
                   <div className="absolute top-3 left-3 bg-neon-green/20 px-2 py-1">

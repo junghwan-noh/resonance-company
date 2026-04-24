@@ -33,19 +33,19 @@ export default function InfluencerPreviewSection() {
   }, [])
 
   return (
-    <section ref={ref} className="bg-black" id="preview">
+    <section ref={ref} className="bg-gray-50" id="preview">
 
-      {/* 헤더 — 검정 배경 */}
-      <div className="px-6 md:px-16 lg:px-24 pt-24 pb-16 border-t border-gray-900">
+      {/* 헤더 */}
+      <div className="px-6 md:px-16 lg:px-24 pt-24 pb-16 border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-6 reveal" data-reveal>
-            <span className="w-6 h-px bg-neon-green" />
-            <span className="text-neon-green text-xs tracking-[0.35em] uppercase font-medium">콘텐츠 맛보기</span>
+            <span className="w-6 h-px" style={{ background: '#16A34A' }} />
+            <span className="text-xs tracking-[0.35em] uppercase font-medium" style={{ color: '#16A34A' }}>콘텐츠 맛보기</span>
           </div>
           <h2 className="font-display font-black leading-none tracking-tight mb-4 reveal" data-reveal
             style={{ fontSize: 'clamp(1.4rem, 3vw, 3.2rem)' }}>
             이런 인플루언서들과<br />
-            <span className="text-neon-green">함께</span>
+            <span style={{ color: '#16A34A' }}>함께</span>
             <span style={{ color: '#00D4FF' }}>하고 있습니다.</span>
           </h2>
           <p className="text-gray-500 text-sm font-light reveal" data-reveal>
@@ -55,29 +55,29 @@ export default function InfluencerPreviewSection() {
       </div>
 
       {/* 인플루언서 가로 스크롤 */}
-      <div className="border-t border-gray-900 py-12">
+      <div className="border-t border-gray-200 py-12">
         <div className="px-6 md:px-16 lg:px-24 scroll-x mb-2">
           <div className="flex gap-3 pb-4" style={{ width: 'max-content' }}>
             {influencers.map((inf, i) => (
               <div
                 key={inf.handle}
-                className="border border-gray-800 p-6 hover:border-neon-green transition-all duration-300 group reveal"
+                className="border border-gray-200 bg-white p-6 hover:border-gray-400 transition-all duration-300 group reveal"
                 data-reveal
                 style={{ width: '215px', transitionDelay: `${i * 60}ms` }}
               >
-                <div className="w-10 h-10 bg-gray-900 border border-gray-800 group-hover:border-neon-green/50 mb-5 flex items-center justify-center transition-all">
-                  <span className="text-neon-green font-bold text-xs">{inf.handle.slice(1, 3).toUpperCase()}</span>
+                <div className="w-10 h-10 bg-gray-100 border border-gray-200 group-hover:border-gray-400 mb-5 flex items-center justify-center transition-all">
+                  <span className="font-bold text-xs" style={{ color: '#16A34A' }}>{inf.handle.slice(1, 3).toUpperCase()}</span>
                 </div>
-                <p className="text-white font-bold text-sm mb-0.5">{inf.handle}</p>
-                <p className="text-gray-700 text-xs mb-5">{inf.market} · {inf.cat}</p>
-                <div className="space-y-2.5 border-t border-gray-900 pt-4">
+                <p className="text-gray-900 font-bold text-sm mb-0.5">{inf.handle}</p>
+                <p className="text-gray-400 text-xs mb-5">{inf.market} · {inf.cat}</p>
+                <div className="space-y-2.5 border-t border-gray-100 pt-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600 text-xs">팔로워</span>
-                    <span className="text-white text-xs font-semibold">{inf.followers}</span>
+                    <span className="text-gray-400 text-xs">팔로워</span>
+                    <span className="text-gray-900 text-xs font-semibold">{inf.followers}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 text-xs">참여율</span>
-                    <span className="text-neon-green text-xs font-bold">{inf.er}</span>
+                    <span className="text-gray-400 text-xs">참여율</span>
+                    <span className="text-xs font-bold" style={{ color: '#16A34A' }}>{inf.er}</span>
                   </div>
                 </div>
               </div>
@@ -85,64 +85,63 @@ export default function InfluencerPreviewSection() {
           </div>
         </div>
         <div className="px-6 md:px-16 lg:px-24">
-          <p className="text-gray-800 text-xs">→ 스크롤하면 더 보입니다</p>
+          <p className="text-gray-400 text-xs">→ 스크롤하면 더 보입니다</p>
         </div>
       </div>
 
-      {/* 시딩 게시물 — 소셜미디어 이미지 배경 */}
-      <div className="border-t border-gray-900">
+      {/* 시딩 게시물 */}
+      <div className="border-t border-gray-200">
         <div className="relative">
-          {/* 배경 이미지 */}
           <div
             className="absolute inset-0"
             style={{
               backgroundImage: `url('/social-bg.jpg')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              opacity: 0.12,
+              opacity: 0.06,
             }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #000 0%, rgba(0,0,0,0.85) 50%, #000 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #f9fafb 0%, rgba(249,250,251,0.9) 50%, #f9fafb 100%)' }} />
 
           <div className="relative z-10 px-6 md:px-16 lg:px-24 py-20">
             <div className="max-w-7xl mx-auto">
-              <p className="text-gray-500 text-xs tracking-[0.35em] uppercase mb-12 reveal" data-reveal>실제 시딩 게시물 샘플</p>
+              <p className="text-gray-400 text-xs tracking-[0.35em] uppercase mb-12 reveal" data-reveal>실제 시딩 게시물 샘플</p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {posts.map((post, i) => (
                   <div
                     key={post.handle}
-                    className="border border-gray-800 bg-black/60 backdrop-blur-sm p-6 hover:border-neon-green/40 transition-all duration-300 group reveal"
+                    className="border border-gray-200 bg-white p-6 hover:border-gray-400 transition-all duration-300 group reveal"
                     data-reveal
                     style={{ transitionDelay: `${i * 100}ms` }}
                   >
                     {/* TikTok 스타일 썸네일 */}
-                    <div className="relative w-full mb-5 overflow-hidden bg-gray-950"
+                    <div className="relative w-full mb-5 overflow-hidden bg-gray-100"
                       style={{ aspectRatio: '9/16', maxHeight: '200px' }}>
                       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                        <div className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center">
-                          <span className="text-gray-600 text-xs">{post.cat[0]}</span>
+                        <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
+                          <span className="text-gray-400 text-xs">{post.cat[0]}</span>
                         </div>
-                        <span className="text-gray-800 text-[10px] uppercase tracking-widest">{post.cat}</span>
+                        <span className="text-gray-400 text-[10px] uppercase tracking-widest">{post.cat}</span>
                       </div>
                       <div className="absolute bottom-2 right-2 flex flex-col items-center gap-1">
-                        <span className="text-gray-700 text-[10px]">♥</span>
-                        <span className="text-gray-700 text-[9px]">{post.likes}</span>
+                        <span className="text-gray-400 text-[10px]">♥</span>
+                        <span className="text-gray-400 text-[9px]">{post.likes}</span>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2 mb-3">
-                      <div className="w-5 h-5 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center shrink-0">
-                        <span className="text-neon-green text-[9px] font-bold">{post.handle.slice(1, 3).toUpperCase()}</span>
+                      <div className="w-5 h-5 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center shrink-0">
+                        <span className="text-[9px] font-bold" style={{ color: '#16A34A' }}>{post.handle.slice(1, 3).toUpperCase()}</span>
                       </div>
                       <span className="text-gray-500 text-xs">{post.handle}</span>
                     </div>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">{post.caption}</p>
-                    <div className="flex gap-4 text-xs text-gray-700 mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">{post.caption}</p>
+                    <div className="flex gap-4 text-xs text-gray-400 mb-4">
                       <span>♥ {post.likes}</span>
                       <span>💬 {post.comments}</span>
                     </div>
-                    <div className="border-t border-gray-900 pt-4">
+                    <div className="border-t border-gray-100 pt-4">
                       <span className="text-xs font-medium" style={{ color: '#00D4FF' }}>→ {post.result}</span>
                     </div>
                   </div>
@@ -154,7 +153,7 @@ export default function InfluencerPreviewSection() {
       </div>
 
       {/* CTA */}
-      <div className="border-t border-gray-900 px-6 md:px-16 lg:px-24 py-14">
+      <div className="border-t border-gray-200 px-6 md:px-16 lg:px-24 py-14">
         <div className="max-w-7xl mx-auto reveal" data-reveal>
           <a href="#contact" className="btn-primary text-base px-10 py-5">
             내 브랜드 맞춤 샘플 받기

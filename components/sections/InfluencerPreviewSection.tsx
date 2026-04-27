@@ -38,15 +38,14 @@ export default function InfluencerPreviewSection() {
       {/* 헤더 */}
       <div className="px-6 md:px-16 lg:px-24 pt-24 pb-16 border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-6 reveal" data-reveal>
-            <span className="w-6 h-px" style={{ background: '#16A34A' }} />
-            <span className="text-xs tracking-[0.35em] uppercase font-medium" style={{ color: '#16A34A' }}>콘텐츠 맛보기</span>
+          <div className="reveal" data-reveal>
+            <span className="section-tag mb-6">콘텐츠 맛보기</span>
           </div>
           <h2 className="font-display font-black leading-none tracking-tight mb-4 reveal text-gray-900" data-reveal
             style={{ fontSize: 'clamp(1.4rem, 3vw, 3.2rem)' }}>
             이런 인플루언서들과<br />
-            <span style={{ color: '#16A34A' }}>함께</span>
-            <span style={{ color: '#00D4FF' }}>하고 있습니다.</span>
+            <span style={{ color: '#7CFF00' }}>함께</span>
+            <span style={{ color: '#0A0A0A' }}>하고 있습니다.</span>
           </h2>
           <p className="text-gray-500 text-sm font-light reveal" data-reveal>
             실제 DB에서 발췌한 샘플입니다. 브랜드에 맞는 리스트는 따로 드립니다.
@@ -66,7 +65,7 @@ export default function InfluencerPreviewSection() {
                 style={{ width: '215px', transitionDelay: `${i * 60}ms` }}
               >
                 <div className="w-10 h-10 bg-gray-100 border border-gray-200 group-hover:border-gray-400 mb-5 flex items-center justify-center transition-all">
-                  <span className="font-bold text-xs" style={{ color: '#16A34A' }}>{inf.handle.slice(1, 3).toUpperCase()}</span>
+                  <span className="font-bold text-xs" style={{ color: '#7CFF00' }}>{inf.handle.slice(1, 3).toUpperCase()}</span>
                 </div>
                 <p className="text-gray-900 font-bold text-sm mb-0.5">{inf.handle}</p>
                 <p className="text-gray-400 text-xs mb-5">{inf.market} · {inf.cat}</p>
@@ -77,7 +76,7 @@ export default function InfluencerPreviewSection() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400 text-xs">참여율</span>
-                    <span className="text-xs font-bold" style={{ color: '#16A34A' }}>{inf.er}</span>
+                    <span className="text-xs font-bold" style={{ color: '#7CFF00' }}>{inf.er}</span>
                   </div>
                 </div>
               </div>
@@ -132,7 +131,7 @@ export default function InfluencerPreviewSection() {
 
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-5 h-5 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center shrink-0">
-                        <span className="text-[9px] font-bold" style={{ color: '#16A34A' }}>{post.handle.slice(1, 3).toUpperCase()}</span>
+                        <span className="text-[9px] font-bold" style={{ color: '#7CFF00' }}>{post.handle.slice(1, 3).toUpperCase()}</span>
                       </div>
                       <span className="text-gray-500 text-xs">{post.handle}</span>
                     </div>
@@ -142,7 +141,7 @@ export default function InfluencerPreviewSection() {
                       <span>💬 {post.comments}</span>
                     </div>
                     <div className="border-t border-gray-100 pt-4">
-                      <span className="text-xs font-medium" style={{ color: '#00D4FF' }}>→ {post.result}</span>
+                      <span className="text-xs font-medium" style={{ color: '#7CFF00' }}>→ {post.result}</span>
                     </div>
                   </div>
                 ))}

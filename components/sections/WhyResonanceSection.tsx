@@ -11,9 +11,9 @@ const othersSteps = [
 
 const ourSteps = [
   { label: '브리핑', desc: '브랜드·제품·타겟', color: '#7CFF00' },
-  { label: 'AI 매칭', desc: 'ER% · 지역 · 콘텐츠 품질', color: '#00D4FF' },
+  { label: 'AI 매칭', desc: 'ER% · 지역 · 콘텐츠 품질', color: '#7CFF00' },
   { label: '개인화 DM', desc: 'AI 기반 맞춤 작성', color: '#7CFF00' },
-  { label: '리포트', desc: '응답률 · 도달 · 결과 공유', color: '#00D4FF' },
+  { label: '리포트', desc: '응답률 · 도달 · 결과 공유', color: '#7CFF00' },
 ]
 
 const slides = [
@@ -132,15 +132,14 @@ export default function WhyResonanceSection() {
         </div>
 
         <div className="relative z-10 px-6 md:px-16 lg:px-24 py-24 max-w-7xl mx-auto w-full">
-          <div className="flex items-center gap-4 mb-8 reveal" data-reveal>
-            <span className="w-6 h-px" style={{ background: '#16A34A' }} />
-            <span className="text-xs tracking-[0.35em] uppercase font-medium" style={{ color: '#16A34A' }}>Why Resonance</span>
+          <div className="reveal" data-reveal>
+            <span className="section-tag mb-8">Why Resonance</span>
           </div>
           <h2 className="font-display font-black leading-none tracking-tight mb-6 reveal text-gray-900" data-reveal
             style={{ fontSize: 'clamp(1.4rem, 3vw, 3.5rem)' }}>
             많이 뿌리는 게 아니라<br />
-            <span style={{ color: '#16A34A' }}>정확하게</span>{' '}
-            <span style={{ color: '#00D4FF' }}>닿는 겁니다.</span>
+            <span style={{ color: '#7CFF00' }}>정확하게</span>{' '}
+            <span style={{ color: '#0A0A0A' }}>닿는 겁니다.</span>
           </h2>
           <p className="text-gray-500 text-base font-light max-w-lg reveal" data-reveal>
             수천 명에게 보내는 DM은 스팸입니다.<br />
@@ -185,10 +184,10 @@ export default function WhyResonanceSection() {
             </div>
 
             {/* 레조넌스 */}
-            <div className="border p-8 reveal" data-reveal style={{ transitionDelay: '120ms', borderColor: '#16A34A40' }}>
+            <div className="border p-8 reveal" data-reveal style={{ transitionDelay: '120ms', borderColor: '#7CFF0040' }}>
               <div className="flex items-center gap-3 mb-8">
-                <span className="w-2 h-2 rounded-full" style={{ background: '#16A34A' }} />
-                <span className="text-xs tracking-[0.3em] uppercase font-medium" style={{ color: '#16A34A' }}>Resonance 방식</span>
+                <span className="w-2 h-2 rounded-full" style={{ background: '#7CFF00' }} />
+                <span className="text-xs tracking-[0.3em] uppercase font-medium" style={{ color: '#7CFF00' }}>Resonance 방식</span>
               </div>
               <div className="space-y-0">
                 {ourSteps.map((step, i) => (
@@ -209,8 +208,8 @@ export default function WhyResonanceSection() {
                   </div>
                 ))}
               </div>
-              <div className="border p-4 mt-2" style={{ borderColor: '#16A34A30', background: '#f0fdf4' }}>
-                <p className="text-xs font-bold mb-1" style={{ color: '#16A34A' }}>평균 결과</p>
+              <div className="border p-4 mt-2" style={{ borderColor: '#7CFF0030', background: '#f9fff0' }}>
+                <p className="text-xs font-bold mb-1" style={{ color: '#7CFF00' }}>평균 결과</p>
                 <p className="text-gray-600 text-sm">응답률 34% · 브랜드 핏 매칭 · 캠페인 리포트 제공</p>
               </div>
             </div>
@@ -219,9 +218,9 @@ export default function WhyResonanceSection() {
           {/* 핵심 차이 요약 */}
           <div className="mt-6 grid grid-cols-3 gap-4 reveal" data-reveal style={{ transitionDelay: '200ms' }}>
             {[
-              { label: '응답률 차이', others: '~8%', ours: '34%', color: '#16A34A' },
-              { label: '인플루언서 검증', others: '없음', ours: '49,383건', color: '#00D4FF' },
-              { label: '브랜드 핏', others: '랜덤', ours: 'AI 매칭', color: '#16A34A' },
+              { label: '응답률 차이', others: '~8%', ours: '34%', color: '#7CFF00' },
+              { label: '인플루언서 검증', others: '없음', ours: '49,383건', color: '#7CFF00' },
+              { label: '브랜드 핏', others: '랜덤', ours: 'AI 매칭', color: '#7CFF00' },
             ].map((item) => (
               <div key={item.label} className="border border-gray-200 bg-white p-5 text-center">
                 <p className="text-gray-400 text-xs mb-4 tracking-wide">{item.label}</p>
@@ -247,7 +246,7 @@ export default function WhyResonanceSection() {
                   key={i}
                   onClick={() => go(i, i > slide ? 'right' : 'left')}
                   className="w-6 h-px transition-all duration-300"
-                  style={{ background: i === slide ? '#16A34A' : '#D1D5DB' }}
+                  style={{ background: i === slide ? '#7CFF00' : '#D1D5DB' }}
                 />
               ))}
               <button onClick={prev} className="ml-4 w-8 h-8 border border-gray-300 bg-white flex items-center justify-center hover:border-gray-600 transition-colors">
@@ -270,7 +269,7 @@ export default function WhyResonanceSection() {
             >
               <div
                 className="border overflow-hidden bg-white"
-                style={{ borderColor: s.type === 'good' ? '#16A34A40' : '#E5E7EB' }}
+                style={{ borderColor: s.type === 'good' ? '#7CFF0040' : '#E5E7EB' }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2">
 
@@ -312,18 +311,18 @@ export default function WhyResonanceSection() {
                           <p className="text-gray-900 text-xl font-black">{s.followers}</p>
                         </div>
                         <div className="border p-4" style={{
-                          borderColor: s.type === 'good' ? '#16A34A30' : '#FCA5A530',
+                          borderColor: s.type === 'good' ? '#7CFF0030' : '#FCA5A530',
                           background: s.type === 'good' ? '#f0fdf4' : '#fff5f5',
                         }}>
                           <p className="text-gray-400 text-[10px] mb-1 uppercase tracking-wider">참여율 ER</p>
-                          <p className="text-xl font-black" style={{ color: s.type === 'good' ? '#16A34A' : '#EF4444' }}>{s.er}</p>
+                          <p className="text-xl font-black" style={{ color: s.type === 'good' ? '#7CFF00' : '#EF4444' }}>{s.er}</p>
                         </div>
                       </div>
 
                       <div className="space-y-2 mb-6">
                         {s.checks.map((c) => (
                           <div key={c.text} className="flex items-center gap-2">
-                            <span className={`text-xs font-bold ${c.ok ? '' : 'text-red-400'}`} style={c.ok ? { color: '#16A34A' } : {}}>{c.ok ? '✓' : '✗'}</span>
+                            <span className={`text-xs font-bold ${c.ok ? '' : 'text-red-400'}`} style={c.ok ? { color: '#7CFF00' } : {}}>{c.ok ? '✓' : '✗'}</span>
                             <span className={`text-xs ${c.ok ? 'text-gray-600' : 'text-gray-400'}`}>{c.text}</span>
                           </div>
                         ))}
@@ -331,10 +330,10 @@ export default function WhyResonanceSection() {
                     </div>
 
                     <div className="border p-4" style={{
-                      borderColor: s.type === 'good' ? '#16A34A30' : '#FCA5A530',
+                      borderColor: s.type === 'good' ? '#7CFF0030' : '#FCA5A530',
                       background: s.type === 'good' ? '#f0fdf4' : '#fff5f5',
                     }}>
-                      <p className="text-xs font-bold mb-1" style={{ color: s.type === 'good' ? '#16A34A' : '#EF4444' }}>{s.resultTitle}</p>
+                      <p className="text-xs font-bold mb-1" style={{ color: s.type === 'good' ? '#7CFF00' : '#EF4444' }}>{s.resultTitle}</p>
                       <p className="text-gray-600 text-sm">{s.resultDesc}</p>
                     </div>
                   </div>
@@ -356,8 +355,8 @@ export default function WhyResonanceSection() {
             <p className="text-gray-400 text-xs tracking-widest uppercase mb-4">그래서, 우릴 써야하는 이유</p>
             <h3 className="font-display font-black leading-tight text-gray-900" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.5rem)' }}>
               결과 없으면 재계약 없습니다.<br />
-              <span style={{ color: '#16A34A' }}>그래서 우리는</span>{' '}
-              <span style={{ color: '#00D4FF' }}>결과에 집착합니다.</span>
+              <span style={{ color: '#7CFF00' }}>그래서 우리는</span>{' '}
+              <span style={{ color: '#0A0A0A' }}>결과에 집착합니다.</span>
             </h3>
           </div>
           <a href="#contact" className="btn-primary shrink-0 text-base px-10 py-5">

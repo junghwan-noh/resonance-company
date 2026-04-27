@@ -6,7 +6,7 @@ const stats = [
   { value: 120, suffix: '+', label: '누적 시딩 캠페인', sub: '뷰티·F&B·피트니스·라이프스타일' },
   { value: 34, suffix: '%', label: '평균 인플루언서 응답률', sub: '업계 평균(~8%)의 4배' },
   { value: 380, suffix: '%', label: '평균 조회수 상승률', sub: '시딩 전 대비 실측 기준' },
-  { value: 49383, suffix: '+', label: '검증된 인플루언서 DB', sub: '자체 AI 수집 엔진 보유' },
+  { value: 49383, suffix: '+', label: '검증된 인플루언서 DB', sub: '자체 수집 엔진 보유' },
 ]
 
 const brands = ['뷰티 브랜드 A', 'F&B 브랜드 B', '피트니스 브랜드 C', '라이프스타일 브랜드 D', '테크 브랜드 E', '패션 브랜드 F']

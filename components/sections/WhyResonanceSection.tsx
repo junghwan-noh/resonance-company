@@ -11,8 +11,8 @@ const othersSteps = [
 
 const ourSteps = [
   { label: '브리핑', desc: '브랜드·제품·타겟', color: '#7CFF00' },
-  { label: 'AI 매칭', desc: 'ER% · 지역 · 콘텐츠 품질', color: '#7CFF00' },
-  { label: '개인화 DM', desc: 'AI 기반 맞춤 작성', color: '#7CFF00' },
+  { label: '정밀 매칭', desc: 'ER% · 지역 · 콘텐츠 품질', color: '#7CFF00' },
+  { label: '개인화 DM', desc: '브랜드 맞춤 작성', color: '#7CFF00' },
   { label: '리포트', desc: '응답률 · 도달 · 결과 공유', color: '#7CFF00' },
 ]
 
@@ -64,7 +64,7 @@ const slides = [
       { ok: true, text: '실 팬덤 확인 완료' },
       { ok: true, text: '댓글 퀄리티 검증' },
       { ok: true, text: '뷰티 콘텐츠 일관성' },
-      { ok: true, text: '브랜드 핏 AI 매칭' },
+      { ok: true, text: '브랜드 핏 정밀 매칭' },
     ],
     resultBg: 'border-neon-green/30 bg-neon-green/5',
     resultTitle: '평균 결과',
@@ -141,9 +141,13 @@ export default function WhyResonanceSection() {
             <span style={{ color: '#7CFF00' }}>정확하게</span>{' '}
             <span style={{ color: '#0A0A0A' }}>닿는 겁니다.</span>
           </h2>
-          <p className="text-gray-500 text-base font-light max-w-lg reveal" data-reveal>
-            수천 명에게 보내는 DM은 스팸입니다.<br />
-            당신의 브랜드에 진짜 반응할 사람에게만 — 그게 레조넌스입니다.
+          <p className="text-gray-800 text-base md:text-lg font-medium max-w-lg reveal mb-3" data-reveal>
+            브랜드 페르소나에 맞춰 인플루언서를 선별하고,<br />
+            무작위 시딩이 아닌 전략적으로 연결합니다.
+          </p>
+          <p className="text-gray-400 text-sm font-light max-w-lg reveal" data-reveal>
+            We handpick creators based on your brand persona—<br />
+            not random mass seeding.
           </p>
         </div>
       </div>
@@ -220,7 +224,7 @@ export default function WhyResonanceSection() {
             {[
               { label: '응답률 차이', others: '~8%', ours: '34%', color: '#7CFF00' },
               { label: '인플루언서 검증', others: '없음', ours: '49,383건', color: '#7CFF00' },
-              { label: '브랜드 핏', others: '랜덤', ours: 'AI 매칭', color: '#7CFF00' },
+              { label: '브랜드 핏', others: '랜덤', ours: '정밀 매칭', color: '#7CFF00' },
             ].map((item) => (
               <div key={item.label} className="border border-gray-200 bg-white p-5 text-center">
                 <p className="text-gray-400 text-xs mb-4 tracking-wide">{item.label}</p>

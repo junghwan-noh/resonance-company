@@ -5,14 +5,14 @@ import { motion } from 'framer-motion'
 const stats = [
   { num: '49,383+', label: 'TikTok 인플루언서 DB' },
   { num: 'US · AU', label: '타겟 시장 특화' },
-  { num: 'AI', label: '개인화 시딩 메시지' },
+  { num: '34%', label: '평균 인플루언서 응답률' },
   { num: '24hr', label: '상담 회신 보장' },
 ]
 
 const credentials = [
   '자체 개발 TikTok 수집 엔진 보유',
   'ER% · 팔로워 품질 · 지역 · 성별 데이터 필터링',
-  'Claude AI 기반 개인화 시딩 메시지 자동 생성',
+  '브랜드 페르소나 기반 개인화 시딩 메시지 제작',
   'Beauty · F&B · Fitness · Lifestyle 버티컬 특화',
   'US / AU 시장 인플루언서 시딩 전문',
   'B2B 클라이언트 전담 매니저 배정',

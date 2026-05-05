@@ -52,7 +52,7 @@ export default function HeroSection() {
             {/* 형광 빨간 선 (초록 선 정중앙) */}
             <span className="absolute left-0 line-animate" style={{ height: '2.1%', top: '53%', transform: 'translateY(-50%)', background: '#FF003C', boxShadow: 'none' }} />
           </span>
-          SONANCE
+          <span className="text-white">SONANCE</span>
         </h1>
         <p className="mt-6 text-lg text-gray-200 max-w-xl mx-auto">
           Most Brands Spray. We Target.

@@ -31,7 +31,7 @@ export default function Navbar() {
 
       {/* RE 로고 */}
       <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-        style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 0 }}>
         {/* RE 취소선 SVG 로고 */}
         <span style={{ position: 'relative', display: 'inline-block', lineHeight: 1 }}>
           <span style={{
@@ -41,6 +41,7 @@ export default function Navbar() {
             letterSpacing: '-0.04em',
             color: '#ffffff',
             lineHeight: 1,
+            marginRight: '-0.02em',
           }}>RE</span>
           {/* 형광 초록 선 */}
           <span style={{

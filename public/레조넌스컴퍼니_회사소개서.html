@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>레조넌스 글로벌 인플루언서 시딩 에이전시 소개서</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  .page {
+    width: 1456px;
+    height: 816px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 4px;
+    page-break-after: always;
+  }
+
+  .dark { background: #0D0D0D; }
+  .light { background: #F4F4F0; color: #0D0D0D; }
+  .lavender { background: #F0EEF8; color: #0D0D0D; }
+
+  .diagonal-glow::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 70%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .diagonal-glow::before {
+    content: '';
+    position: absolute;
+    top: -5%; right: -5%;
+    width: 60%; height: 70%;
+    background: radial-gradient(ellipse at top right, rgba(50,50,60,0.7) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 64px 88px;
+  }
+  .page-inner.tight { padding: 48px 88px; }
+
+  .breadcrumb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+  .bc-light { color: rgba(0,0,0,0.35); }
+
+  .footer-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 88px;
+    justify-content: space-between;
+    z-index: 3;
+  }
+  .footer-bar-light { border-top: 1px solid rgba(0,0,0,0.1); }
+
+  .green { color: #D1FF00; }
+
+  .card-dark {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+  .card-light {
+    background: #fff;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+  .point-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 22px 26px;
+  }
+  .point-label {
+    font-size: 11px; color: #D1FF00; font-weight: 600;
+    letter-spacing: 0.08em; margin-bottom: 8px;
+  }
+  .point-title { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .point-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+  .quote-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 26px;
+  }
+  .quote-text { font-size: 13.5px; font-weight: 600; line-height: 1.65; color: rgba(255,255,255,0.88); margin-bottom: 14px; }
+  .quote-author { font-size: 11.5px; color: rgba(255,255,255,0.38); }
+
+  @media print {
+    body { background: #0D0D0D; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════
+  PAGE 1 — COVER
+══════════════════════════ -->
+<div class="page dark diagonal-glow">
+  <div class="page-inner" style="justify-content:space-between;">
+
+    <div style="display:flex;gap:10px;">
+      <span style="display:inline-flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border-radius:999px;font-size:13px;font-weight:700;color:#0D0D0D;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#0D0D0D"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+        TikTok
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border-radius:999px;font-size:13px;font-weight:700;color:#0D0D0D;">
+        <svg width="15" height="15" viewBox="0 0 24 24"><defs><linearGradient id="ig1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig1)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </span>
+    </div>
+
+    <div>
+      <div style="font-size:54px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#D1FF00;margin-bottom:6px;">RESONANCE</div>
+      <div style="font-size:56px;font-weight:900;letter-spacing:-0.04em;line-height:1.05;color:#fff;margin-bottom:20px;">
+        글로벌 인플루언서 시딩<br>에이전시 소개서
+      </div>
+      <div style="font-size:17px;color:rgba(255,255,255,0.5);">Most Brands Spray. We Target.</div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:22px;display:flex;align-items:center;gap:28px;">
+      <span style="font-size:20px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 2 — INDEX
+══════════════════════════ -->
+<div class="page dark diagonal-glow">
+  <div class="page-inner" style="justify-content:center;">
+
+    <div style="display:flex;gap:100px;align-items:center;">
+
+      <div style="width:260px;flex-shrink:0;">
+        <div style="font-size:68px;font-weight:900;letter-spacing:-0.05em;line-height:1;">Index</div>
+      </div>
+
+      <div style="flex:1;display:flex;flex-direction:column;gap:36px;">
+        <div>
+          <div style="font-size:44px;font-weight:900;color:#D1FF00;letter-spacing:-0.04em;line-height:1;">1.</div>
+          <div style="font-size:26px;font-weight:800;letter-spacing:-0.02em;margin-top:4px;">레조넌스 소개</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:5px;">회사 개요 / 차별점 / 49,383+ 인플루언서 DB</div>
+        </div>
+        <div>
+          <div style="font-size:44px;font-weight:900;color:#D1FF00;letter-spacing:-0.04em;line-height:1;">2.</div>
+          <div style="font-size:26px;font-weight:800;letter-spacing:-0.02em;margin-top:4px;">서비스 &amp; 진행 프로세스</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:5px;">시딩 캠페인 운영 방식 / 타임라인 / 4주 프로세스</div>
+        </div>
+        <div>
+          <div style="font-size:44px;font-weight:900;color:#D1FF00;letter-spacing:-0.04em;line-height:1;">3.</div>
+          <div style="font-size:26px;font-weight:800;letter-spacing:-0.02em;margin-top:4px;">성과 &amp; 가격 정책</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:5px;">실제 캠페인 수치 / 고객사 후기 / 플랜 안내</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:15px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 3 — ABOUT (Light)
+══════════════════════════ -->
+<div class="page light">
+  <div class="page-inner tight" style="color:#0D0D0D;">
+
+    <div class="breadcrumb bc-light">
+      <span>About Resonance</span>
+    </div>
+
+    <div style="display:flex;gap:28px;flex:1;">
+
+      <!-- 왼쪽 -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="font-size:48px;font-weight:900;letter-spacing:-0.04em;line-height:1;margin-bottom:10px;">Resonance</div>
+          <div style="font-size:16px;color:rgba(0,0,0,0.5);line-height:1.7;max-width:480px;">K-브랜드의 해외 시장 진출을 돕는 글로벌 인플루언서 시딩 전문 에이전시입니다. 독보적인 데이터 시스템으로 브랜드 페르소나에 맞는 인플루언서를 엄격하게 선별합니다.</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card-light" style="padding:20px 24px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.35);margin-bottom:6px;">Service 01</div>
+            <div style="font-size:17px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px;">인플루언서 시딩 캠페인</div>
+            <div style="font-size:13px;color:rgba(0,0,0,0.5);line-height:1.6;">브랜드 핏 맞는 인플루언서를 선별해 제품을 보내고 자연스러운 UGC 콘텐츠를 생성합니다.</div>
+          </div>
+          <div class="card-light" style="padding:20px 24px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.35);margin-bottom:6px;">Service 02</div>
+            <div style="font-size:17px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px;">인플루언서 DB 리스트 제공</div>
+            <div style="font-size:13px;color:rgba(0,0,0,0.5);line-height:1.6;">49,383+ 자체 수집 DB에서 브랜드에 맞는 인플루언서 리스트를 바로 제공합니다.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <span style="padding:9px 18px;background:#0D1B2A;color:#D1FF00;border-radius:8px;font-size:13px;font-weight:700;">🇺🇸 미국</span>
+          <span style="padding:9px 18px;background:#0D1B2A;color:#D1FF00;border-radius:8px;font-size:13px;font-weight:700;">🇦🇺 호주</span>
+          <span style="padding:9px 18px;background:rgba(0,0,0,0.07);color:rgba(0,0,0,0.55);border-radius:8px;font-size:13px;font-weight:700;">🇨🇦 캐나다</span>
+          <span style="padding:9px 18px;background:rgba(0,0,0,0.07);color:rgba(0,0,0,0.55);border-radius:8px;font-size:13px;font-weight:700;">🇬🇧 영국</span>
+        </div>
+      </div>
+
+      <!-- 오른쪽 -->
+      <div style="width:340px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="padding:22px;background:#0D1B2A;border-radius:12px;text-align:center;">
+            <div style="font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;line-height:1;">120+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px;">누적 캠페인</div>
+          </div>
+          <div style="padding:22px;background:#0D1B2A;border-radius:12px;text-align:center;">
+            <div style="font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;line-height:1;">34%</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px;">평균 응답률</div>
+          </div>
+          <div style="padding:22px;background:#0D1B2A;border-radius:12px;text-align:center;">
+            <div style="font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;line-height:1;">380%</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px;">평균 조회수 상승</div>
+          </div>
+          <div style="padding:22px;background:#0D1B2A;border-radius:12px;text-align:center;">
+            <div style="font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;line-height:1;">49K+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px;">인플루언서 DB</div>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.04);border:1.5px solid rgba(0,0,0,0.09);border-radius:12px;padding:20px;flex:1;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(0,0,0,0.35);margin-bottom:12px;">운영 카테고리</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="padding:7px 14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);">뷰티 / Skincare</span>
+            <span style="padding:7px 14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);">F&amp;B / 식품</span>
+            <span style="padding:7px 14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);">피트니스</span>
+            <span style="padding:7px 14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);">라이프스타일</span>
+            <span style="padding:7px 14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);">패션</span>
+            <span style="padding:7px 14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);">테크</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="border-top:1px solid rgba(0,0,0,0.1);margin-top:16px;padding-top:14px;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#0D0D0D;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(0,0,0,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 4 — MARKET INSIGHT (Dark)
+══════════════════════════ -->
+<div class="page dark" style="position:relative;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#080D15 0%,#0f1a0f 60%,#080D15 100%);z-index:0;"></div>
+  <div style="position:absolute;top:-10%;right:5%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(209,255,0,0.10) 0%,transparent 65%);z-index:0;"></div>
+
+  <div class="page-inner tight" style="z-index:2;">
+
+    <div class="breadcrumb">
+      <span>Market Insight</span>
+      <span>rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:46px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:10px;">
+      현재 마케팅 성과는<br>
+      <span style="color:#D1FF00;">'인플루언서 지면'</span>에 달려있습니다.
+    </div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.45);margin-bottom:40px;">앞서가는 브랜드들은 마케팅 예산의 약 70%를 크리에이터 지면에 투자하고 있습니다.</div>
+
+    <div class="grid-3" style="flex:1;align-items:start;gap:24px;">
+
+      <div style="text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:20px;">Content</div>
+        <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px;">
+          <div style="width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+          </div>
+          <div style="width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,#f09433,#bc1888);display:flex;align-items:center;justify-content:center;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;"><strong style="color:rgba(255,255,255,0.85);">숏폼 콘텐츠</strong>가 소비자의 가장 많은 시간을 점유하며 크리에이터 영향력이 폭발적으로 성장하고 있습니다.</div>
+      </div>
+
+      <div style="text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:20px;">Performance</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-bottom:4px;">▲</div>
+        <div style="font-size:70px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;line-height:1;margin-bottom:6px;">380%</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:16px;">평균 조회수 상승률</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">크리에이터 기반 콘텐츠를 Paid Media로 운영하면 기존 소재 대비 <strong style="color:rgba(255,255,255,0.85);">3~5배 높은 ROAS</strong>를 기록합니다.</div>
+      </div>
+
+      <div style="text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:20px;">Brand</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;align-items:center;">
+          <div style="padding:9px 28px;background:rgba(255,255,255,0.1);border-radius:8px;font-size:17px;font-weight:800;letter-spacing:-0.02em;">Amazon</div>
+          <div style="padding:9px 28px;background:rgba(255,153,0,0.18);border-radius:8px;font-size:17px;font-weight:800;color:#FF9900;">Qoo10</div>
+          <div style="padding:9px 28px;background:rgba(150,191,72,0.18);border-radius:8px;font-size:17px;font-weight:800;color:#96BF48;">Shopee</div>
+        </div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">크리에이터 마케팅 기반으로 <strong style="color:rgba(255,255,255,0.85);">글로벌 플랫폼 상위권</strong>을 석권하는 K-브랜드들이 등장하고 있습니다.</div>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 5 — PROBLEM / SOLUTION
+══════════════════════════ -->
+<div class="page dark">
+  <div class="page-inner tight">
+
+    <div class="breadcrumb">
+      <span>Why Resonance</span>
+      <span>rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:44px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:8px;">
+      시딩의 효과는 확실하지만<br>
+      <span style="color:#D1FF00;">실행이 너무나 어려웠습니다.</span>
+    </div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-bottom:32px;">기존 방식의 한계를 데이터와 정밀한 타겟팅으로 해결합니다.</div>
+
+    <div class="grid-3" style="flex:1;gap:22px;">
+
+      <div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.45);margin-bottom:16px;letter-spacing:0.05em;">Benefit (vs 일반 광고)</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="card-dark" style="padding:20px 22px;">
+            <div style="font-size:10px;color:#D1FF00;font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">유입</div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em;">4배 이상의 클릭률</div>
+          </div>
+          <div class="card-dark" style="padding:20px 22px;">
+            <div style="font-size:10px;color:#D1FF00;font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">전환</div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em;">80% 이상 구매 영향력</div>
+          </div>
+          <div class="card-dark" style="padding:20px 22px;">
+            <div style="font-size:10px;color:#D1FF00;font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">성과</div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em;">93%의 마케터가 체감</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.45);margin-bottom:16px;letter-spacing:0.05em;">Problem (기존 에이전시)</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="card-dark" style="padding:20px 22px;">
+            <div style="font-size:10px;color:rgba(255,80,80,0.8);font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">낮은 응답률</div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em;">업계 평균 <span style="color:rgba(255,80,80,0.8);">~8%</span></div>
+          </div>
+          <div class="card-dark" style="padding:20px 22px;">
+            <div style="font-size:10px;color:rgba(255,80,80,0.8);font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">브랜드 핏 부재</div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em;">무작위 <span style="color:rgba(255,80,80,0.8);">대량 발송</span></div>
+          </div>
+          <div class="card-dark" style="padding:20px 22px;">
+            <div style="font-size:10px;color:rgba(255,80,80,0.8);font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">데이터 없음</div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-0.02em;">성과 측정 <span style="color:rgba(255,80,80,0.8);">불투명</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.45);margin-bottom:16px;letter-spacing:0.05em;">Solution (레조넌스)</div>
+        <div style="display:flex;flex-direction:column;gap:10px;height:calc(100% - 30px);">
+          <div style="flex:1.5;background:rgba(209,255,0,0.08);border:1.5px solid rgba(209,255,0,0.3);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;">
+            <div style="font-size:56px;font-weight:900;color:#D1FF00;letter-spacing:-0.04em;line-height:1;">34%</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;">평균 인플루언서 응답률</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px;">업계 평균(~8%)의 4배</div>
+          </div>
+          <div class="card-dark" style="padding:18px 22px;text-align:center;">
+            <div style="font-size:20px;font-weight:800;color:rgba(255,255,255,0.9);">49,383+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;">자체 수집 인플루언서 DB</div>
+          </div>
+          <div class="card-dark" style="padding:18px 22px;text-align:center;">
+            <div style="font-size:20px;font-weight:800;color:rgba(255,255,255,0.9);">120+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;">누적 캠페인 운영 경험</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 6 — HOW WE WORK (Dark)
+══════════════════════════ -->
+<div class="page dark">
+  <div class="page-inner tight">
+
+    <div class="breadcrumb">
+      <span>How Resonance Works</span>
+      <span>rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:44px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:8px;">
+      정밀 타겟팅으로<br>
+      <span style="color:#D1FF00;">브랜드 핏이 맞는 인플루언서만</span> 선별합니다.
+    </div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-bottom:32px;">많이 뿌리는 게 아니라 정확하게 닿는 방식으로 캠페인을 설계합니다.</div>
+
+    <div style="display:flex;gap:24px;flex:1;">
+
+      <!-- DB 시각화 -->
+      <div style="width:420px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:11px;font-weight:700;color:#D1FF00;letter-spacing:0.1em;margin-bottom:2px;">RESONANCE INFLUENCER DB</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;">
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@beautybyella</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@fitlife.james</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@sydneyfoodie</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@glowwithsarah</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@lifestyletom</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@healthymel</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@skincarejoy</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@fitnessmind</div>
+          <div style="background:rgba(255,255,255,0.07);border-radius:7px;padding:10px 7px;text-align:center;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.65);">@fashionwkly</div>
+        </div>
+        <div style="margin-top:6px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:30px;font-weight:900;color:#D1FF00;letter-spacing:-0.04em;line-height:1;">49,383+</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">검증된 인플루언서</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:22px;font-weight:800;color:#D1FF00;">34%</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);">평균 응답률</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 포인트 -->
+      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:stretch;">
+
+        <div class="point-card">
+          <div class="point-label">Point 1</div>
+          <div class="point-title">브랜드 페르소나 매칭</div>
+          <div class="point-desc">팔로워 수가 아닌 콘텐츠 감도·비주얼·편집 스타일을 분석해 브랜드와 핏이 맞는 인플루언서를 선별합니다.</div>
+        </div>
+
+        <div class="point-card">
+          <div class="point-label">Point 2</div>
+          <div class="point-title">실제 영향력 검증</div>
+          <div class="point-desc">팔로워·ER·최근 게시물 성과·댓글 품질까지 다층 분석으로 진짜 영향력을 가진 계정만 추립니다.</div>
+        </div>
+
+        <div class="point-card">
+          <div class="point-label">Point 3</div>
+          <div class="point-title">국가 제한 없는 탐색</div>
+          <div class="point-desc">미국·호주·캐나다·영국 등 영어권 전역 인플루언서를 국가 제한 없이 탐색하고 섭외합니다.</div>
+        </div>
+
+        <div class="point-card">
+          <div class="point-label">Point 4</div>
+          <div class="point-title">카테고리 전문 DB</div>
+          <div class="point-desc">뷰티·F&amp;B·피트니스·라이프스타일별로 세분화된 DB를 보유해 카테고리 최적화 리스트를 즉시 제공합니다.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 7 — PROCESS (Full Gantt)
+══════════════════════════ -->
+<div class="page lavender">
+  <div style="width:100%;height:100%;display:flex;flex-direction:column;padding:52px 88px 0;color:#0D0D0D;">
+
+    <!-- 상단 -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <span style="font-size:12px;color:rgba(0,0,0,0.35);letter-spacing:0.05em;">Campaign Process</span>
+      <span style="font-size:12px;color:rgba(0,0,0,0.3);">rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:44px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:6px;">레조넌스 시딩 프로세스</div>
+    <div style="font-size:15px;color:rgba(0,0,0,0.45);margin-bottom:36px;">브랜드 브리핑부터 성과 리포트까지, 약 4주 안에 완료됩니다.</div>
+
+    <!-- 그리드: 헤더 + 2개 행 -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;padding-bottom:48px;">
+
+      <!-- 컬럼 헤더 -->
+      <div style="display:grid;grid-template-columns:140px repeat(6,1fr);gap:10px;">
+        <div></div>
+        <div style="background:rgba(0,0,0,0.07);border-radius:12px;padding:16px 10px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);letter-spacing:0.08em;margin-bottom:4px;">STEP 1</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.3;">브랜드<br>브리핑</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.07);border-radius:12px;padding:16px 10px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);letter-spacing:0.08em;margin-bottom:4px;">STEP 2</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.3;">인플루언서<br>리스트업</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.07);border-radius:12px;padding:16px 10px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);letter-spacing:0.08em;margin-bottom:4px;">STEP 3</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.3;">섭외 &amp;<br>아웃리치</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.07);border-radius:12px;padding:16px 10px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);letter-spacing:0.08em;margin-bottom:4px;">STEP 4</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.3;">제품<br>발송</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.07);border-radius:12px;padding:16px 10px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);letter-spacing:0.08em;margin-bottom:4px;">STEP 5</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.3;">콘텐츠<br>검수</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.07);border-radius:12px;padding:16px 10px;text-align:center;">
+          <div style="font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);letter-spacing:0.08em;margin-bottom:4px;">STEP 6</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.3;">성과<br>리포트</div>
+        </div>
+      </div>
+
+      <!-- 클라이언트 행 -->
+      <div style="display:grid;grid-template-columns:140px repeat(6,1fr);gap:10px;flex:1;">
+        <div style="display:flex;align-items:center;justify-content:flex-end;padding-right:14px;">
+          <span style="font-size:16px;font-weight:800;color:#0D0D0D;">클라이언트</span>
+        </div>
+        <div style="background:#0D1B2A;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:16px;font-weight:800;color:#D1FF00;letter-spacing:-0.01em;">클라이언트</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.06);border-radius:14px;"></div>
+        <div style="background:rgba(0,0,0,0.06);border-radius:14px;"></div>
+        <div style="background:#0D1B2A;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:16px;font-weight:800;color:#D1FF00;letter-spacing:-0.01em;">클라이언트</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.06);border-radius:14px;"></div>
+        <div style="background:rgba(0,0,0,0.06);border-radius:14px;"></div>
+      </div>
+
+      <!-- 레조넌스 행 -->
+      <div style="display:grid;grid-template-columns:140px repeat(6,1fr);gap:10px;flex:1;">
+        <div style="display:flex;align-items:center;justify-content:flex-end;padding-right:14px;">
+          <span style="font-size:16px;font-weight:800;color:#0D0D0D;">레조넌스</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.06);border-radius:14px;"></div>
+        <div style="background:#D1FF00;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:16px;font-weight:800;color:#0D0D0D;letter-spacing:-0.01em;">레조넌스</span>
+        </div>
+        <div style="background:#D1FF00;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:16px;font-weight:800;color:#0D0D0D;letter-spacing:-0.01em;">레조넌스</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.06);border-radius:14px;"></div>
+        <div style="background:#D1FF00;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:16px;font-weight:800;color:#0D0D0D;letter-spacing:-0.01em;">레조넌스</span>
+        </div>
+        <div style="background:#D1FF00;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:16px;font-weight:800;color:#0D0D0D;letter-spacing:-0.01em;">레조넌스</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 하단 footer -->
+    <div style="border-top:1px solid rgba(0,0,0,0.1);padding:14px 0;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:15px;font-weight:900;letter-spacing:-0.03em;color:#0D0D0D;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(0,0,0,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 8 — STATS (Dark)
+══════════════════════════ -->
+<div class="page dark" style="position:relative;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 0%,rgba(209,255,0,0.09) 0%,transparent 65%);z-index:1;pointer-events:none;"></div>
+
+  <div class="page-inner tight" style="z-index:2;">
+
+    <div class="breadcrumb">
+      <span>Real Results</span>
+      <span>rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:46px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:8px;">
+      많이 뿌리는 게 아니라<br>
+      <span style="color:#D1FF00;">정확하게</span> 닿는겁니다.
+    </div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-bottom:32px;">무작위 대량 시딩이 아닌 데이터 기반 정밀 선별로 만든 실제 수치입니다.</div>
+
+    <div class="grid-4" style="margin-bottom:24px;">
+      <div class="card-dark" style="text-align:center;padding:30px 20px;">
+        <div style="font-size:54px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#D1FF00;">120+</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-top:10px;">누적 시딩 캠페인</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;">뷰티·F&amp;B·피트니스·라이프스타일</div>
+      </div>
+      <div class="card-dark" style="text-align:center;padding:30px 20px;">
+        <div style="font-size:54px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#D1FF00;">34%</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-top:10px;">평균 응답률</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;">업계 평균(~8%)의 4배</div>
+      </div>
+      <div class="card-dark" style="text-align:center;padding:30px 20px;">
+        <div style="font-size:54px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#D1FF00;">380%</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-top:10px;">평균 조회수 상승률</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;">시딩 전 대비 실측 기준</div>
+      </div>
+      <div class="card-dark" style="text-align:center;padding:30px 20px;">
+        <div style="font-size:54px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#D1FF00;">49K+</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);margin-top:10px;">검증된 인플루언서 DB</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;">자체 수집 엔진 보유</div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.35);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:14px;">캠페인 성과 샘플</div>
+    <div class="grid-3">
+      <div class="card-dark" style="padding:18px 22px;">
+        <div style="font-size:10px;color:rgba(255,153,0,0.85);font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">F&amp;B · 시드니</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px;">@sydneyfoodie</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);">조회수 890K · 마트 입점 계기</div>
+      </div>
+      <div class="card-dark" style="padding:18px 22px;">
+        <div style="font-size:10px;color:rgba(255,107,157,0.85);font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">Beauty · 미국</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px;">@beautybyella</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);">조회수 1.8M · 문의 230건</div>
+      </div>
+      <div class="card-dark" style="padding:18px 22px;">
+        <div style="font-size:10px;color:rgba(2,132,199,0.85);font-weight:700;letter-spacing:0.1em;margin-bottom:5px;">Fitness · 미국</div>
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px;">@fitlife.james</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);">조회수 3.1M · 월매출 3배</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 9 — TESTIMONIALS (Dark)
+══════════════════════════ -->
+<div class="page dark">
+  <div class="page-inner tight">
+
+    <div class="breadcrumb">
+      <span>Client Reviews</span>
+      <span>rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:44px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:8px;">
+      다수의 브랜드가<br>
+      <span style="color:#D1FF00;">채용 이상의 성과 향상</span>을 경험했습니다.
+    </div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-bottom:28px;">레조넌스 캠페인 진행 고객사 실제 후기</div>
+
+    <div class="grid-3" style="gap:14px;flex:1;">
+      <div class="quote-card">
+        <div class="quote-text">"시딩 대행사를 여러 군데 써봤는데 레조넌스가 응답률이 압도적으로 높았습니다. 같은 비용으로 콘텐츠가 3배 이상 나왔어요."</div>
+        <div class="quote-author">국내 스킨케어 브랜드 · 글로벌 마케팅 매니저</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"미국 시장 진출이 처음이었는데 인플루언서 리스트부터 아웃리치까지 전부 해줘서 내부 리소스 없이도 캠페인을 돌릴 수 있었습니다."</div>
+        <div class="quote-author">F&amp;B 브랜드 · 대표</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"발굴해준 인플루언서 영상이 바이럴 되면서 호주 마트 입점 계기가 됐습니다. 기대 이상의 결과였어요."</div>
+        <div class="quote-author">뷰티 브랜드 · CMO</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"단순히 제품 보내는 게 아니라 콘텐츠 방향성까지 기획해줘서 브랜드 감도가 일관되게 유지됐습니다."</div>
+        <div class="quote-author">라이프스타일 브랜드 · 마케팅팀</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"DB에 있는 인플루언서 퀄리티가 달랐어요. 팔로워 수 대비 실제 반응이 훨씬 좋은 계정들만 추려서 줬습니다."</div>
+        <div class="quote-author">피트니스 브랜드 · 브랜드 매니저</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"매월 꾸준히 캠페인을 돌리고 있는데 응답률이 계속 높게 유지되고 있어요. 지속해서 쓸 예정입니다."</div>
+        <div class="quote-author">K-뷰티 브랜드 · 이커머스 팀장</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 10 — PRICING (Dark)
+══════════════════════════ -->
+<div class="page dark">
+  <div class="page-inner tight">
+
+    <div class="breadcrumb">
+      <span>Service Plan</span>
+      <span>rsnc.co.kr</span>
+    </div>
+
+    <div style="font-size:44px;font-weight:900;letter-spacing:-0.035em;line-height:1.05;margin-bottom:8px;">
+      시작부터 성과까지<br>
+      <span style="color:#D1FF00;">레조넌스가 책임집니다.</span>
+    </div>
+    <div style="font-size:15px;color:rgba(255,255,255,0.4);margin-bottom:28px;">브랜드 상황에 맞는 플랜을 제안드립니다. 모든 플랜에 전담 담당자가 배정됩니다.</div>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:22px;flex:1;">
+
+      <!-- 플랜 비교 -->
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
+          <div></div>
+          <div style="text-align:center;padding:16px 12px;background:rgba(209,255,0,0.1);border:1.5px solid rgba(209,255,0,0.4);border-radius:10px;">
+            <div style="font-size:10px;color:#D1FF00;font-weight:700;letter-spacing:0.1em;margin-bottom:4px;">추천</div>
+            <div style="font-size:16px;font-weight:800;">Standard</div>
+            <div style="font-size:18px;font-weight:900;color:#D1FF00;margin-top:6px;">가격 문의</div>
+          </div>
+          <div style="text-align:center;padding:16px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;">
+            <div style="font-size:16px;font-weight:800;">Enterprise</div>
+            <div style="font-size:16px;font-weight:800;color:rgba(255,255,255,0.5);margin-top:6px;">협의</div>
+          </div>
+        </div>
+        <div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:12px;"><span style="color:rgba(255,255,255,0.55);">인플루언서 리스트업</span><span style="text-align:center;color:#D1FF00;font-weight:700;">O</span><span style="text-align:center;color:rgba(255,255,255,0.45);font-weight:600;">O</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:12px;"><span style="color:rgba(255,255,255,0.55);">아웃리치 발송</span><span style="text-align:center;color:#D1FF00;font-weight:700;">O</span><span style="text-align:center;color:rgba(255,255,255,0.45);font-weight:600;">O</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:12px;"><span style="color:rgba(255,255,255,0.55);">캠페인 기획 지원</span><span style="text-align:center;color:#D1FF00;font-weight:700;">O</span><span style="text-align:center;color:rgba(255,255,255,0.45);font-weight:600;">O</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:12px;"><span style="color:rgba(255,255,255,0.55);">성과 리포트</span><span style="text-align:center;color:#D1FF00;font-weight:700;">O</span><span style="text-align:center;color:rgba(255,255,255,0.45);font-weight:600;">O</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:12px;"><span style="color:rgba(255,255,255,0.55);">전담 담당자 배정</span><span style="text-align:center;color:#D1FF00;font-weight:700;">O</span><span style="text-align:center;color:rgba(255,255,255,0.45);font-weight:600;">O</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:12px 0;font-size:12px;"><span style="color:rgba(255,255,255,0.55);">맞춤 전략 미팅</span><span style="text-align:center;color:#D1FF00;font-weight:700;">월 1회</span><span style="text-align:center;color:rgba(255,255,255,0.45);font-weight:600;">무제한</span></div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:26px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:18px;">자주 묻는 질문</div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div>
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:5px;">Q1. 최소 캠페인 기간은?</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">기본 4주 단위로 운영하며, 성과에 따라 월 단위로 연장합니다.</div>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:5px;">Q2. 어떤 카테고리 가능한가요?</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">뷰티, F&amp;B, 피트니스, 라이프스타일, 패션, 테크 등 대부분의 카테고리에서 운영 경험이 있습니다.</div>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:5px;">Q3. DB 리스트만 구매 가능한가요?</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">네, 인플루언서 DB 리스트 단독 제공도 가능합니다. 미팅 후 요청사항에 맞게 제안드립니다.</div>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:5px;">Q4. 응답률 보장이 되나요?</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">보장은 어렵지만 평균 34% 응답률 데이터를 바탕으로 충분한 참여자를 확보해드립니다.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span style="font-size:14px;font-weight:900;letter-spacing:-0.03em;color:#D1FF00;">RESONANCE</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.3);">rsnc.co.kr</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════
+  PAGE 11 — CLOSING (Dark)
+══════════════════════════ -->
+<div class="page dark diagonal-glow" style="position:relative;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 65%,rgba(209,255,0,0.08) 0%,transparent 65%);z-index:1;pointer-events:none;"></div>
+
+  <div class="page-inner" style="z-index:2;justify-content:space-between;">
+
+    <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;color:rgba(255,255,255,0.3);text-transform:uppercase;">레조넌스 고객사</div>
+
+    <div>
+      <div style="font-size:56px;font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px;">
+        글로벌에서 영향력을 높일<br>
+        <span style="color:#D1FF00;">K-브랜드의 다음 주인공을</span><br>
+        기다리고 있습니다.
+      </div>
+      <div style="font-size:17px;color:rgba(255,255,255,0.45);line-height:1.7;">브랜드 핏에 맞는 인플루언서 맞춤 샘플 리스트를 무료로 받아보세요.</div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:9px;">
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">뷰티 브랜드 A</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">F&amp;B 브랜드 B</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">피트니스 브랜드 C</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">라이프스타일 브랜드 D</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">테크 브랜드 E</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">패션 브랜드 F</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">스킨케어 브랜드 G</span>
+      <span style="padding:9px 18px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);">건강식품 브랜드 H</span>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;">
+      <div style="display:flex;align-items:center;gap:28px;">
+        <span style="font-size:22px;font-weight:900;letter-spacing:-0.04em;color:#D1FF00;">RESONANCE</span>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:13px;color:rgba(255,255,255,0.45);">email : <span style="color:#D1FF00;">contact@rsnc.co.kr</span></div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.45);">website : <span style="color:#D1FF00;">rsnc.co.kr</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

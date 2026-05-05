@@ -1,130 +1,119 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import WaveformBackground from '@/components/ui/WaveformBackground'
+import { useEffect, useRef } from 'react'
 
 export default function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [step, setStep] = useState(0)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY })
-    window.addEventListener('mousemove', handleMouseMove)
-
-    // 순차 애니메이션 타이밍
-    // step 1: 영상 로드 후 태그 등장 (800ms)
-    // step 2: RESONANCE 로고 (1600ms)
-    // step 3: 서브타이틀 (2400ms)
-    // step 4: 브랜드 버튼 (3000ms)
-    // step 5: 인플루언서 버튼 (3500ms)
-    // step 6: 스크롤 인디케이터 (4200ms)
-    const timers = [
-      setTimeout(() => setStep(1), 800),
-      setTimeout(() => setStep(2), 1600),
-      setTimeout(() => setStep(3), 2400),
-      setTimeout(() => setStep(4), 3000),
-      setTimeout(() => setStep(5), 3500),
-      setTimeout(() => setStep(6), 4200),
-    ]
-    return () => {
-      timers.forEach(clearTimeout)
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
+    const video = videoRef.current
+    if (!video) return
+    video.playbackRate = 0.5
+    video.play().catch(() => {})
   }, [])
 
-  const show = (minStep: number, extraDelay = 0) => ({
-    opacity: step >= minStep ? 1 : 0,
-    transform: step >= minStep ? 'translateY(0)' : 'translateY(40px)',
-    transition: `opacity 1.1s cubic-bezier(0.16,1,0.3,1) ${extraDelay}ms, transform 1.1s cubic-bezier(0.16,1,0.3,1) ${extraDelay}ms`,
-  })
-
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-      <WaveformBackground mousePosition={mousePosition} />
+    <section data-section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
 
-      <div className="relative z-20 text-center px-6 max-w-6xl mx-auto w-full">
-
-        {/* Step 1: 섹션 태그 */}
-        <div style={show(1)} className="mb-6 flex justify-center">
-          <span
-            className="text-xs font-semibold tracking-[0.3em] uppercase"
-            style={{ color: '#7CFF00' }}
-          >
-            Influencer Seeding Agency
-          </span>
-        </div>
-
-        {/* Step 2: RESONANCE 로고 */}
-        <h1
-          className="font-display font-black tracking-tight leading-none mb-8"
-          style={{
-            fontSize: 'clamp(4.5rem, 13vw, 15rem)',
-            color: '#ffffff',
-            textShadow: '0 0 80px rgba(124,255,0,0.3), 0 2px 40px rgba(0,0,0,0.8)',
-            ...show(2),
-          }}
-        >
-          RESONANCE
-        </h1>
-
-        {/* Step 3: 서브타이틀 */}
-        <div style={show(3)}>
-          <p className="font-bold text-base md:text-lg mb-2 tracking-tight" style={{ color: '#ffffff' }}>
-            틱톡 시딩 & 숏폼 마케팅 솔루션
-          </p>
-          <p className="font-light tracking-widest text-xs md:text-sm uppercase mb-14" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            We find the right voice for your brand.
-          </p>
-        </div>
-
-        {/* Step 4 + 5: 버튼 두 개 순서대로 */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
-          {/* 브랜드용 — Step 4 */}
-          <div style={show(4)}>
-            <a
-              href="#contact"
-              className="group inline-flex flex-col items-center gap-1 px-10 py-5 font-bold transition-all duration-300 text-sm tracking-wide hover:opacity-85"
-              style={{ background: '#7CFF00', color: '#000' }}
-            >
-              <span className="text-[10px] tracking-[0.3em] uppercase opacity-60 font-medium">브랜드 · 마케터</span>
-              <span className="flex items-center gap-2 text-base">
-                인플루언서 이신가요?
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-          </div>
-
-          {/* 인플루언서용 — Step 5 */}
-          <div style={show(5)}>
-            <a
-              href="mailto:contact@rsnc.co.kr?subject=크리에이터 협업 문의"
-              className="group inline-flex flex-col items-center gap-1 px-10 py-5 font-bold transition-all duration-300 text-sm tracking-wide hover:opacity-85"
-              style={{ background: '#7CFF00', color: '#000' }}
-            >
-              <span className="text-[10px] tracking-[0.3em] uppercase opacity-60 font-medium">크리에이터 · 인플루언서</span>
-              <span className="flex items-center gap-2 text-base">
-                브랜드 이신가요?
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </span>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Step 6: 스크롤 인디케이터 */}
-      <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        style={show(6)}
+      {/* 배경 영상 */}
+      <video
+        ref={videoRef}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ filter: 'contrast(1.5) brightness(1.1) saturate(1.2)' }}
+        muted
+        loop
+        playsInline
+        preload="none"
       >
-        <span className="text-[10px] tracking-[0.4em] uppercase text-white/40">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent" />
+        <source src="/oscillograph.webm" type="video/webm" />
+        <source src="/oscillograph.mp4" type="video/mp4" />
+      </video>
+
+      {/* 어둡게 오버레이 */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      <style>{`
+        .line-animate {
+          width: 0;
+          animation: draw 0.8s ease forwards;
+        }
+        @keyframes draw {
+          to { width: 100%; }
+        }
+      `}</style>
+
+      {/* 텍스트 */}
+      <div className="relative z-10 text-white px-6">
+        <h1 className="text-7xl md:text-9xl font-semibold">
+          <span className="relative inline-block">
+            <span className="text-white">RE</span>
+            {/* 형광 초록 선 */}
+            <span className="absolute left-0 h-[18px] line-animate" style={{ top: '53%', transform: 'translateY(-50%)', background: '#7CFF00', boxShadow: 'none' }} />
+            {/* 형광 빨간 선 (초록 선 정중앙) */}
+            <span className="absolute left-0 line-animate" style={{ height: '2.1%', top: '53%', transform: 'translateY(-50%)', background: '#FF003C', boxShadow: 'none' }} />
+          </span>
+          SONANCE
+        </h1>
+        <p className="mt-6 text-lg text-gray-200 max-w-xl mx-auto">
+          Most Brands Spray. We Target.
+        </p>
+
+        {/* CTA 버튼 */}
+        <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
+            style={{
+              background: '#D1FF00',
+              color: '#0D1B2A',
+              border: '2px solid #D1FF00',
+              fontFamily: 'Pretendard, sans-serif',
+              transition: 'all 0.25s ease',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = '#0D1B2A'
+              ;(e.currentTarget as HTMLElement).style.color = '#D1FF00'
+              ;(e.currentTarget as HTMLElement).style.borderColor = '#D1FF00'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = '#D1FF00'
+              ;(e.currentTarget as HTMLElement).style.color = '#0D1B2A'
+              ;(e.currentTarget as HTMLElement).style.borderColor = '#D1FF00'
+            }}
+          >
+            체험해보기
+          </a>
+          <a
+            href="/레조넌스컴퍼니_회사소개서.html"
+            download="레조넌스컴퍼니_회사소개서.html"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
+            style={{
+              background: 'rgba(255,255,255,0.12)',
+              color: '#ffffff',
+              border: '2px solid rgba(255,255,255,0.35)',
+              fontFamily: 'Pretendard, sans-serif',
+              backdropFilter: 'blur(8px)',
+              transition: 'all 0.25s ease',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.22)'
+              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.6)'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'
+              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.35)'
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            소개서 다운로드
+          </a>
+        </div>
       </div>
+
     </section>
   )
 }

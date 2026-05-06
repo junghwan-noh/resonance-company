@@ -74,14 +74,14 @@ export default function StatsSection() {
           <span className="headline-wrap mb-6">
             <h2 data-reveal className="headline-reveal font-display font-black leading-none tracking-tighter text-rsncNavy"
               style={{ fontSize: 'clamp(1.6rem, 3vw, 3.5rem)' }}>
-              뭐가 팔리는지,<br />
-              <span className="text-rsncGreen">우리가 제일 잘 압니다.</span>
+              노출이 아니라<br />
+              <span className="text-rsncGreen">팔리는 구조</span>를<br />
+              만듭니다.
             </h2>
           </span>
           <p className="text-rsncNavy/55 text-base font-light max-w-sm reveal" data-reveal style={{ transitionDelay: '120ms' }}>
-            120개 이상의 캠페인을 직접 운영하며 카테고리별로<br />
-            <strong className="text-rsncNavy font-semibold">어떤 인플루언서가, 어떤 콘텐츠로, 어떻게 팔리는지</strong><br />
-            구조적인 데이터와 경험을 쌓아왔습니다.
+            콘텐츠를 먼저 실험하고, 반응이 확인된 구조만 인플루언서에 적용합니다.<br /><br />
+            <strong className="text-rsncNavy font-semibold">결과는 감이 아니라 검증된 흐름으로 만들어집니다.</strong>
           </p>
         </div>
 

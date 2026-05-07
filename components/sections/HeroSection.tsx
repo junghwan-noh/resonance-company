@@ -85,7 +85,8 @@ export default function HeroSection() {
           </a>
           <a
             href="/레조넌스컴퍼니_회사소개서.html"
-            download="레조넌스컴퍼니_회사소개서.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
             style={{
               background: 'rgba(255,255,255,0.12)',

@@ -48,9 +48,9 @@ export default function HeroSection() {
           <span className="relative inline-block">
             <span className="text-white">RE</span>
             {/* 형광 초록 선 */}
-            <span className="absolute left-0 h-[18px] line-animate" style={{ top: '53%', transform: 'translateY(-50%)', background: '#7CFF00', boxShadow: 'none' }} />
+            <span className="absolute left-0 line-animate" style={{ height: '0.18em', top: '50%', transform: 'translateY(-50%)', background: '#7CFF00', boxShadow: 'none' }} />
             {/* 형광 빨간 선 (초록 선 정중앙) */}
-            <span className="absolute left-0 line-animate" style={{ height: '2.1%', top: '53%', transform: 'translateY(-50%)', background: '#FF003C', boxShadow: 'none' }} />
+            <span className="absolute left-0 line-animate" style={{ height: '0.022em', top: '50%', transform: 'translateY(-50%)', background: '#FF003C', boxShadow: 'none' }} />
           </span>
           <span className="text-white">SONANCE</span>
         </h1>

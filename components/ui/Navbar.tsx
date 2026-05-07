@@ -23,10 +23,16 @@ export default function Navbar() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      background: scrolled ? 'rgba(13,27,42,0.72)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(18px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent',
-      transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
+      background: scrolled
+        ? 'linear-gradient(180deg, rgba(13,27,42,0.78) 0%, rgba(13,27,42,0.62) 100%)'
+        : 'transparent',
+      backdropFilter: scrolled ? 'blur(22px) saturate(160%)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(22px) saturate(160%)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+      boxShadow: scrolled
+        ? '0 1px 0 rgba(255,255,255,0.06) inset, 0 8px 28px -8px rgba(0,0,0,0.35)'
+        : 'none',
+      transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
     }}>
 
       {/* RE 로고 */}

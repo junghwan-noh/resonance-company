@@ -8,16 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        neon: {
-          green: '#7CFF00',
-          blue: '#00D4FF',
-        },
-        brand: {
-          green: '#7CFF00',
-          blue: '#00D4FF',
-          'blue-light': '#67E8F9',
-          'blue-dark': '#0369A1',
-        },
+        rsncBg: '#F8F9FA',
+        rsncGreen: '#D1FF00',
+        rsncNavy: '#0D1B2A',
+        rsncCard: 'rgba(255, 255, 255, 0.70)',
       },
       fontFamily: {
         sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
@@ -26,8 +20,6 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',
         'fade-up': 'fadeUp 0.8s ease-out',
-        'slide-in': 'slideIn 0.6s ease-out',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         fadeIn: {
@@ -38,10 +30,12 @@ module.exports = {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        slideIn: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
+      },
+      boxShadow: {
+        'glass': '0 8px 32px rgba(13, 27, 42, 0.08)',
+        'glass-hover': '0 16px 48px rgba(13, 27, 42, 0.14)',
+        'neon-green': '0 0 20px rgba(209, 255, 0, 0.35)',
+        'neon-bright': '0 0 40px rgba(209, 255, 0, 0.5)',
       },
     },
   },

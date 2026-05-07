@@ -85,15 +85,20 @@ export default function StatsSection() {
           </p>
         </div>
 
-        {/* 우: 영상 */}
+        {/* 우: 영상 + 글라스 광원 */}
         <div className="lg:w-[45%] relative overflow-hidden rounded-none" style={{ minHeight: '400px' }}>
           <video
             className="absolute inset-0 w-full h-full object-cover opacity-60"
             src="/wave1.mp4"
             autoPlay muted loop playsInline
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #F8F9FA 0%, transparent 30%, transparent 70%, #F8F9FA 100%)' }} />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #F8F9FA 0%, transparent 20%, transparent 80%, #F8F9FA 100%)' }} />
+          {/* 그린 광원 코어 */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: 'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(209,255,0,0.18) 0%, transparent 65%)',
+          }} />
+          {/* 가장자리 페이드 */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #F4F9EE 0%, transparent 22%, transparent 78%, #F4F9EE 100%)' }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #F4F9EE 0%, transparent 18%, transparent 82%, #F4F9EE 100%)' }} />
         </div>
       </div>
 

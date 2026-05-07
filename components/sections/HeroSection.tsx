@@ -87,22 +87,19 @@ export default function HeroSection() {
             href="/레조넌스컴퍼니_회사소개서.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
+            className="glass-pill inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
             style={{
-              background: 'rgba(255,255,255,0.12)',
               color: '#ffffff',
-              border: '2px solid rgba(255,255,255,0.35)',
               fontFamily: 'Pretendard, sans-serif',
-              backdropFilter: 'blur(8px)',
               transition: 'all 0.25s ease',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.22)'
-              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.6)'
+              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.24)'
+              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'
-              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.35)'
+              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.14)'
+              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

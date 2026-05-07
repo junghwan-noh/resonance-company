@@ -93,21 +93,15 @@ export default function InsightsSection() {
               data-reveal
             >
               <div
-                className="group h-full flex flex-col rounded-2xl overflow-hidden cursor-pointer"
+                className={`group h-full flex flex-col rounded-2xl overflow-hidden cursor-pointer ${i === 0 ? 'glass-card-dark' : 'glass-card'}`}
                 style={{
-                  background: i === 0 ? '#0D1B2A' : 'rgba(255,255,255,0.75)',
-                  border: i === 0 ? '1.5px solid rgba(209,255,0,0.3)' : '1.5px solid rgba(13,27,42,0.08)',
-                  backdropFilter: 'blur(12px)',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  boxShadow: '0 2px 20px rgba(13,27,42,0.06)',
+                  transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.4s ease',
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-6px)'
-                  ;(e.currentTarget as HTMLElement).style.boxShadow = '0 16px 48px rgba(13,27,42,0.14)'
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-8px)'
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
-                  ;(e.currentTarget as HTMLElement).style.boxShadow = '0 2px 20px rgba(13,27,42,0.06)'
                 }}
               >
                 {/* 상단 색 바 */}

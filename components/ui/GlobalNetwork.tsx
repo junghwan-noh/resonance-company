@@ -63,7 +63,7 @@ export default function GlobalNetwork() {
             cy="200"
             r="80"
             fill="none"
-            stroke="#7CFF00"
+            stroke="hsl(96, 100%, 45%)"
             strokeWidth="1"
             strokeDasharray="5,5"
             initial={{ pathLength: 0 }}
@@ -75,7 +75,7 @@ export default function GlobalNetwork() {
             cy="250"
             r="100"
             fill="none"
-            stroke="#7CFF00"
+            stroke="hsl(96, 100%, 45%)"
             strokeWidth="1"
             strokeDasharray="5,5"
             initial={{ pathLength: 0 }}
@@ -97,7 +97,7 @@ export default function GlobalNetwork() {
                 y1={from.y}
                 x2={to.x}
                 y2={to.y}
-                stroke="#7CFF00"
+                stroke="hsl(96, 100%, 45%)"
                 strokeWidth="1"
                 strokeOpacity="0.2"
                 initial={{ pathLength: 0 }}
@@ -108,7 +108,7 @@ export default function GlobalNetwork() {
               {/* Animated Signal Pulse */}
               <motion.circle
                 r="4"
-                fill="#7CFF00"
+                fill="hsl(96, 100%, 45%)"
                 initial={{
                   cx: from.x,
                   cy: from.y,
@@ -139,7 +139,7 @@ export default function GlobalNetwork() {
               cy={node.y}
               r="30"
               fill="none"
-              stroke="#7CFF00"
+              stroke="hsl(96, 100%, 45%)"
               strokeWidth="1"
               strokeOpacity="0.3"
               initial={{ scale: 0, opacity: 0 }}
@@ -161,8 +161,8 @@ export default function GlobalNetwork() {
               cx={node.x}
               cy={node.y}
               r="20"
-              fill={node.status === 'active' ? '#7CFF00' : '#000'}
-              stroke="#7CFF00"
+              fill={node.status === 'active' ? 'hsl(96, 100%, 45%)' : '#000'}
+              stroke="hsl(96, 100%, 45%)"
               strokeWidth="2"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -178,7 +178,7 @@ export default function GlobalNetwork() {
               r="5"
               fill={
                 node.status === 'active'
-                  ? '#7CFF00'
+                  ? 'hsl(96, 100%, 45%)'
                   : node.status === 'expanding'
                   ? '#FFD700'
                   : '#666'
@@ -226,7 +226,7 @@ export default function GlobalNetwork() {
             cy={node.y}
             r="20"
             fill="none"
-            stroke="#7CFF00"
+            stroke="hsl(96, 100%, 45%)"
             strokeWidth="2"
             strokeOpacity="0.5"
             initial={{ scale: 1, opacity: 0.5 }}

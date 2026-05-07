@@ -53,7 +53,7 @@ export default function ProcessDiagram({ steps }: ProcessDiagramProps) {
           cy={centerY}
           r="80"
           fill="none"
-          stroke="#7CFF00"
+          stroke="hsl(96, 100%, 45%)"
           strokeWidth="2"
           strokeOpacity="0.3"
         />
@@ -107,7 +107,7 @@ export default function ProcessDiagram({ steps }: ProcessDiagramProps) {
                 y1={centerY}
                 x2={x}
                 y2={y}
-                stroke="#7CFF00"
+                stroke="hsl(96, 100%, 45%)"
                 strokeWidth={isActive ? '2' : '1'}
                 strokeOpacity={isActive ? '0.6' : '0.1'}
                 initial={{ pathLength: 0 }}
@@ -120,8 +120,8 @@ export default function ProcessDiagram({ steps }: ProcessDiagramProps) {
                 cx={x}
                 cy={y}
                 r={isActive ? '30' : '25'}
-                fill={isActive ? '#7CFF00' : '#111'}
-                stroke="#7CFF00"
+                fill={isActive ? 'hsl(96, 100%, 45%)' : '#111'}
+                stroke="hsl(96, 100%, 45%)"
                 strokeWidth="2"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -158,7 +158,7 @@ export default function ProcessDiagram({ steps }: ProcessDiagramProps) {
                     width="200"
                     height="40"
                     fill="#000"
-                    stroke="#7CFF00"
+                    stroke="hsl(96, 100%, 45%)"
                     strokeWidth="1"
                     rx="4"
                   />
@@ -205,7 +205,7 @@ export default function ProcessDiagram({ steps }: ProcessDiagramProps) {
               key={index}
               d={`M ${startX} ${startY} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY}`}
               fill="none"
-              stroke="#7CFF00"
+              stroke="hsl(96, 100%, 45%)"
               strokeWidth="3"
               strokeOpacity="0.6"
               initial={{ pathLength: 0 }}

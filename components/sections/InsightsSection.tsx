@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useLang } from '@/lib/i18n'
 
 const articles = [
   {
@@ -46,6 +47,7 @@ const articles = [
 ]
 
 export default function InsightsSection() {
+  const { t } = useLang()
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -67,18 +69,19 @@ export default function InsightsSection() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <div className="reveal" data-reveal>
-              <span className="section-tag mb-6">Insights</span>
+              <span className="section-tag mb-6">{t('insights_tag')}</span>
             </div>
             <span className="headline-wrap">
               <h2 data-reveal className="headline-reveal font-display font-black leading-none tracking-tighter text-rsncNavy"
-                style={{ fontSize: 'clamp(1.8rem, 3.5vw, 4rem)' }}>
-                팔리는 시딩의<br />
-                <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.5px rgba(13,27,42,0.25)' }}>구조를 공유합니다.</span>
+                style={{ fontSize: 'clamp(1.6rem, 3vw, 3.4rem)' }}>
+                {t('insights_headline_1')}<br />
+                {t('insights_headline_2_a')} <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.5px rgba(13,27,42,0.25)' }}>{t('insights_headline_2_b')}</span>{t('insights_headline_2_c')}<br />
+                {t('insights_headline_3')}
               </h2>
             </span>
           </div>
           <p className="hidden md:block text-rsncNavy/45 text-sm font-light text-right max-w-xs reveal" data-reveal>
-            레조넌스가 직접 운영한 캠페인과<br />시장 데이터를 기반으로 씁니다.
+            {t('insights_caption_1')}<br />{t('insights_caption_2')}
           </p>
         </div>
       </div>

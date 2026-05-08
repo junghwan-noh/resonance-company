@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useLang } from '@/lib/i18n'
 
 export default function FooterSection() {
+  const { t } = useLang()
   const ref = useRef<HTMLElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
   const [formVisible, setFormVisible] = useState(false)
@@ -50,20 +52,20 @@ export default function FooterSection() {
       <div className="relative z-10 px-6 md:px-16 lg:px-24 pt-36 pb-20">
         <div className="max-w-7xl mx-auto">
           <div className="reveal" data-reveal>
-            <span className="section-tag mb-8">무료 상담 신청</span>
+            <span className="section-tag mb-8">{t('footer_tag')}</span>
           </div>
           <span className="headline-wrap mb-6">
             <h2 data-reveal className="headline-reveal font-display font-black leading-none tracking-tighter text-rsncNavy"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 4.5rem)' }}>
-              브랜드에 맞는<br />
-              인플루언서,<br />
-              <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.5px rgba(13,27,42,0.25)' }}>지금 바로</span>{' '}
-              <span className="text-rsncNavy">확인하세요.</span>
+              {t('footer_headline_1')}<br />
+              {t('footer_headline_2')}<br />
+              <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.5px rgba(13,27,42,0.25)' }}>{t('footer_headline_3a')}</span>{' '}
+              <span className="text-rsncNavy">{t('footer_headline_3b')}</span>
             </h2>
           </span>
           <p className="text-rsncNavy/65 text-lg font-light max-w-lg reveal mb-10" data-reveal>
-            브랜드명, 제품, 타겟 시장만 알려주시면<br />
-            <strong className="text-rsncNavy font-semibold">48시간 안에 맞춤 인플루언서 리스트</strong>를 무료로 드립니다.
+            {t('footer_sub_1')}<br />
+            <strong className="text-rsncNavy font-semibold">{t('footer_sub_2_strong')}</strong>{t('footer_sub_2_rest')}
           </p>
 
           {/* 빠른 문의 채널 */}
@@ -78,7 +80,7 @@ export default function FooterSection() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.61 1.52 4.9 3.84 6.3L4.9 20.1c-.1.3.2.6.5.4l4.2-2.8c.8.1 1.6.2 2.4.2 5.523 0 10-3.477 10-7.4S17.523 3 12 3z"/>
               </svg>
-              카카오톡 채널 문의
+              {t('footer_kakao')}
             </a>
             <a
               href="mailto:contact@rsnc.co.kr"
@@ -108,28 +110,33 @@ export default function FooterSection() {
                 <div className="w-16 h-16 bg-rsncGreen rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p className="font-display font-black text-2xl mb-3 text-rsncNavy tracking-tighter">전송 완료!</p>
-                <p className="text-rsncNavy/65 text-sm">24시간 내에 회신 드리겠습니다.</p>
+                <p className="font-display font-black text-2xl mb-3 text-rsncNavy tracking-tighter">{t('footer_done_title')}</p>
+                <p className="text-rsncNavy/65 text-sm">{t('footer_done_sub')}</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass-card rounded-3xl overflow-hidden" style={{ border: '1px solid rgba(13,27,42,0.08)' }}>
-                <div className="px-8 md:px-12 pt-10 pb-6">
-                  <p className="text-rsncNavy/55 text-xs tracking-[0.35em] uppercase mb-8">정보 입력</p>
+              <form onSubmit={handleSubmit} className="glass-card rounded-3xl overflow-hidden relative">
+                {/* 카드 상단 그린 라인 */}
+                <div className="absolute top-0 left-0 right-0 h-px" style={{
+                  background: 'linear-gradient(90deg, transparent 0%, #D1FF00 50%, transparent 100%)',
+                }} />
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div className="px-8 md:px-14 pt-12 pb-8">
+                  <div className="flex items-center justify-between mb-10">
+                    <p className="text-rsncNavy/55 text-xs tracking-[0.35em] uppercase">{t('footer_form_title')}</p>
+                    <span className="text-rsncNavy/35 text-[10px] tracking-widest uppercase">5 fields</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 mb-8">
                     {[
-                      { key: 'brand', label: '브랜드명', placeholder: 'ex) 레조넌스 코리아', required: true },
-                      { key: 'product', label: '제품', placeholder: 'ex) 비건 세럼', required: true },
-                      { key: 'market', label: '타겟 시장', placeholder: 'ex) US, AU', required: true },
-                      { key: 'category', label: '카테고리', placeholder: 'ex) Beauty, F&B, Fitness', required: true },
+                      { key: 'brand', label: t('footer_field_brand'), placeholder: t('footer_ph_brand'), required: true },
+                      { key: 'product', label: t('footer_field_product'), placeholder: t('footer_ph_product'), required: true },
+                      { key: 'market', label: t('footer_field_market'), placeholder: t('footer_ph_market'), required: true },
+                      { key: 'category', label: t('footer_field_category'), placeholder: t('footer_ph_category'), required: true },
                     ].map((field) => (
-                      <div
-                        key={field.key}
-                        className="border border-rsncNavy/8 bg-white/60 rounded-xl p-5 focus-within:border-rsncGreen focus-within:bg-white transition-all duration-300"
-                        style={{ boxShadow: 'inset 0 1px 3px rgba(13,27,42,0.04)' }}
-                      >
-                        <label className="block text-rsncNavy/55 text-xs tracking-widest uppercase mb-2">
-                          {field.label} {field.required && <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.3px rgba(13,27,42,0.3)' }}>*</span>}
+                      <div key={field.key} className="group relative">
+                        <label className="flex items-baseline gap-1.5 text-rsncNavy/65 text-[11px] tracking-[0.18em] uppercase mb-3 font-semibold">
+                          {field.label}
+                          {field.required && <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.3px rgba(13,27,42,0.4)' }}>*</span>}
                         </label>
                         <input
                           type="text"
@@ -137,46 +144,51 @@ export default function FooterSection() {
                           required={field.required}
                           value={form[field.key as keyof typeof form]}
                           onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
-                          className="w-full bg-transparent text-rsncNavy text-sm placeholder-rsncNavy/20 outline-none"
+                          className="w-full bg-transparent text-rsncNavy text-base font-medium placeholder-rsncNavy/25 outline-none pb-3 border-b border-rsncNavy/15 focus:border-rsncGreen transition-colors duration-300"
                         />
                       </div>
                     ))}
-                  </div>
 
-                  <div className="border border-rsncNavy/8 bg-white/60 rounded-xl p-5 focus-within:border-rsncGreen focus-within:bg-white transition-all duration-300 mb-6">
-                    <label className="block text-rsncNavy/55 text-xs tracking-widest uppercase mb-2">
-                      회신 이메일 <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.3px rgba(13,27,42,0.3)' }}>*</span>
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="your@email.com"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-transparent text-rsncNavy text-sm placeholder-rsncNavy/20 outline-none"
-                    />
+                    {/* 이메일 — 전체 너비 */}
+                    <div className="md:col-span-2 group relative">
+                      <label className="flex items-baseline gap-1.5 text-rsncNavy/65 text-[11px] tracking-[0.18em] uppercase mb-3 font-semibold">
+                        {t('footer_field_email')}
+                        <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.3px rgba(13,27,42,0.4)' }}>*</span>
+                      </label>
+                      <input
+                        type="email"
+                        placeholder={t('footer_ph_email')}
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full bg-transparent text-rsncNavy text-base font-medium placeholder-rsncNavy/25 outline-none pb-3 border-b border-rsncNavy/15 focus:border-rsncGreen transition-colors duration-300"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div className="border-t border-rsncNavy/6 bg-rsncNavy/2 px-8 md:px-12 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <p className="text-rsncNavy/65 text-xs">결제 없음 · 계약 강요 없음 · 24시간 내 회신</p>
-                  <button type="submit" className="btn-primary shrink-0">
-                    무료 샘플 받기
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-
-                <div className="px-8 md:px-12 py-5 border-t border-rsncNavy/5 flex flex-wrap gap-6">
-                  {['24시간 내 회신 보장', '맞춤 샘플 리스트 제공', '계약 강요 없음'].map((item) => (
-                    <span key={item} className="flex items-center gap-2 text-xs text-rsncNavy/60">
-                      <span className="w-3 h-3 rounded-full bg-rsncGreen flex items-center justify-center">
-                        <svg width="7" height="7" viewBox="0 0 10 10" fill="none" stroke="#0D1B2A" strokeWidth="2"><path d="M2 5l2 2 4-4"/></svg>
-                      </span>
-                      {item}
-                    </span>
-                  ))}
+                {/* 하단: 보증 아이템 + CTA */}
+                <div className="border-t border-rsncNavy/8 px-8 md:px-14 py-7" style={{
+                  background: 'linear-gradient(180deg, rgba(13,27,42,0.02) 0%, rgba(209,255,0,0.04) 100%)',
+                }}>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div className="flex flex-wrap gap-x-5 gap-y-2">
+                      {[t('footer_assure_1'), t('footer_assure_2'), t('footer_assure_3')].map((item) => (
+                        <span key={item} className="flex items-center gap-2 text-xs text-rsncNavy/70 font-medium">
+                          <span className="w-3.5 h-3.5 rounded-full bg-rsncGreen flex items-center justify-center shrink-0" style={{ boxShadow: '0 0 12px rgba(209,255,0,0.4)' }}>
+                            <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="#0D1B2A" strokeWidth="2.2" strokeLinecap="round"><path d="M2 5l2 2 4-4"/></svg>
+                          </span>
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                    <button type="submit" className="btn-primary shrink-0">
+                      {t('footer_submit')}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </form>
             )}
@@ -194,7 +206,7 @@ export default function FooterSection() {
           <a href="mailto:contact@rsnc.co.kr" className="text-rsncNavy/60 text-sm hover:text-rsncNavy transition-colors">
             contact@rsnc.co.kr
           </a>
-          <p className="text-rsncNavy/65 text-xs">© 2026 team resonance. All rights reserved.</p>
+          <p className="text-rsncNavy/65 text-xs">{t('footer_copy')}</p>
         </div>
       </div>
     </section>

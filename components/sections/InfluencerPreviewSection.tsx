@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useLang } from '@/lib/i18n'
 
 const influencers = [
   { handle: '@beautybyella', followers: '892K', er: '6.2%', cat: 'Beauty', market: '🇺🇸 US' },
@@ -36,6 +37,7 @@ const posts = [
 ]
 
 export default function InfluencerPreviewSection() {
+  const { t } = useLang()
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -62,18 +64,18 @@ export default function InfluencerPreviewSection() {
       <div className="relative z-10 px-6 md:px-16 lg:px-24 pt-36 pb-20 border-t border-rsncNavy/6">
         <div className="max-w-7xl mx-auto">
           <div className="reveal" data-reveal>
-            <span className="section-tag mb-6">콘텐츠 맛보기</span>
+            <span className="section-tag mb-6">{t('inf_tag')}</span>
           </div>
           <span className="headline-wrap mb-4">
             <h2 data-reveal className="headline-reveal font-display font-black leading-none tracking-tighter text-rsncNavy"
               style={{ fontSize: 'clamp(1.4rem, 3vw, 3.2rem)' }}>
-              이런 인플루언서들과<br />
-              <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.5px rgba(13,27,42,0.25)' }}>함께</span>
-              <span className="text-rsncNavy">하고 있습니다.</span>
+              {t('inf_headline_1')}<br />
+              <span className="text-rsncGreen" style={{ WebkitTextStroke: '0.5px rgba(13,27,42,0.25)' }}>{t('inf_headline_2')}</span>
+              <span className="text-rsncNavy">{t('inf_headline_3')}</span>
             </h2>
           </span>
           <p className="text-rsncNavy/60 text-sm font-light reveal" data-reveal>
-            실제 DB에서 발췌한 샘플입니다. 브랜드에 맞는 리스트는 따로 드립니다.
+            {t('inf_sub')}
           </p>
         </div>
       </div>
@@ -96,11 +98,11 @@ export default function InfluencerPreviewSection() {
                 <p className="text-rsncNavy/60 text-xs mb-5">{inf.market} · {inf.cat}</p>
                 <div className="space-y-2.5 border-t border-rsncNavy/8 pt-4">
                   <div className="flex justify-between">
-                    <span className="text-rsncNavy/60 text-xs">팔로워</span>
+                    <span className="text-rsncNavy/60 text-xs">{t('inf_followers')}</span>
                     <span className="text-rsncNavy text-xs font-semibold">{inf.followers}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-rsncNavy/60 text-xs">참여율</span>
+                    <span className="text-rsncNavy/60 text-xs">{t('inf_er')}</span>
                     <span className="text-xs font-bold text-rsncNavy">{inf.er}</span>
                   </div>
                 </div>
@@ -109,14 +111,14 @@ export default function InfluencerPreviewSection() {
           </div>
         </div>
         <div className="px-6 md:px-16 lg:px-24">
-          <p className="text-rsncNavy/65 text-xs">→ 스크롤하면 더 보입니다</p>
+          <p className="text-rsncNavy/65 text-xs">{t('inf_scroll_hint')}</p>
         </div>
       </div>
 
       {/* 시딩 게시물 */}
       <div className="relative z-10 border-t border-rsncNavy/6 px-6 md:px-16 lg:px-24 py-20">
         <div className="max-w-7xl mx-auto">
-          <p className="text-rsncNavy/55 text-xs tracking-[0.35em] uppercase mb-12 reveal" data-reveal>실제 시딩 게시물 샘플</p>
+          <p className="text-rsncNavy/55 text-xs tracking-[0.35em] uppercase mb-12 reveal" data-reveal>{t('inf_posts_label')}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {posts.map((post, i) => (
@@ -178,7 +180,7 @@ export default function InfluencerPreviewSection() {
       <div className="relative z-10 border-t border-rsncNavy/6 px-6 md:px-16 lg:px-24 py-20">
         <div className="max-w-7xl mx-auto reveal" data-reveal>
           <a href="#contact" className="btn-primary inline-flex">
-            내 브랜드 맞춤 샘플 받기
+            {t('inf_cta')}
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

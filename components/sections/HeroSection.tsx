@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useLang } from '@/lib/i18n'
 
 export default function HeroSection() {
+  const { t } = useLang()
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -55,7 +57,7 @@ export default function HeroSection() {
           <span className="text-white">SONANCE</span>
         </h1>
         <p className="mt-6 text-lg text-gray-200 max-w-xl mx-auto">
-          Most Brands Spray. We Target.
+          {t('hero_subtitle')}
         </p>
 
         {/* CTA 버튼 */}
@@ -81,7 +83,7 @@ export default function HeroSection() {
               ;(e.currentTarget as HTMLElement).style.borderColor = '#D1FF00'
             }}
           >
-            체험해보기
+            {t('hero_cta_try')}
           </a>
           <a
             href="/레조넌스컴퍼니_회사소개서.html"
@@ -107,7 +109,7 @@ export default function HeroSection() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            소개서 다운로드
+            {t('hero_cta_brochure')}
           </a>
         </div>
       </div>

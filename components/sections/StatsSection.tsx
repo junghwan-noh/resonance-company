@@ -8,19 +8,19 @@ const STATS_BY_LANG = {
     { value: 120, suffix: '+', label: '누적 시딩 캠페인', sub: '카테고리별 성과 데이터 보유' },
     { value: 34, suffix: '%', label: '평균 인플루언서 응답률', sub: '업계 평균(~8%)의 4배' },
     { value: 380, suffix: '%', label: '평균 조회수 상승률', sub: '시딩 전 대비 실측 기준' },
-    { value: 49383, suffix: '+', label: '검증된 인플루언서 DB', sub: '자체 수집·분류 엔진 보유' },
+    { value: 30, suffix: '만+@', label: '검증된 인플루언서 DB', sub: '자체 수집·분류 엔진 보유' },
   ],
   en: [
     { value: 120, suffix: '+', label: 'Seeding Campaigns Run', sub: 'Performance data per category' },
     { value: 34, suffix: '%', label: 'Avg. Influencer Response', sub: '4× industry avg. (~8%)' },
     { value: 380, suffix: '%', label: 'Avg. View Lift', sub: 'Measured vs pre-seeding' },
-    { value: 49383, suffix: '+', label: 'Verified Influencers in DB', sub: 'Built with our own engine' },
+    { value: 300000, suffix: '+@', label: 'Verified Influencers in DB', sub: 'Built with our own engine' },
   ],
   ja: [
     { value: 120, suffix: '+', label: '累計シーディング', sub: 'カテゴリ別の成果データ' },
     { value: 34, suffix: '%', label: '平均応答率', sub: '業界平均(〜8%)の4倍' },
     { value: 380, suffix: '%', label: '平均再生数の伸び', sub: 'シーディング前比' },
-    { value: 49383, suffix: '+', label: '検証済みインフルエンサーDB', sub: '自社収集エンジン保有' },
+    { value: 30, suffix: '万+@', label: '検証済みインフルエンサーDB', sub: '自社収集エンジン保有' },
   ],
 } as const
 

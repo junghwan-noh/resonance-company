@@ -130,7 +130,7 @@ export default function StatsSection() {
             <h2 data-reveal className="headline-reveal font-display font-black leading-none tracking-tighter text-rsncNavy"
               style={{ fontSize: 'clamp(1.6rem, 3vw, 3.5rem)' }}>
               {t('stats_headline_1')}<br />
-              <span className="text-rsncGreen">{t('stats_headline_2')}</span>{t('stats_headline_3')}
+              <span style={{ color: '#A8CC00', WebkitTextStroke: '0.6px rgba(13,27,42,0.45)' }}>{t('stats_headline_2')}</span>{t('stats_headline_3')}
             </h2>
           </span>
           <p className="text-rsncNavy/55 text-base font-light max-w-sm reveal" data-reveal style={{ transitionDelay: '120ms' }}>

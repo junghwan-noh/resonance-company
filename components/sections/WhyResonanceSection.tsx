@@ -6,7 +6,7 @@ import { useLang } from '@/lib/i18n'
 const STEPS_BY_LANG = {
   ko: {
     legacy: [
-      { num: '01', keyword: 'DB 구입', desc: '수십만 건 엑셀 파일 구매', detail: '검증되지 않은 대형 DB를 그대로 사용합니다.' },
+      { num: '01', keyword: '시딩', desc: 'AI 혹은 현지 하청업체 활용', detail: '검증되지 않은 무작위 DB를 그대로 제공합니다.' },
       { num: '02', keyword: '무차별 발송', desc: '팔로워 수만 보고 선별', detail: '복붙 템플릿으로 수백 명에게 동일한 DM을 보냅니다.' },
       { num: '03', keyword: '응답 대기', desc: '평균 응답률 ~8%', detail: '대부분 무시당하거나 스팸으로 처리됩니다.' },
       { num: '04', keyword: '결과 없음', desc: '리포트 없음 · ROI 불투명', detail: '캠페인이 끝나도 무엇이 효과 있었는지 알 수 없습니다.' },
@@ -20,7 +20,7 @@ const STEPS_BY_LANG = {
   },
   en: {
     legacy: [
-      { num: '01', keyword: 'Buy a DB', desc: 'Mass Excel lists', detail: 'Use a giant unverified database as-is.' },
+      { num: '01', keyword: 'Seeding', desc: 'AI or local subcontractors', detail: 'Hand over an unverified random database as-is.' },
       { num: '02', keyword: 'Mass Outreach', desc: 'Pick by follower count alone', detail: 'Send the same templated DM to hundreds of accounts.' },
       { num: '03', keyword: 'Wait for Reply', desc: 'Avg. ~8% response', detail: 'Most are ignored or marked as spam.' },
       { num: '04', keyword: 'No Result', desc: 'No report · Opaque ROI', detail: "When the campaign ends, you don't know what worked." },
@@ -34,7 +34,7 @@ const STEPS_BY_LANG = {
   },
   ja: {
     legacy: [
-      { num: '01', keyword: 'DB購入', desc: '数十万件のExcelを購入', detail: '検証されていない大規模DBをそのまま使用。' },
+      { num: '01', keyword: 'シーディング', desc: 'AIまたは現地下請け業者を活用', detail: '検証されていない無作為DBをそのまま提供。' },
       { num: '02', keyword: '無差別送信', desc: 'フォロワー数だけで選定', detail: 'コピペテンプレで数百人に同じDM。' },
       { num: '03', keyword: '応答待ち', desc: '平均応答率〜8%', detail: 'ほとんどが無視またはスパム扱い。' },
       { num: '04', keyword: '結果なし', desc: 'レポートなし · ROI不透明', detail: 'キャンペーン後に何が効いたか分からない。' },

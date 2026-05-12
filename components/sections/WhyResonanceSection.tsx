@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useLang } from '@/lib/i18n'
+import MarketerSection from './MarketerSection'
 
 const STEPS_BY_LANG = {
   ko: {
@@ -84,7 +85,7 @@ export default function WhyResonanceSection() {
     <section ref={ref} data-section className="bg-transparent" id="why" style={{ position: 'relative' }}>
 
       {/* 슬로건 헤더 */}
-      <div className="relative z-10 px-6 md:px-16 lg:px-24 pt-48 pb-32 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 px-6 md:px-16 lg:px-24 pt-20 pb-32 max-w-7xl mx-auto w-full">
         <div className="reveal" data-reveal>
           <span className="section-tag mb-10">{t('why_tag')}</span>
         </div>
@@ -101,6 +102,9 @@ export default function WhyResonanceSection() {
           {t('why_sub_2')}
         </p>
       </div>
+
+      {/* ── 마케터 페인포인트 (헤드라인과 비교표 사이) ── */}
+      <MarketerSection />
 
       {/* ── 대조 프로세스 비교 ── */}
       <div className="border-t border-rsncNavy/6 px-6 md:px-16 lg:px-24 py-32">

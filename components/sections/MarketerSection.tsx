@@ -53,7 +53,7 @@ export default function MarketerSection() {
         <span className="headline-wrap mb-4">
           <h2 data-reveal className="headline-reveal font-display font-black leading-tight tracking-tighter text-rsncNavy"
             style={{ fontSize: 'clamp(1.6rem, 3vw, 3rem)' }}>
-            이런 마케터분들을<br />위한 서비스예요
+            이런 브랜드와<br />잘 맞습니다
           </h2>
         </span>
         <p className="text-rsncNavy/55 text-sm leading-relaxed mb-10 max-w-lg reveal" data-reveal style={{ transitionDelay: '120ms' }}>

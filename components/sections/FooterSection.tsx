@@ -173,7 +173,7 @@ export default function FooterSection() {
                 }}>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                     <div className="flex flex-wrap gap-x-5 gap-y-2">
-                      {[t('footer_assure_1'), t('footer_assure_2'), t('footer_assure_3')].map((item) => (
+                      {[t('footer_assure_1'), t('footer_assure_2')].map((item) => (
                         <span key={item} className="flex items-center gap-2 text-xs text-rsncNavy/70 font-medium">
                           <span className="w-3.5 h-3.5 rounded-full bg-rsncGreen flex items-center justify-center shrink-0" style={{ boxShadow: '0 0 12px rgba(209,255,0,0.4)' }}>
                             <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="#0D1B2A" strokeWidth="2.2" strokeLinecap="round"><path d="M2 5l2 2 4-4"/></svg>

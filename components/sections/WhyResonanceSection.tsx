@@ -125,10 +125,9 @@ export default function WhyResonanceSection() {
             >
               {/* 헤더 */}
               <div className="mb-8">
-                <p className="text-rsncNavy/65 text-[10px] tracking-[0.4em] uppercase mb-2">{t('why_legacy_tag')}</p>
                 <h3 className="font-display font-black tracking-tighter text-rsncNavy/60"
                   style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.6rem)', lineHeight: 1 }}>
-                  {t('why_legacy_title')}
+                  {t('why_legacy_tag')}
                 </h3>
               </div>
 
@@ -202,10 +201,9 @@ export default function WhyResonanceSection() {
 
               {/* 헤더 */}
               <div className="relative z-10 mb-8">
-                <p className="text-rsncNavy/60 text-[10px] tracking-[0.4em] uppercase mb-2">{t('why_rsnc_tag')}</p>
                 <h3 className="font-display font-black tracking-tighter text-rsncNavy"
                   style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.6rem)', lineHeight: 1 }}>
-                  {t('why_rsnc_title')}
+                  {t('why_rsnc_tag')}
                 </h3>
               </div>
 

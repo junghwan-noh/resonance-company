@@ -67,8 +67,8 @@ export default function MarketerSection() {
           {cards.map((card, i) => (
             <div
               key={i}
-              onClick={() => setActive(i)}
-              className={`grid grid-cols-[48px_1fr] gap-x-5 px-7 py-6 cursor-pointer transition-colors duration-200 ${
+              onMouseEnter={() => setActive(i)}
+              className={`grid grid-cols-[48px_1fr] gap-x-5 px-7 py-6 transition-colors duration-200 ${
                 active === i ? 'bg-rsncGreen/8' : 'hover:bg-rsncNavy/3'
               }`}
             >
@@ -91,7 +91,15 @@ export default function MarketerSection() {
                 </span>
                 <p className="text-sm font-semibold text-rsncNavy leading-snug">{card.title}</p>
 
-                {active === i && (
+                <div
+                  className="overflow-hidden transition-all duration-400 ease-out"
+                  style={{
+                    maxHeight: active === i ? '320px' : '0px',
+                    opacity: active === i ? 1 : 0,
+                    transitionDuration: '450ms',
+                    transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)',
+                  }}
+                >
                   <div className="mt-3">
                     <p className="text-sm text-rsncNavy/65 leading-relaxed">{card.desc}</p>
                     <div className="flex flex-wrap gap-2 mt-3">
@@ -105,7 +113,7 @@ export default function MarketerSection() {
                       ))}
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           ))}

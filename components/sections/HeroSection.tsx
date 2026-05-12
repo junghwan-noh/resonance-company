@@ -85,32 +85,6 @@ export default function HeroSection() {
           >
             {t('hero_cta_try')}
           </a>
-          <a
-            href="/레조넌스컴퍼니_회사소개서.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-pill inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
-            style={{
-              color: '#ffffff',
-              fontFamily: 'Pretendard, sans-serif',
-              transition: 'all 0.25s ease',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.24)'
-              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.14)'
-              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            {t('hero_cta_brochure')}
-          </a>
         </div>
       </div>
 

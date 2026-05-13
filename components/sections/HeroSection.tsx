@@ -1,93 +1,146 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useLang } from '@/lib/i18n'
 
 export default function HeroSection() {
-  const { t } = useLang()
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  const scrollToContact = () => {
+    const element = document.getElementById('contact')
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
 
   useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    video.playbackRate = 0.5
-    video.play().catch(() => {})
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = 0
+    let height = 0
+    let animationId = 0
+    let time = 0
+
+    const resize = () => {
+      width = canvas.width = window.innerWidth
+      height = canvas.height = window.innerHeight
+    }
+    window.addEventListener('resize', resize)
+    resize()
+
+    class Particle {
+      x: number; y: number; z: number
+      vx: number; vy: number; baseSize: number
+      constructor() {
+        this.x = Math.random() * width
+        this.y = Math.random() * height
+        this.z = Math.random() * 2000
+        this.vx = (Math.random() - 0.5) * 1.5
+        this.vy = (Math.random() - 0.5) * 1.5
+        this.baseSize = Math.random() * 2 + 0.5
+      }
+      update() {
+        this.x += this.vx
+        this.y += this.vy
+        this.z -= 4
+        if (this.z < 1) {
+          this.z = 2000
+          this.x = Math.random() * width
+          this.y = Math.random() * height
+        }
+        if (this.x < 0 || this.x > width) this.vx *= -1
+        if (this.y < 0 || this.y > height) this.vy *= -1
+      }
+      draw() {
+        const scale = 800 / this.z
+        const px = (this.x - width / 2) * scale + width / 2
+        const py = (this.y - height / 2) * scale + height / 2
+        const s = Math.max(0.1, this.baseSize * scale)
+        let alpha = 1 - this.z / 2000
+        if (this.z < 200) alpha *= this.z / 200
+        ctx!.fillStyle = `rgba(204, 255, 0, ${alpha * 0.7})`
+        ctx!.beginPath()
+        ctx!.arc(px, py, s, 0, Math.PI * 2)
+        ctx!.fill()
+      }
+    }
+
+    const particleCount = window.innerWidth < 768 ? 200 : 400
+    const particles: Particle[] = []
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle())
+
+    const animate = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'
+      ctx.fillRect(0, 0, width, height)
+
+      ctx.beginPath()
+      ctx.moveTo(0, height / 2)
+      for (let i = 0; i < width; i += 10) {
+        const amplitude = 150 * Math.sin(time * 0.2)
+        const wave1 = Math.sin(i * 0.005 + time) * amplitude
+        const wave2 = Math.cos(i * 0.01 - time * 1.5) * (amplitude * 0.5)
+        const wave3 = Math.sin(i * 0.02) * 20
+        const edgeTaper = Math.sin((i / width) * Math.PI)
+        const y = height / 2 + (wave1 + wave2 + wave3) * edgeTaper
+        ctx.lineTo(i, y)
+      }
+      ctx.strokeStyle = 'rgba(204, 255, 0, 0.3)'
+      ctx.lineWidth = 3
+      ctx.shadowBlur = 15
+      ctx.shadowColor = '#ccff00'
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(0, height / 2)
+      for (let i = 0; i < width; i += 10) {
+        const amplitude = 100 * Math.sin(time * 0.2)
+        const wave1 = Math.sin(i * 0.005 + time) * amplitude
+        const wave2 = Math.cos(i * 0.01 - time * 1.5) * (amplitude * 0.5)
+        const edgeTaper = Math.sin((i / width) * Math.PI)
+        const y = height / 2 + (wave1 + wave2) * edgeTaper
+        ctx.lineTo(i, y)
+      }
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)'
+      ctx.lineWidth = 1
+      ctx.shadowBlur = 5
+      ctx.stroke()
+
+      ctx.shadowBlur = 0
+      particles.forEach(p => { p.update(); p.draw() })
+
+      time += 0.02
+      animationId = requestAnimationFrame(animate)
+    }
+    animate()
+
+    return () => {
+      window.removeEventListener('resize', resize)
+      cancelAnimationFrame(animationId)
+    }
   }, [])
 
   return (
-    <section data-section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+    <section className="relative w-full h-screen bg-black overflow-hidden flex flex-col items-center justify-center pt-20">
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-0" />
 
-      {/* 배경 영상 */}
-      <video
-        ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        style={{ filter: 'contrast(1.5) brightness(1.1) saturate(1.2)' }}
-        muted
-        loop
-        playsInline
-        preload="none"
-      >
-        <source src="/oscillograph.webm" type="video/webm" />
-        <source src="/oscillograph.mp4" type="video/mp4" />
-      </video>
-
-      {/* 어둡게 오버레이 */}
-      <div className="absolute inset-0 bg-black/40" />
-
-      <style>{`
-        .line-animate {
-          width: 0;
-          animation: draw 0.8s ease forwards;
-        }
-        @keyframes draw {
-          to { width: 100%; }
-        }
-      `}</style>
-
-      {/* 텍스트 */}
-      <div className="relative z-10 text-white px-6">
-        <h1 className="text-7xl md:text-9xl font-semibold">
+      <div className="relative z-10 text-center flex flex-col items-center px-4 w-full max-w-7xl mx-auto">
+        <h1 className="text-white text-7xl sm:text-8xl md:text-[140px] font-medium tracking-tight relative leading-none mb-12">
           <span className="relative inline-block">
-            <span className="text-white">RE</span>
-            {/* 형광 초록 선 */}
-            <span className="absolute left-0 line-animate" style={{ height: '0.18em', top: '50%', transform: 'translateY(-50%)', background: '#7CFF00', boxShadow: 'none' }} />
-            {/* 형광 빨간 선 (초록 선 정중앙) */}
-            <span className="absolute left-0 line-animate" style={{ height: '0.022em', top: '50%', transform: 'translateY(-50%)', background: '#FF003C', boxShadow: 'none' }} />
-          </span>
-          <span className="text-white">SONANCE</span>
+            R
+            <div className="absolute top-[45%] left-[-10%] w-[120%] h-3 md:h-5 bg-brand-yellow -translate-y-1/2 shadow-[0_0_20px_rgba(204,255,0,0.8)]" />
+          </span>ESONANCE
         </h1>
-        <p className="mt-6 text-lg text-gray-200 max-w-xl mx-auto">
-          {t('hero_subtitle')}
+        <p className="text-gray-300 text-lg md:text-2xl font-medium tracking-wide mb-12 mix-blend-screen">
+          Most Brands Spray. We Target.
         </p>
-
-        {/* CTA 버튼 */}
-        <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-tight"
-            style={{
-              background: '#D1FF00',
-              color: '#0D1B2A',
-              border: '2px solid #D1FF00',
-              fontFamily: 'Pretendard, sans-serif',
-              transition: 'all 0.25s ease',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = '#0D1B2A'
-              ;(e.currentTarget as HTMLElement).style.color = '#D1FF00'
-              ;(e.currentTarget as HTMLElement).style.borderColor = '#D1FF00'
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = '#D1FF00'
-              ;(e.currentTarget as HTMLElement).style.color = '#0D1B2A'
-              ;(e.currentTarget as HTMLElement).style.borderColor = '#D1FF00'
-            }}
-          >
-            {t('hero_cta_try')}
-          </a>
-        </div>
+        <button
+          onClick={scrollToContact}
+          className="bg-brand-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(204,255,0,0.3)]"
+        >
+          체험해보기
+        </button>
       </div>
-
     </section>
   )
 }

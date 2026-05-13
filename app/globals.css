@@ -3,262 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-    background-color: #F4F9EE;
-    background-image:
-      radial-gradient(ellipse 110% 45% at 50% 2%,  rgba(209,255,0,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 65%  35% at 8%  38%, rgba(209,255,0,0.06) 0%, transparent 65%),
-      radial-gradient(ellipse 75%  40% at 92% 62%, rgba(209,255,0,0.07) 0%, transparent 65%),
-      radial-gradient(ellipse 55%  30% at 48% 90%, rgba(209,255,0,0.07) 0%, transparent 60%);
-    background-attachment: fixed;
-    color: #0D1B2A;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background-color: #0a0a0a;
+    color: #f5f5f5;
     overflow-x: hidden;
-    font-feature-settings: 'kern' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     word-break: keep-all;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    color: #0D1B2A;
-  }
-
-  p, span, li, a {
-    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    font-weight: 400;
-    line-height: 1.75;
-  }
-
-  ::selection {
-    background: #D1FF00;
-    color: #0D1B2A;
-  }
+  ::selection { background: #ccff00; color: #0a0a0a; }
 }
 
-@layer components {
-
-  /* ── 버튼 ── */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 40px;
-    background: #0D1B2A;
-    color: #F8F9FA;
-    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    border: 2px solid #0D1B2A;
-    border-radius: 999px;
-    transition: all 0.25s ease;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .btn-primary:hover {
-    background: #D1FF00;
-    color: #0D1B2A;
-    border-color: #D1FF00;
-    box-shadow: 0 0 30px rgba(209, 255, 0, 0.4);
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 40px;
-    background: transparent;
-    color: #0D1B2A;
-    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    border: 2px solid rgba(13, 27, 42, 0.2);
-    border-radius: 999px;
-    transition: all 0.25s ease;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .btn-secondary:hover {
-    background: #0D1B2A;
-    color: #F8F9FA;
-    border-color: #0D1B2A;
-  }
-
-  /* ── 섹션 태그라인 ── */
-  .section-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #0D1B2A;
-    opacity: 0.45;
-  }
-  .section-tag::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 1px;
-    background: #D1FF00;
-    flex-shrink: 0;
-    opacity: 1;
-  }
-
-  /* ── Glass 카드 (4-layer system) ── */
-  .glass-card {
-    position: relative;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.62) 100%);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.7) inset,
-      0 -1px 0 rgba(13,27,42,0.04) inset,
-      0 10px 36px -8px rgba(13, 27, 42, 0.10),
-      0 2px 8px rgba(13, 27, 42, 0.04);
-    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
-  }
-  .glass-card:hover {
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 100%);
-    border-color: rgba(209,255,0,0.45);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.85) inset,
-      0 -1px 0 rgba(13,27,42,0.05) inset,
-      0 22px 56px -12px rgba(13, 27, 42, 0.16),
-      0 0 0 1px rgba(209,255,0,0.12),
-      0 0 32px rgba(209,255,0,0.18);
-  }
-
-  /* ── Glass 카드 (다크 변형) ── */
-  .glass-card-dark {
-    position: relative;
-    background:
-      linear-gradient(180deg, rgba(13,27,42,0.55) 0%, rgba(13,27,42,0.42) 100%);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.08) inset,
-      0 10px 36px -8px rgba(0, 0, 0, 0.35);
-    color: #F8F9FA;
-  }
-
-  /* ── Hero CTA 글라스 다운로드 버튼 강화 ── */
-  .glass-pill {
-    background: rgba(255,255,255,0.14);
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.3) inset,
-      0 6px 20px rgba(0,0,0,0.18);
-  }
-
-  /* ════════════════════════════════
-     스크롤 애니메이션 시스템
-     Out-Quart: cubic-bezier(0.16, 1, 0.3, 1)
-     ════════════════════════════════ */
-
-  /* ── 1. 섹션 통째 등장 (scale만 — opacity 제거하여 내부 요소 항상 visible) ── */
-  [data-section] {
-    transform: translateY(40px) scale(0.985);
-    transition:
-      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-  }
-  [data-section].section-visible {
-    transform: translateY(0) scale(1);
-    will-change: auto;
-  }
-
-  /* ── 2. 그룹/요소 reveal — 40px, 0.8s ── */
-  .reveal {
+@layer utilities {
+  /* 섹션 스크롤 페이드인 — 첫 섹션 (Hero) 제외, body > main > section 자동 적용 */
+  main > section.reveal-init {
     opacity: 0;
-    transform: translate3d(0, 40px, 0);
-    will-change: transform, opacity;
+    transform: translateY(40px);
     transition:
-      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
   }
-  .reveal.visible {
+  main > section.reveal-init.is-visible {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: none;
     will-change: auto;
   }
 
-  .reveal-left {
-    opacity: 0;
-    transform: translate3d(-40px, 0, 0);
-    will-change: transform, opacity;
-    transition:
-      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-  .reveal-left.visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    will-change: auto;
-  }
-
-  /* ── 3. 헤드라인 텍스트 슥- 차오르기 (mask reveal) ── */
-  .headline-wrap {
-    overflow: hidden;
-    display: block;
-  }
-  .headline-reveal {
-    display: block;
-    transform: translateY(108%);
-    opacity: 0;
-    transition:
-      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-  }
-  .headline-reveal.visible {
-    transform: translateY(0);
-    opacity: 1;
-    will-change: auto;
-  }
-
-  /* ── 4. 카드 stagger — 0.1s 간격 ── */
-  .stagger-1 { transition-delay: 0ms !important; }
-  .stagger-2 { transition-delay: 100ms !important; }
-  .stagger-3 { transition-delay: 200ms !important; }
-  .stagger-4 { transition-delay: 300ms !important; }
-  .stagger-5 { transition-delay: 400ms !important; }
-  .stagger-6 { transition-delay: 500ms !important; }
-
-  /* ── 가로 스크롤 ── */
-  .scroll-x {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .scroll-x::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* ── 섹션 그린 광원 ── */
-  .glow-bg {
-    position: relative;
-  }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

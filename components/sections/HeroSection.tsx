@@ -127,7 +127,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-0" />
 
       <div className="relative z-10 text-center flex flex-col items-center px-4 w-full max-w-7xl mx-auto">
-        <h1 className="text-white text-7xl sm:text-8xl md:text-[140px] font-medium tracking-tight relative leading-none mb-12">
+        <h1 className="text-white text-[3.5rem] sm:text-7xl md:text-[140px] font-medium tracking-tight relative leading-none mb-12 whitespace-nowrap">
           <span className="relative inline-block">
             RE
             {/* 형광 노란 굵은 선 (RE 전체) */}

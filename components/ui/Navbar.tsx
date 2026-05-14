@@ -55,29 +55,18 @@ export default function Navbar() {
         <span>SONANCE</span>
       </a>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3">
         {/* 언어 셀렉터 */}
         <div ref={langRef} className="relative">
           <button
             onClick={() => setLangOpen((o) => !o)}
             aria-label="언어 선택"
-            className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold transition-colors border border-white/15"
+            title={current.label}
+            className="flex items-center justify-center w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors border border-white/15"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <circle cx="12" cy="12" r="10" />
               <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            {current.short}
-            <svg
-              width="10"
-              height="10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.5}
-              className={`transition-transform ${langOpen ? 'rotate-180' : ''}`}
-            >
-              <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
 
@@ -109,12 +98,14 @@ export default function Navbar() {
           href="http://pf.kakao.com/_VJJxbX"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-brand-yellow text-black flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold hover:bg-yellow-400 transition-colors shadow-[0_0_15px_rgba(204,255,0,0.3)]"
+          aria-label={t('nav_kakao')}
+          title={t('nav_kakao')}
+          className="bg-brand-yellow text-black flex items-center justify-center md:justify-start gap-2 w-10 h-10 md:w-auto md:h-auto md:px-5 md:py-2 rounded-full text-sm font-bold hover:bg-yellow-400 transition-colors shadow-[0_0_15px_rgba(204,255,0,0.3)]"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
             <path d="M232,128c0,50.22-48.46,91.82-109.11,95.77a83.17,83.17,0,0,1-23.75-2.61,48.1,48.1,0,0,0-26.69,8A18.89,18.89,0,0,1,55,225.43c-6.84-5.26-14-12.79-11.66-26.79C22.68,181.71,8,156.45,8,128c0-53,53.73-96,120-96S232,75,232,128Z" />
           </svg>
-          {t('nav_kakao')}
+          <span className="hidden md:inline">{t('nav_kakao')}</span>
         </a>
       </div>
     </nav>

@@ -89,7 +89,7 @@ export default function FooterSection() {
                   <path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>서울특별시 강남구 테헤란로 123, 4층</span>
+                <span>서울특별시 영등포구 버드나루로 90 10층</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ccff00" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="shrink-0">

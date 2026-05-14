@@ -1,25 +1,24 @@
 'use client'
 
+import { useLang } from '@/lib/i18n'
+
 export default function RealResultsSection() {
+  const { t } = useLang()
   return (
     <section className="py-24 px-6 md:px-12 w-full bg-black relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-zinc-900 opacity-50 z-0" />
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
         <div className="w-full lg:w-1/2">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-8 h-[1px] bg-brand-yellow" />
-            <span className="text-gray-400 font-bold text-sm tracking-widest uppercase">REAL RESULTS</span>
-          </div>
           <h2 className="text-5xl md:text-[64px] font-black text-white leading-[1.1] mb-10 tracking-tight">
-            노출이 아니라<br />
+            {t('real_headline_1')}<br />
             <span className="relative inline-block">
-              <span className="text-brand-yellow relative z-10">팔리는 구조</span>
+              <span className="text-brand-yellow relative z-10">{t('real_headline_2')}</span>
               <div className="absolute bottom-1 left-0 w-full h-3 bg-brand-yellow/20 z-0" />
-            </span>를 만듭니다.
+            </span>{t('real_headline_3')}
           </h2>
           <div className="space-y-6 text-gray-400 text-lg leading-relaxed max-w-lg">
-            <p>콘텐츠를 먼저 실험하고, 반응이 확인된 구조만 인플루언서에 적용합니다.</p>
-            <p className="text-white font-bold">결과는 감이 아니라 검증된 흐름으로 만들어집니다.</p>
+            <p>{t('real_sub_1')}</p>
+            <p className="text-white font-bold">{t('real_sub_2')}</p>
           </div>
         </div>
 

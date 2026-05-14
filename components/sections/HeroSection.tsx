@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useLang } from '@/lib/i18n'
 
 export default function HeroSection() {
+  const { t } = useLang()
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const scrollToContact = () => {
@@ -127,18 +129,21 @@ export default function HeroSection() {
       <div className="relative z-10 text-center flex flex-col items-center px-4 w-full max-w-7xl mx-auto">
         <h1 className="text-white text-7xl sm:text-8xl md:text-[140px] font-medium tracking-tight relative leading-none mb-12">
           <span className="relative inline-block">
-            R
-            <div className="absolute top-[45%] left-[-10%] w-[120%] h-3 md:h-5 bg-brand-yellow -translate-y-1/2 shadow-[0_0_20px_rgba(204,255,0,0.8)]" />
-          </span>ESONANCE
+            RE
+            {/* 형광 노란 굵은 선 (RE 전체) */}
+            <div className="absolute top-[50%] left-[-6%] w-[112%] h-3 md:h-5 bg-brand-yellow -translate-y-1/2 shadow-[0_0_20px_rgba(204,255,0,0.8)]" />
+            {/* 가운데 얇은 빨간 선 */}
+            <div className="absolute top-[50%] left-[-6%] w-[112%] h-[2px] md:h-[3px] bg-[#FF003C] -translate-y-1/2 shadow-[0_0_10px_rgba(255,0,60,0.7)]" />
+          </span>SONANCE
         </h1>
         <p className="text-gray-300 text-lg md:text-2xl font-medium tracking-wide mb-12 mix-blend-screen">
-          Most Brands Spray. We Target.
+          {t('hero_subtitle')}
         </p>
         <button
           onClick={scrollToContact}
           className="bg-brand-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(204,255,0,0.3)]"
         >
-          체험해보기
+          {t('hero_cta')}
         </button>
       </div>
     </section>

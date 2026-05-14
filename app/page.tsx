@@ -10,10 +10,13 @@ import InsightsSection from '@/components/sections/InsightsSection'
 import ContactForm from '@/components/sections/ContactForm'
 import FooterSection from '@/components/sections/FooterSection'
 import FloatingChatButton from '@/components/FloatingChatButton'
+import ScrollToTop from '@/components/ui/ScrollToTop'
+import Navbar from '@/components/ui/Navbar'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
+      <Navbar />
       <HeroSection />
       <StatsSection />
       <RealResultsSection />
@@ -26,6 +29,7 @@ export default function Home() {
       <ContactForm />
       <FooterSection />
       <FloatingChatButton />
+      <ScrollToTop />
     </main>
   )
 }

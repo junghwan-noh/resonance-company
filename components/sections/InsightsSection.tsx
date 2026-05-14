@@ -1,23 +1,27 @@
 'use client'
 
-const insights = [
-  { tag: 'TREND', date: '2025.11', title: 'TikTok Shop 시대, 시딩의 룰이 바뀌었다', read: '3 min read' },
-  { tag: 'INSIGHT', date: '2025.10', title: '뷰티 브랜드가 US 시장에서 실패하는 3가지 이유', read: '5 min read' },
-  { tag: 'CASE', date: '2025.09', title: '인플루언서 1명 vs 100명, 어느 쪽이 팔릴까?', read: '4 min read' },
-  { tag: 'DATA', date: '2025.08', title: 'ER 6% 인플루언서를 찾는 방법', read: '4 min read' },
-]
+import { useLang } from '@/lib/i18n'
 
 export default function InsightsSection() {
+  const { t } = useLang()
+
+  const insights = [
+    { tag: 'TREND', date: '2025.11', title: t('insights_1_title'), read: t('insights_read_3') },
+    { tag: 'INSIGHT', date: '2025.10', title: t('insights_2_title'), read: t('insights_read_5') },
+    { tag: 'CASE', date: '2025.09', title: t('insights_3_title'), read: t('insights_read_4') },
+    { tag: 'DATA', date: '2025.08', title: t('insights_4_title'), read: t('insights_read_4') },
+  ]
+
   return (
     <section className="py-24 px-6 md:px-12 w-full bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-8">
           <div className="w-8 h-[1px] bg-brand-yellow" />
-          <span className="text-gray-400 font-bold text-sm tracking-widest">인사이트</span>
+          <span className="text-gray-400 font-bold text-sm tracking-widest">{t('insights_tag')}</span>
         </div>
 
         <h2 className="text-5xl md:text-[56px] font-black text-white leading-[1.1] mb-16 tracking-tight">
-          마케팅 <span className="text-brand-yellow">트렌드</span>와 인사이트
+          {t('insights_headline_a')} <span className="text-brand-yellow">{t('insights_headline_b')}</span>{t('insights_headline_c')}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

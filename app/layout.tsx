@@ -7,19 +7,19 @@ import { LanguageProvider } from '@/lib/i18n'
 export const metadata: Metadata = {
   title: 'team resonance - Influencer Seeding Agency',
   description: '북미 TikTok Shop 크리에이터 시딩 전문. 크리에이터 선별부터 팔리는 구조까지 원스톱으로.',
+  keywords: 'influencer marketing, seeding, TikTok Shop, 북미, 시딩, resonance',
   metadataBase: new URL('https://rsnc.co.kr'),
   openGraph: {
     title: 'team resonance - Influencer Seeding Agency',
-    description: '북미 TikTok Shop 크리에이터 시딩 전문. 크리에이터 선별부터 팔리는 구조까지 원스톱으로.',
+    description: '북미 TikTok Shop 크리에이터 시딩 전문',
     url: 'https://rsnc.co.kr',
     siteName: 'team resonance',
     images: [
       {
-        url: 'https://rsnc.co.kr/og-image.png',
+        url: 'https://rsnc.co.kr/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'team resonance',
-        type: 'image/png',
       },
     ],
     locale: 'ko_KR',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'team resonance',
     description: '북미 TikTok Shop 크리에이터 시딩 전문',
-    images: ['https://rsnc.co.kr/og-image.png'],
+    images: ['https://rsnc.co.kr/opengraph-image'],
   },
 }
 
@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         {/* OG image — explicit meta for crawlers */}
-        <meta property="og:image" content="https://rsnc.co.kr/og-image.png" />
+        <meta property="og:image" content="https://rsnc.co.kr/opengraph-image" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />

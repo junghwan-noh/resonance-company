@@ -9,17 +9,17 @@ export default function FooterSection() {
 
           {/* 컬럼 1 — 브랜드 */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              {/* 초록 아이콘 (로고 마크) */}
-              <span className="w-8 h-8 rounded-lg bg-brand-yellow flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 12h4l3-9 4 18 3-9h4" />
-                </svg>
+            <div className="flex items-center gap-2.5 mb-6">
+              {/* 레조넌스 RE 취소선 아이콘 */}
+              <span className="relative inline-block text-white font-black text-2xl tracking-tighter leading-none">
+                RE
+                <span className="absolute top-1/2 left-[-6%] w-[112%] h-[5px] bg-brand-yellow -translate-y-1/2 shadow-[0_0_8px_rgba(204,255,0,0.6)] pointer-events-none" />
+                <span className="absolute top-1/2 left-[-6%] w-[112%] h-[1.5px] bg-[#FF003C] -translate-y-1/2 pointer-events-none" />
               </span>
               <span className="text-white font-bold text-lg tracking-tight">TEAM RESONANCE</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              노출이 아닌 전환을 만드는 북미 TikTok Shop 시딩 전문.
+              노출이 아닌 전환을 만드는 팀.<br />
               팔리는 구조로 브랜드의 스케일업을 돕습니다.
             </p>
 

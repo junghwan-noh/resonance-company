@@ -55,6 +55,7 @@ export default function InfluencerCardsSection() {
                   alt={`${c.cat} sample`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
+                  data-nopin="true"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4">

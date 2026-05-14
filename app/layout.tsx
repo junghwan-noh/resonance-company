@@ -13,7 +13,14 @@ export const metadata: Metadata = {
     description: '북미 TikTok Shop 크리에이터 시딩 전문. 크리에이터 선별부터 팔리는 구조까지 원스톱으로.',
     url: 'https://rsnc.co.kr',
     siteName: 'team resonance',
-    images: [{ url: 'https://rsnc.co.kr/opengraph-image' }],
+    images: [
+      {
+        url: 'https://rsnc.co.kr/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'team resonance',
+      },
+    ],
     locale: 'ko_KR',
     type: 'website',
   },

@@ -13,6 +13,8 @@ const ko: Dict = {
   // Hero
   hero_subtitle: 'Most Brands Spray. We Target.',
   hero_cta: '체험해보기',
+  hero_cta_influencer: '인플루언서이신가요?',
+  hero_cta_brand: '브랜드이신가요?',
 
   // Stats
   stats_kpi_label: 'HEADLINE KPI',
@@ -159,6 +161,8 @@ const en: Dict = {
 
   hero_subtitle: 'Most Brands Spray. We Target.',
   hero_cta: 'Try It',
+  hero_cta_influencer: 'Are you an influencer?',
+  hero_cta_brand: 'Are you a brand?',
 
   stats_kpi_label: 'HEADLINE KPI',
   stats_card1_title: 'Seeding Campaigns Run',
@@ -295,6 +299,8 @@ const ja: Dict = {
 
   hero_subtitle: 'Most Brands Spray. We Target.',
   hero_cta: '体験する',
+  hero_cta_influencer: 'インフルエンサーですか?',
+  hero_cta_brand: 'ブランドですか?',
 
   stats_kpi_label: 'HEADLINE KPI',
   stats_card1_title: '累計シーディング',

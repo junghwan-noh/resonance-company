@@ -7,9 +7,8 @@ export default function HeroSection() {
   const { t } = useLang()
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact')
-    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  const scrollToNext = () => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
   }
 
   useEffect(() => {
@@ -139,12 +138,26 @@ export default function HeroSection() {
         <p className="text-gray-300 text-lg md:text-2xl font-medium tracking-wide mb-12 mix-blend-screen">
           {t('hero_subtitle')}
         </p>
-        <button
-          onClick={scrollToContact}
-          className="bg-brand-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(204,255,0,0.3)]"
-        >
-          {t('hero_cta')}
-        </button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <button
+            onClick={scrollToNext}
+            className="bg-brand-yellow text-black px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-400 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(204,255,0,0.3)] inline-flex items-center gap-2"
+          >
+            {t('hero_cta_influencer')}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <button
+            onClick={scrollToNext}
+            className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
+          >
+            {t('hero_cta_brand')}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   )

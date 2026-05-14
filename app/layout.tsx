@@ -15,10 +15,11 @@ export const metadata: Metadata = {
     siteName: 'team resonance',
     images: [
       {
-        url: 'https://rsnc.co.kr/opengraph-image',
+        url: 'https://rsnc.co.kr/og-image.png',
         width: 1200,
         height: 630,
         alt: 'team resonance',
+        type: 'image/png',
       },
     ],
     locale: 'ko_KR',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'team resonance',
     description: '북미 TikTok Shop 크리에이터 시딩 전문',
-    images: ['https://rsnc.co.kr/opengraph-image'],
+    images: ['https://rsnc.co.kr/og-image.png'],
   },
 }
 
@@ -40,6 +41,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* OG image — explicit meta for crawlers */}
+        <meta property="og:image" content="https://rsnc.co.kr/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"

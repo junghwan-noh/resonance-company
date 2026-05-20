@@ -24,12 +24,10 @@
     .slide-container {
       height: 100vh;
       width: 100vw;
-      scroll-snap-type: y mandatory;
-      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
       overflow-y: auto;
       overflow-x: hidden;
     }
-    html { scroll-behavior: smooth; }
     .slide {
       scroll-snap-align: start;
       height: 100vh;
@@ -610,19 +608,41 @@
       const slides = Array.from(document.querySelectorAll('.slide'));
       let isScrolling = false;
       let current = 0;
+      const DURATION = 900;
 
-      function goTo(index) {
-        index = Math.max(0, Math.min(slides.length - 1, index));
-        if (index === current) return;
-        current = index;
-        isScrolling = true;
-        slides[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setTimeout(() => { isScrolling = false; }, 800);
+      const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      function animateScroll(target) {
+        const start = container.scrollTop;
+        const distance = target - start;
+        const startTime = performance.now();
+        return new Promise((resolve) => {
+          function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / DURATION, 1);
+            container.scrollTop = start + distance * easeInOutCubic(progress);
+            if (progress < 1) requestAnimationFrame(step);
+            else resolve();
+          }
+          requestAnimationFrame(step);
+        });
       }
 
+      async function goTo(index) {
+        index = Math.max(0, Math.min(slides.length - 1, index));
+        if (index === current || isScrolling) return;
+        current = index;
+        isScrolling = true;
+        await animateScroll(slides[index].offsetTop);
+        setTimeout(() => { isScrolling = false; }, 100);
+      }
+
+      let wheelLock = false;
       container.addEventListener('wheel', (e) => {
         e.preventDefault();
-        if (isScrolling) return;
+        if (isScrolling || wheelLock) return;
+        wheelLock = true;
+        setTimeout(() => { wheelLock = false; }, 150);
         goTo(current + (e.deltaY > 0 ? 1 : -1));
       }, { passive: false });
 
@@ -630,6 +650,15 @@
         if (isScrolling) return;
         if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); goTo(current + 1); }
         if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); goTo(current - 1); }
+      });
+
+      let touchStartY = null;
+      container.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+      container.addEventListener('touchend', (e) => {
+        if (touchStartY === null || isScrolling) return;
+        const dy = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(dy) > 40) goTo(current + (dy > 0 ? 1 : -1));
+        touchStartY = null;
       });
     })();
   </script>

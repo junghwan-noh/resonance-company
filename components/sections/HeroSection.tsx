@@ -7,8 +7,10 @@ export default function HeroSection() {
   const { t } = useLang()
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const scrollToNext = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
   }
 
   useEffect(() => {
@@ -23,8 +25,16 @@ export default function HeroSection() {
     let time = 0
 
     const resize = () => {
-      width = canvas.width = window.innerWidth
-      height = canvas.height = window.innerHeight
+      // CSS 픽셀 기준 논리 크기
+      width = window.innerWidth
+      height = window.innerHeight
+      // Retina/모바일 고DPI 대응 (성능 위해 2배까지만)
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = width * dpr
+      canvas.height = height * dpr
+      canvas.style.width = `${width}px`
+      canvas.style.height = `${height}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
     window.addEventListener('resize', resize)
     resize()
@@ -66,47 +76,49 @@ export default function HeroSection() {
       }
     }
 
-    const particleCount = window.innerWidth < 768 ? 200 : 400
+    const particleCount = window.innerWidth < 768 ? 120 : 360
     const particles: Particle[] = []
     for (let i = 0; i < particleCount; i++) particles.push(new Particle())
+
+    // 파도 경로를 한 번만 계산해 재사용 (glow 스트로크용)
+    const tracePath = (withWave3: boolean, baseAmp: number) => {
+      ctx.beginPath()
+      ctx.moveTo(0, height / 2)
+      for (let i = 0; i < width; i += 12) {
+        const amplitude = baseAmp * Math.sin(time * 0.2)
+        const wave1 = Math.sin(i * 0.005 + time) * amplitude
+        const wave2 = Math.cos(i * 0.01 - time * 1.5) * (amplitude * 0.5)
+        const wave3 = withWave3 ? Math.sin(i * 0.02) * 20 : 0
+        const edgeTaper = Math.sin((i / width) * Math.PI)
+        const y = height / 2 + (wave1 + wave2 + wave3) * edgeTaper
+        ctx.lineTo(i, y)
+      }
+    }
 
     const animate = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'
       ctx.fillRect(0, 0, width, height)
 
-      ctx.beginPath()
-      ctx.moveTo(0, height / 2)
-      for (let i = 0; i < width; i += 10) {
-        const amplitude = 150 * Math.sin(time * 0.2)
-        const wave1 = Math.sin(i * 0.005 + time) * amplitude
-        const wave2 = Math.cos(i * 0.01 - time * 1.5) * (amplitude * 0.5)
-        const wave3 = Math.sin(i * 0.02) * 20
-        const edgeTaper = Math.sin((i / width) * Math.PI)
-        const y = height / 2 + (wave1 + wave2 + wave3) * edgeTaper
-        ctx.lineTo(i, y)
-      }
-      ctx.strokeStyle = 'rgba(204, 255, 0, 0.3)'
+      // 노란 파도 — shadowBlur 대신 넓은 반투명 스트로크로 글로우 표현
+      tracePath(true, 150)
+      ctx.strokeStyle = 'rgba(204, 255, 0, 0.08)'
+      ctx.lineWidth = 14
+      ctx.stroke()
+      tracePath(true, 150)
+      ctx.strokeStyle = 'rgba(204, 255, 0, 0.4)'
       ctx.lineWidth = 3
-      ctx.shadowBlur = 15
-      ctx.shadowColor = '#ccff00'
       ctx.stroke()
 
-      ctx.beginPath()
-      ctx.moveTo(0, height / 2)
-      for (let i = 0; i < width; i += 10) {
-        const amplitude = 100 * Math.sin(time * 0.2)
-        const wave1 = Math.sin(i * 0.005 + time) * amplitude
-        const wave2 = Math.cos(i * 0.01 - time * 1.5) * (amplitude * 0.5)
-        const edgeTaper = Math.sin((i / width) * Math.PI)
-        const y = height / 2 + (wave1 + wave2) * edgeTaper
-        ctx.lineTo(i, y)
-      }
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)'
+      // 흰 파도
+      tracePath(false, 100)
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)'
+      ctx.lineWidth = 5
+      ctx.stroke()
+      tracePath(false, 100)
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)'
       ctx.lineWidth = 1
-      ctx.shadowBlur = 5
       ctx.stroke()
 
-      ctx.shadowBlur = 0
       particles.forEach(p => { p.update(); p.draw() })
 
       time += 0.02
@@ -141,7 +153,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-center gap-3 sm:gap-4">
           <div className="flex flex-col items-center gap-2">
             <button
-              onClick={scrollToNext}
+              onClick={() => scrollToId('campaigns')}
               className="bg-brand-yellow text-black px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-400 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(204,255,0,0.3)] inline-flex items-center gap-2"
             >
               {t('hero_cta_influencer')}
@@ -153,7 +165,7 @@ export default function HeroSection() {
           </div>
           <div className="flex flex-col items-center gap-2">
             <button
-              onClick={scrollToNext}
+              onClick={() => scrollToId('marketer')}
               className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
             >
               {t('hero_cta_brand')}
@@ -164,6 +176,14 @@ export default function HeroSection() {
             <span className="text-xs text-gray-400 font-medium tracking-wide">Are you a brand?</span>
           </div>
         </div>
+      </div>
+
+      {/* 스크롤 유도 화살표 */}
+      <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-2 md:gap-3 animate-bounce">
+        <span className="text-[10px] md:text-sm tracking-[0.25em] text-gray-400 uppercase font-bold">Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(204,255,0,0.6)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-7 md:h-7">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
       </div>
     </section>
   )

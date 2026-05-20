@@ -6,12 +6,12 @@ import { LanguageProvider } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'team resonance - Influencer Seeding Agency',
-  description: '북미 TikTok Shop 크리에이터 시딩 전문. 크리에이터 선별부터 팔리는 구조까지 원스톱으로.',
-  keywords: 'influencer marketing, seeding, TikTok Shop, 북미, 시딩, resonance',
+  description: 'TikTok Shop 크리에이터 시딩 전문. 크리에이터 선별부터 팔리는 구조까지 원스톱으로.',
+  keywords: 'influencer marketing, seeding, TikTok Shop, 시딩, resonance',
   metadataBase: new URL('https://rsnc.co.kr'),
   openGraph: {
     title: 'team resonance - Influencer Seeding Agency',
-    description: '북미 TikTok Shop 크리에이터 시딩 전문',
+    description: 'TikTok Shop 크리에이터 시딩 전문',
     url: 'https://rsnc.co.kr',
     siteName: 'team resonance',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'team resonance',
-    description: '북미 TikTok Shop 크리에이터 시딩 전문',
+    description: 'TikTok Shop 크리에이터 시딩 전문',
     images: ['https://rsnc.co.kr/opengraph-image'],
   },
 }

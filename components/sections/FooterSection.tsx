@@ -54,7 +54,7 @@ export default function FooterSection() {
                 { label: '인플루언서 시딩', href: '#contact' },
                 { label: '컨텐츠 방향성 제시', href: '#contact' },
                 { label: '크리에이터 DB 제공', href: '#contact' },
-                { label: '무료 상담', href: '#contact' },
+                { label: '상담 신청', href: '#contact' },
               ].map((it) => (
                 <li key={it.label}>
                   <a href={it.href} className="text-gray-400 hover:text-white text-sm transition-colors">{it.label}</a>

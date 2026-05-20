@@ -22,11 +22,8 @@
     ::-webkit-scrollbar-thumb:hover { background: #555; }
 
     .slide-container {
-      height: 100vh;
-      width: 100vw;
-      overflow-y: auto;
+      width: 100%;
       overflow-x: hidden;
-      scroll-behavior: auto;
     }
     .slide {
       scroll-snap-align: start;
@@ -43,6 +40,7 @@
     }
     .slide h2.text-5xl { font-size: 2.5rem; line-height: 1.15; }
     .slide .text-lg { font-size: 1rem; }
+    .slide { will-change: transform; transform: translateZ(0); }
 
     .bg-grid {
       background-size: 50px 50px;
@@ -51,7 +49,7 @@
     }
   </style>
 </head>
-<body class="bg-[#030303] text-white overflow-hidden selection:bg-[#ccff00] selection:text-black">
+<body class="bg-[#030303] text-white selection:bg-[#ccff00] selection:text-black">
 
   <!-- Fixed Logo -->
   <div class="fixed bottom-12 left-24 z-50 pointer-events-none">
@@ -67,7 +65,7 @@
 
     <!-- Slide 01: Cover -->
     <section class="slide justify-center items-start bg-grid relative">
-      <div class="absolute top-1/4 right-1/4 w-[800px] h-[800px] bg-[#ccff00] rounded-full blur-[200px] opacity-[0.03] pointer-events-none"></div>
+      <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#ccff00] rounded-full blur-3xl opacity-[0.05] pointer-events-none"></div>
 
       <div class="w-full max-w-7xl mx-auto flex flex-col">
 
@@ -176,7 +174,7 @@
         <div class="grid grid-cols-4 gap-6 flex-grow">
 
           <div class="bg-[#111111] rounded-2xl p-8 border border-white/5 flex flex-col relative overflow-hidden group hover:border-white/20 transition-colors">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-2xl group-hover:bg-red-500/10 transition-colors"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-xl"></div>
             <div class="relative z-10">
               <span class="text-xs font-bold neon-text mb-4 block">Limit 1</span>
               <h3 class="text-xl font-bold mb-4">인플루언서<br/>단발 협업</h3>
@@ -190,7 +188,7 @@
           </div>
 
           <div class="bg-[#111111] rounded-2xl p-8 border border-white/5 flex flex-col relative overflow-hidden group hover:border-white/20 transition-colors">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-2xl group-hover:bg-red-500/10 transition-colors"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-xl"></div>
             <div class="relative z-10">
               <span class="text-xs font-bold neon-text mb-4 block">Limit 2</span>
               <h3 class="text-xl font-bold mb-4">콘텐츠<br/>방향성 부재</h3>
@@ -204,7 +202,7 @@
           </div>
 
           <div class="bg-[#111111] rounded-2xl p-8 border border-white/5 flex flex-col relative overflow-hidden group hover:border-white/20 transition-colors">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-2xl group-hover:bg-red-500/10 transition-colors"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-xl"></div>
             <div class="relative z-10">
               <span class="text-xs font-bold neon-text mb-4 block">Limit 3</span>
               <h3 class="text-xl font-bold mb-4">데이터<br/>축적 불가</h3>
@@ -218,7 +216,7 @@
           </div>
 
           <div class="bg-[#111111] rounded-2xl p-8 border border-white/5 flex flex-col relative overflow-hidden group hover:border-white/20 transition-colors">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-2xl group-hover:bg-red-500/10 transition-colors"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full blur-xl"></div>
             <div class="relative z-10">
               <span class="text-xs font-bold neon-text mb-4 block">Limit 4</span>
               <h3 class="text-xl font-bold mb-4">성과 재현<br/>어려움</h3>
@@ -252,7 +250,7 @@
         <div class="grid grid-cols-2 gap-8 flex-grow">
 
           <div class="bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] rounded-3xl p-6 border border-white/5 flex flex-col relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/5 rounded-bl-full blur-3xl transition-opacity opacity-50 group-hover:opacity-100"></div>
+            <div class="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/5 rounded-bl-full blur-2xl opacity-60"></div>
 
             <span class="text-sm font-bold text-zinc-500 mb-2 uppercase tracking-widest">Approach 01</span>
             <h3 class="text-3xl font-bold mb-6">브랜드 기반 인플루언서 선별</h3>
@@ -275,7 +273,7 @@
           </div>
 
           <div class="bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] rounded-3xl p-6 border border-white/5 flex flex-col relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/5 rounded-bl-full blur-3xl transition-opacity opacity-50 group-hover:opacity-100"></div>
+            <div class="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/5 rounded-bl-full blur-2xl opacity-60"></div>
 
             <span class="text-sm font-bold text-zinc-500 mb-2 uppercase tracking-widest">Approach 02</span>
             <h3 class="text-3xl font-bold mb-6">검증된 운영 방향 적용</h3>
@@ -568,7 +566,7 @@
     <section class="slide justify-center items-center relative overflow-hidden">
 
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="w-[800px] h-[800px] bg-[#ccff00] rounded-full blur-[250px] opacity-[0.05]"></div>
+        <div class="w-[500px] h-[500px] bg-[#ccff00] rounded-full blur-3xl opacity-[0.08]"></div>
       </div>
 
       <div class="w-full max-w-5xl mx-auto flex flex-col justify-center relative z-10">

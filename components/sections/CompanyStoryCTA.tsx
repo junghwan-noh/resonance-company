@@ -86,7 +86,7 @@ export default function CompanyStoryCTA() {
               </div>
               {sectionDivider('콘텐츠 정보 · Content Info')}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 10 }}>
-                <div><label style={labelStyle}>주요 카테고리</label><select name="category" style={{ ...fieldStyle, color: '#888', WebkitAppearance: 'none', cursor: 'pointer' }} defaultValue=""><option value="" disabled>선택</option><option>Beauty · 뷰티</option><option>Skincare · 스킨케어</option><option>Lifestyle · 라이프스타일</option><option>Fashion · 패션</option><option>Food · 푸드</option><option>Fitness · 피트니스</option><option>Other · 기타</option></select></div>
+                <div><label style={labelStyle}>주요 카테고리</label><select name="category" style={{ ...fieldStyle, color: '#888', WebkitAppearance: 'none', cursor: 'pointer' }} defaultValue=""><option value="" disabled>선택</option><option>Beauty · 뷰티</option><option>Skincare · 스킨케어</option></select></div>
                 <div><label style={labelStyle}>평균 조회수 · Avg Views</label><input name="avg_views" type="text" placeholder="예) 30,000" style={fieldStyle} /></div>
               </div>
               <div style={{ marginBottom: 10 }}><label style={labelStyle}>대표 영상 링크 · Best Video</label><input name="best_video" type="url" placeholder="https://tiktok.com/..." style={fieldStyle} /></div>

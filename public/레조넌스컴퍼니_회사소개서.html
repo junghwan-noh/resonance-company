@@ -85,9 +85,12 @@
       .slide .gap-8,
       .slide .gap-6 { gap: 1rem !important; }
 
-      .slide .flex.w-full { flex-direction: column; gap: 0.75rem !important; }
-      .slide .flex.w-full > .flex-1 { width: 100%; }
-      .slide .flex.w-full > .flex.items-center.justify-center { transform: rotate(90deg); padding: 0.25rem 0; }
+      .slide .flex.w-full.items-stretch { flex-direction: column !important; gap: 0.5rem !important; align-items: stretch !important; }
+      .slide .flex.w-full.items-stretch > .flex-1 { width: 100%; min-height: 0; padding: 1rem !important; }
+      .slide .flex.w-full.items-stretch > .flex-1 h3 { font-size: 0.95rem !important; margin-bottom: 0.5rem !important; }
+      .slide .flex.w-full.items-stretch > .flex-1 p { font-size: 0.75rem !important; }
+      .slide .flex.w-full.items-stretch > .flex.items-center.justify-center { transform: rotate(90deg); padding: 0 !important; align-self: center; }
+      .slide .flex.w-full.items-stretch .absolute.top-1\/2 { display: none; }
 
       .slide .mb-24 { margin-bottom: 2rem !important; }
       .slide .mb-16 { margin-bottom: 1.5rem !important; }

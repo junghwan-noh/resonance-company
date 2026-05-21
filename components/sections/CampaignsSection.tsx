@@ -153,7 +153,7 @@ export default function CampaignsSection() {
             <p className="text-gray-500 text-sm">캠페인 참여를 원하시면 아래로 문의해주세요.</p>
           </div>
           <button
-            onClick={scrollToContact}
+            onClick={() => window.dispatchEvent(new CustomEvent('rsnc:open-influencer'))}
             className="bg-brand-yellow text-black px-8 py-4 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-yellow-400 transition-colors w-full md:w-auto justify-center group shrink-0"
           >
             <span>Apply Now</span>

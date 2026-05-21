@@ -11,7 +11,7 @@ const ko: Dict = {
   nav_kakao: '카카오톡 채팅하기',
 
   // Hero
-  hero_subtitle: 'Most Brands Spray. We Target.',
+  hero_subtitle: 'We Resonate With Your Brand.',
   hero_cta: '체험해보기',
   hero_cta_influencer: '인플루언서이신가요?',
   hero_cta_brand: '브랜드이신가요?',
@@ -159,7 +159,7 @@ const ko: Dict = {
 const en: Dict = {
   nav_kakao: 'KakaoTalk Chat',
 
-  hero_subtitle: 'Most Brands Spray. We Target.',
+  hero_subtitle: 'We Resonate With Your Brand.',
   hero_cta: 'Try It',
   hero_cta_influencer: 'Are you an influencer?',
   hero_cta_brand: 'Are you a brand?',
@@ -297,7 +297,7 @@ const en: Dict = {
 const ja: Dict = {
   nav_kakao: 'カカオトーク相談',
 
-  hero_subtitle: 'Most Brands Spray. We Target.',
+  hero_subtitle: 'We Resonate With Your Brand.',
   hero_cta: '体験する',
   hero_cta_influencer: 'インフルエンサーですか?',
   hero_cta_brand: 'ブランドですか?',

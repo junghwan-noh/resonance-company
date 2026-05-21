@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'team resonance — Most Brands Spray. We Target.'
+export const alt = 'team resonance — We Resonate With Your Brand.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -119,7 +119,7 @@ export default async function Image() {
               fontFamily: 'Arial, sans-serif',
             }}
           >
-            Most Brands Spray. We Target.
+            We Resonate With Your Brand.
           </div>
 
           <div

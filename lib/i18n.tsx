@@ -95,6 +95,11 @@ const ko: Dict = {
   process_rsnc_4_sub: '응답률·도달·전환 전수 공유',
   process_rsnc_4_desc: '캠페인 종료 후 모든 수치를 투명하게 공개합니다.',
 
+  // ProcessSection
+  process_heading_1: '성과가',
+  process_heading_2: '반복',
+  process_heading_3: '되지 않는 이유',
+
   // ConsultingCTA
   consult_top: '마케팅 시장은 국경과 차원을 넘어 급변하고 있습니다.\n하지만 대행사들의 결과는 미약하고, 일회성에 그치는 경우가 다반사입니다.',
   consult_main_1: '팀레조넌스는 재계약에 집착하지 않습니다.',
@@ -253,6 +258,10 @@ const en: Dict = {
   marketer_cta_title: 'All three apply to you?',
   marketer_cta_desc: 'Tell us your brand and product category — we’ll come back with a diagnosis within 72 hours.',
   marketer_cta_btn: 'Get a Diagnosis',
+
+  process_heading_1: 'Why results',
+  process_heading_2: "don't",
+  process_heading_3: ' repeat',
 
   process_label: 'Process Comparison',
   process_legacy_title: 'Legacy Approach',
@@ -431,6 +440,10 @@ const ja: Dict = {
   marketer_cta_title: '3つすべて当てはまりますか?',
   marketer_cta_desc: 'ブランド名と商品カテゴリを教えていただければ、72時間以内に診断いたします。',
   marketer_cta_btn: '診断を受ける',
+
+  process_heading_1: '成果が',
+  process_heading_2: '繰り返されない',
+  process_heading_3: '理由',
 
   process_label: 'プロセス比較',
   process_legacy_title: '従来の方法',

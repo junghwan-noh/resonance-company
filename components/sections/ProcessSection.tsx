@@ -16,7 +16,7 @@ export default function ProcessSection() {
     <section className="py-24 px-6 md:px-12 w-full bg-black">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-white mb-4 text-center md:text-left tracking-tight">
-          성과가 <span className="text-brand-yellow">반복</span>되지 않는 이유
+          {t('process_heading_1')} <span className="text-brand-yellow">{t('process_heading_2')}</span>{t('process_heading_3')}
         </h2>
         <h3 className="text-2xl font-bold text-gray-400 mb-10 text-center md:text-left">{t('process_legacy_title')}</h3>
 

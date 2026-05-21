@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useLang } from '@/lib/i18n'
 
 const PRODUCTS = [
   '비건 세럼',
@@ -26,6 +27,7 @@ const CATEGORIES = ['스킨케어(기초)', '색조', '클렌징', '선케어', 
 const AGES = ['10대', '20대 초반 (20~24세)', '20대 후반 (25~29세)', '30대', '40대', '50대 이상']
 
 export default function ContactForm() {
+  const { t } = useLang()
   const [brand, setBrand] = useState('')
   const [email, setEmail] = useState('')
   const [product, setProduct] = useState<string | null>(null)
@@ -83,10 +85,10 @@ export default function ContactForm() {
           <div className="w-9 h-[1px] bg-brand-yellow" />
         </div>
         <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.2] mb-3 tracking-tight text-center">
-          콘텐츠 구조 <span className="text-brand-yellow">진단 신청</span>
+          {t('contact_headline_1')} <span className="text-brand-yellow">{t('contact_headline_2')}</span>
         </h2>
         <p className="text-gray-500 text-sm text-center mb-10">
-          브랜드명, 제품, 타겟 시장만 알려주시면 <span className="text-white font-bold">72시간 안에</span> 맞춤 진단으로 회신드리겠습니다.
+          {t('contact_sub_1')} <span className="text-white font-bold">{t('contact_sub_strong')}</span>{t('contact_sub_2')}
         </p>
 
         {submitted ? (
@@ -96,8 +98,8 @@ export default function ContactForm() {
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
-            <p className="text-2xl font-black text-white mb-3 tracking-tighter">신청 완료!</p>
-            <p className="text-gray-400 text-sm">72시간 내에 회신 드리겠습니다.</p>
+            <p className="text-2xl font-black text-white mb-3 tracking-tighter">{t('contact_done_title')}</p>
+            <p className="text-gray-400 text-sm">{t('contact_done_sub')}</p>
           </div>
         ) : (
           <div className="bg-zinc-900 rounded-[1.25rem] p-7 md:p-8 border border-zinc-800">

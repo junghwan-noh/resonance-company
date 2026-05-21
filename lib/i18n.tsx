@@ -154,6 +154,50 @@ const ko: Dict = {
 
   // Footer
   footer_copy: '© Team Resonance. All rights reserved.',
+  footer_desc: '노출이 아닌 전환을 만드는 팀.\n팔리는 구조로 브랜드의 스케일업을 돕습니다.',
+  footer_services: 'Services',
+  footer_company: 'Company',
+  footer_contact_info: 'Contact Info',
+  footer_addr: '서울특별시 영등포구 버드나루로 90 10층',
+  footer_terms: '이용약관',
+  footer_privacy: '개인정보처리방침',
+  footer_biz_info: '상호: 팀레조넌스 | 대표: 홍길동 | 사업자등록번호: 000-00-00000 | 통신판매업신고: 제2026-서울강남-0000호',
+  footer_s1: '인플루언서 시딩',
+  footer_s2: '컨텐츠 방향성 제시',
+  footer_s3: '크리에이터 DB 제공',
+  footer_s4: '상담 신청',
+  footer_c1: 'About Us',
+  footer_c2: 'Cases',
+  footer_c3: 'Careers',
+  footer_c4: 'Contact',
+
+  // ConsultingCTA
+  consult_cta_title_1: '인플루언서 마케팅,',
+  consult_cta_title_2: '성과는 나오지만',
+  consult_cta_title_3: '반복되지는 않습니다',
+  consult_cta_sub: '노출은 쌓이지만, 성과는 구조로 이어지지 않습니다',
+
+  // Marketer header
+  marketer_section_title_1: '실무에서',
+  marketer_section_title_2: '반복',
+  marketer_section_title_3: '되는 문제들',
+
+  // Campaigns
+  camp_label: 'FOR CREATORS · CAMPAIGNS',
+  camp_headline_1: 'Beauty Campaigns,',
+  camp_headline_2: 'Live & Upcoming',
+  camp_sub: '브랜드와 함께 진행 중인 캠페인을 둘러보고, 진행 중인 캠페인에 참여하거나 다음 캠페인을 준비하세요.',
+  camp_on_air: 'On Air',
+  camp_upcoming: 'Upcoming',
+  camp_past: 'Past Campaigns',
+  camp_cta_title: '캠페인에 참여하고 싶다면?',
+  camp_cta_sub: '캠페인 참여를 원하시면 아래로 문의해주세요.',
+  camp_apply: 'Apply Now',
+
+  // CompanyStoryCTA card
+  cs_card_title: '팀레조넌스가 어떻게 다른지 궁금하다면?',
+  cs_card_sub: '회사소개서에서 확인해보세요.',
+  cs_card_btn: '회사소개서',
 }
 
 const en: Dict = {
@@ -292,6 +336,46 @@ const en: Dict = {
   contact_subject: 'Content Structure Diagnosis — Resonance',
 
   footer_copy: '© Team Resonance. All rights reserved.',
+  footer_desc: 'Not just exposure — a team that builds conversion.\nWe scale brands through structures that sell.',
+  footer_services: 'Services',
+  footer_company: 'Company',
+  footer_contact_info: 'Contact Info',
+  footer_addr: '10F, 90 Beodeunaru-ro, Yeongdeungpo-gu, Seoul, Korea',
+  footer_terms: 'Terms',
+  footer_privacy: 'Privacy Policy',
+  footer_biz_info: 'Team Resonance | CEO: Gildong Hong | Biz Reg. No.: 000-00-00000',
+  footer_s1: 'Influencer Seeding',
+  footer_s2: 'Content Direction',
+  footer_s3: 'Creator DB Access',
+  footer_s4: 'Get a Consultation',
+  footer_c1: 'About Us',
+  footer_c2: 'Cases',
+  footer_c3: 'Careers',
+  footer_c4: 'Contact',
+
+  consult_cta_title_1: 'Influencer marketing —',
+  consult_cta_title_2: 'results happen, but',
+  consult_cta_title_3: "they don't repeat",
+  consult_cta_sub: 'Exposure piles up, but it never turns into structure.',
+
+  marketer_section_title_1: 'Problems that',
+  marketer_section_title_2: 'repeat',
+  marketer_section_title_3: ' in real work',
+
+  camp_label: 'FOR CREATORS · CAMPAIGNS',
+  camp_headline_1: 'Beauty Campaigns,',
+  camp_headline_2: 'Live & Upcoming',
+  camp_sub: "Browse the beauty campaigns we run with creators — join an active one or get ready for what's next.",
+  camp_on_air: 'On Air',
+  camp_upcoming: 'Upcoming',
+  camp_past: 'Past Campaigns',
+  camp_cta_title: 'Want to join a campaign?',
+  camp_cta_sub: 'Reach out below if you want to participate.',
+  camp_apply: 'Apply Now',
+
+  cs_card_title: 'Curious how Team Resonance is different?',
+  cs_card_sub: 'See our company introduction.',
+  cs_card_btn: 'Company Deck',
 }
 
 const ja: Dict = {
@@ -430,6 +514,46 @@ const ja: Dict = {
   contact_subject: 'コンテンツ構造診断申込 — レゾナンス',
 
   footer_copy: '© Team Resonance. All rights reserved.',
+  footer_desc: '露出ではなくコンバージョンを作るチーム。\n売れる構造でブランドのスケールアップを支援します。',
+  footer_services: 'サービス',
+  footer_company: '会社情報',
+  footer_contact_info: 'お問い合わせ',
+  footer_addr: 'ソウル特別市 永登浦区 ボドゥナル路 90, 10階',
+  footer_terms: '利用規約',
+  footer_privacy: 'プライバシーポリシー',
+  footer_biz_info: 'チーム・レゾナンス | 代表: ホン・ギルドン | 事業者登録番号: 000-00-00000',
+  footer_s1: 'インフルエンサーシーディング',
+  footer_s2: 'コンテンツ方向性提示',
+  footer_s3: 'クリエイターDB提供',
+  footer_s4: '相談申込',
+  footer_c1: '会社紹介',
+  footer_c2: '実績',
+  footer_c3: '採用情報',
+  footer_c4: 'お問い合わせ',
+
+  consult_cta_title_1: 'インフルエンサーマーケティング、',
+  consult_cta_title_2: '成果は出るが',
+  consult_cta_title_3: '繰り返されない',
+  consult_cta_sub: '露出は積み上がっても、構造にはつながらない。',
+
+  marketer_section_title_1: '実務で',
+  marketer_section_title_2: '繰り返される',
+  marketer_section_title_3: '問題',
+
+  camp_label: 'FOR CREATORS · CAMPAIGNS',
+  camp_headline_1: 'Beauty Campaigns,',
+  camp_headline_2: 'Live & Upcoming',
+  camp_sub: 'クリエイターと進めるキャンペーンをご覧ください。今すぐ参加、または次の準備を。',
+  camp_on_air: 'On Air',
+  camp_upcoming: 'Upcoming',
+  camp_past: 'Past Campaigns',
+  camp_cta_title: 'キャンペーンに参加したい?',
+  camp_cta_sub: 'ご参加希望の方は下記からお問い合わせください。',
+  camp_apply: 'Apply Now',
+
+  cs_card_title: 'チーム・レゾナンスの違いを知りたいですか?',
+  cs_card_sub: '会社紹介でご確認ください。',
+  cs_card_btn: '会社紹介',
 }
 
 const dicts: Record<Lang, Dict> = { ko, en, ja }

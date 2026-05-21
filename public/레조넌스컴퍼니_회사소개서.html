@@ -42,6 +42,25 @@
     .slide .text-lg { font-size: 1rem; }
     .slide { will-change: transform; transform: translateZ(0); }
 
+    .pricing-card {
+      transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, box-shadow .35s ease;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px) scale(1.04);
+      border-color: rgba(204,255,0,.6);
+      box-shadow: 0 20px 40px -10px rgba(204,255,0,.15);
+    }
+    .pricing-card.featured { transform: translateY(-1rem); }
+    .pricing-card.featured:hover {
+      transform: translateY(-1.5rem) scale(1.05);
+    }
+    @media (max-width: 768px) {
+      .pricing-card.featured { transform: none; }
+      .pricing-card.featured:hover { transform: translateY(-6px) scale(1.04); }
+    }
+
     @media (max-width: 768px) {
       .slide {
         padding: 5rem 1.25rem 6rem;
@@ -525,7 +544,7 @@
 
         <div class="grid grid-cols-3 gap-6 flex-grow">
 
-          <div class="bg-[#111111] rounded-2xl border border-white/5 flex flex-col p-8 group hover:border-white/20 transition-colors">
+          <div class="pricing-card bg-[#111111] rounded-2xl border border-white/5 flex flex-col p-8 group">
             <span class="text-xs font-bold neon-text mb-4 tracking-widest uppercase">Stage 01</span>
             <h3 class="text-4xl font-black mb-2">Seed</h3>
             <p class="text-sm text-zinc-400 mb-4 pb-4 border-b border-white/10">초기 테스트 및 방향 설정</p>
@@ -552,7 +571,7 @@
             <button class="w-full text-left font-bold neon-text group-hover:text-white transition-colors">가격 문의</button>
           </div>
 
-          <div class="bg-gradient-to-b from-[#161a05] to-[#111111] rounded-2xl border border-[#ccff00]/40 flex flex-col p-8 relative shadow-[0_0_30px_rgba(204,255,0,0.05)] transform md:-translate-y-4">
+          <div class="pricing-card featured bg-gradient-to-b from-[#161a05] to-[#111111] rounded-2xl border border-[#ccff00]/40 flex flex-col p-8 relative shadow-[0_0_30px_rgba(204,255,0,0.05)] md:-translate-y-4">
             <div class="absolute top-0 right-0 w-32 h-32 bg-[#ccff00]/10 rounded-bl-full blur-2xl"></div>
 
             <span class="text-xs font-bold neon-text mb-4 tracking-widest uppercase flex items-center justify-between">
@@ -584,7 +603,7 @@
             <button class="w-full text-left font-bold neon-text">가격 문의</button>
           </div>
 
-          <div class="bg-[#111111] rounded-2xl border border-white/5 flex flex-col p-8 group hover:border-white/20 transition-colors">
+          <div class="pricing-card bg-[#111111] rounded-2xl border border-white/5 flex flex-col p-8 group">
             <span class="text-xs font-bold neon-text mb-4 tracking-widest uppercase">Stage 03</span>
             <h3 class="text-4xl font-black mb-2">Scale</h3>
             <p class="text-sm text-zinc-400 mb-4 pb-4 border-b border-white/10">지속 운영 및 확장</p>

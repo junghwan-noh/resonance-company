@@ -41,7 +41,7 @@ export default function MarketerProblemsSection() {
       <div ref={ref} className="max-w-7xl mx-auto">
 
         <h2 className={`text-4xl md:text-5xl font-black text-white mb-10 text-center md:text-left tracking-tight ${baseTransition} ${reveal}`} style={style(0)}>
-          실무에서 <span className="text-brand-yellow">반복</span>되는 문제들
+          {t('marketer_section_title_1')} <span className="text-brand-yellow">{t('marketer_section_title_2')}</span>{t('marketer_section_title_3')}
         </h2>
 
         <div className="bg-zinc-900 rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden border border-zinc-800">

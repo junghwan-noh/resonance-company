@@ -1,5 +1,7 @@
 'use client'
 
+import { useLang } from '@/lib/i18n'
+
 type Campaign = {
   image: string
   category: string
@@ -98,10 +100,7 @@ function StatusRow({
 }
 
 export default function CampaignsSection() {
-  const scrollToContact = () => {
-    const el = document.getElementById('contact')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+  const { t } = useLang()
 
   return (
     <section id="campaigns" className="py-24 px-6 md:px-12 w-full bg-black">
@@ -110,20 +109,20 @@ export default function CampaignsSection() {
         {/* 헤더 */}
         <div className="flex items-center gap-4 mb-8">
           <div className="w-8 h-[1px] bg-brand-yellow" />
-          <span className="text-gray-400 font-bold text-sm tracking-widest">FOR CREATORS · CAMPAIGNS</span>
+          <span className="text-gray-400 font-bold text-sm tracking-widest">{t('camp_label')}</span>
         </div>
 
         <h2 className="text-4xl md:text-[56px] font-black text-white leading-[1.1] mb-4 tracking-tight">
-          Beauty Campaigns,<br />
-          <span className="text-brand-yellow">Live &amp; Upcoming</span>
+          {t('camp_headline_1')}<br />
+          <span className="text-brand-yellow">{t('camp_headline_2')}</span>
         </h2>
         <p className="text-gray-400 text-base md:text-lg mb-14 max-w-2xl">
-          Browse the beauty campaigns we run with creators — join an active one or get ready for what&apos;s next.
+          {t('camp_sub')}
         </p>
 
         {/* ON AIR */}
         <StatusRow
-          label="On Air"
+          label={t('camp_on_air')}
           badge="● ON AIR"
           badgeClass="text-black bg-brand-yellow"
           items={onAir}
@@ -131,7 +130,7 @@ export default function CampaignsSection() {
 
         {/* UPCOMING */}
         <StatusRow
-          label="Upcoming"
+          label={t('camp_upcoming')}
           badge="UPCOMING"
           badgeClass="text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30"
           items={upcoming}
@@ -139,7 +138,7 @@ export default function CampaignsSection() {
 
         {/* PAST */}
         <StatusRow
-          label="Past Campaigns"
+          label={t('camp_past')}
           badge="CLOSED"
           badgeClass="text-gray-400 bg-zinc-800 border border-zinc-700"
           items={past}
@@ -149,14 +148,14 @@ export default function CampaignsSection() {
         {/* CTA */}
         <div className="mt-14 bg-zinc-900 rounded-[2rem] p-8 md:p-10 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h4 className="text-xl md:text-2xl font-bold text-white mb-2">Want to join a campaign?</h4>
-            <p className="text-gray-500 text-sm">캠페인 참여를 원하시면 아래로 문의해주세요.</p>
+            <h4 className="text-xl md:text-2xl font-bold text-white mb-2">{t('camp_cta_title')}</h4>
+            <p className="text-gray-500 text-sm">{t('camp_cta_sub')}</p>
           </div>
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('rsnc:open-influencer'))}
             className="bg-brand-yellow text-black px-8 py-4 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-yellow-400 transition-colors w-full md:w-auto justify-center group shrink-0"
           >
-            <span>Apply Now</span>
+            <span>{t('camp_apply')}</span>
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

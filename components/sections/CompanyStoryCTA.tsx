@@ -61,6 +61,28 @@ export default function CompanyStoryCTA() {
 
   return (
     <>
+      <section className="py-16 px-6 md:px-12 w-full bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-zinc-900 rounded-[2rem] p-8 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.2)] border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h4 className="text-xl font-bold text-white mb-2">팀레조넌스가 어떻게 다른지 궁금하다면?</h4>
+              <p className="text-gray-500 text-sm">회사소개서에서 확인해보세요.</p>
+            </div>
+            <a
+              href="/company-profile.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-brand-yellow text-black px-8 py-4 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-yellow-400 transition-colors w-full md:w-auto justify-center group shrink-0"
+            >
+              회사소개서
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {openInf && (
         <div onClick={(e) => { if (e.target === e.currentTarget) setOpenInf(false) }} style={{ display: 'flex', position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(0,0,0,.85)', alignItems: 'center', justifyContent: 'center', padding: '1rem', backdropFilter: 'blur(4px)' }}>
           <div style={{ background: '#0f0f0f', border: '0.5px solid #222', borderRadius: 12, width: '100%', maxWidth: 520, maxHeight: '90vh', overflowY: 'auto', padding: '2rem 1.75rem 2.5rem', position: 'relative' }}>

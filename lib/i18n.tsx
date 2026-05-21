@@ -29,8 +29,8 @@ const ko: Dict = {
 
   // RealResults
   real_headline_1: '콘텐츠를 만드는 것이 아니라,',
-  real_headline_2: '사람들이 반응하는 방식',
-  real_headline_3: '을 설계합니다',
+  real_headline_2: '사람들이 반응하는 방식을',
+  real_headline_3: '설계합니다',
   real_sub_1: '팀레조넌스만의 노하우로 반응이 확인된 구조만 인플루언서에게 제안합니다.',
   real_sub_2: '결과는 감이 아니라 검증된 흐름으로 만들어집니다.',
 

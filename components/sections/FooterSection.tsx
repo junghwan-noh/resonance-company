@@ -25,16 +25,16 @@ export default function FooterSection() {
 
             {/* SNS 아이콘 */}
             <div className="flex items-center gap-3">
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/resonancecompany" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                   <rect width="18" height="18" x="3" y="3" rx="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
                 </svg>
               </a>
-              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+              <a href="#" aria-label="TikTok" className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.23-.9 4.48-2.5 6.07-1.8 1.81-4.46 2.67-6.95 2.25-2.58-.42-4.9-2.22-5.91-4.63-1.03-2.45-.73-5.38.74-7.58 1.35-2.02 3.65-3.23 6.05-3.32.01 1.48-.01 2.96.01 4.43-1.04.14-2.12.64-2.78 1.49-.78.98-.82 2.45-.11 3.48.66.97 1.89 1.44 3.04 1.25 1.15-.19 2.12-1.04 2.45-2.14.16-.54.21-1.11.21-1.67V.02z" />
                 </svg>
               </a>
               <a href="mailto:contact@rsnc.co.kr" aria-label="Email" className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">

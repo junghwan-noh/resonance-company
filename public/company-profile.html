@@ -42,6 +42,59 @@
     .slide .text-lg { font-size: 1rem; }
     .slide { will-change: transform; transform: translateZ(0); }
 
+    @media (max-width: 768px) {
+      .slide {
+        padding: 5rem 1.25rem 6rem;
+        height: auto;
+        min-height: 100vh;
+        gap: 1.5rem;
+      }
+      .slide h1 { font-size: 3rem !important; line-height: 1 !important; }
+      .slide h2.text-5xl,
+      .slide .text-5xl { font-size: 1.75rem !important; line-height: 1.2 !important; }
+      .slide h2.md\:text-7xl,
+      .slide .md\:text-7xl { font-size: 2rem !important; line-height: 1.2 !important; }
+      .slide .text-4xl { font-size: 1.5rem !important; }
+      .slide .text-3xl { font-size: 1.25rem !important; }
+      .slide .text-2xl { font-size: 1.125rem !important; }
+      .slide .text-xl { font-size: 1rem !important; }
+      .slide .text-\[120px\] { font-size: 3.5rem !important; }
+
+      .slide .grid-cols-4,
+      .slide .grid-cols-3,
+      .slide .grid-cols-2 { grid-template-columns: 1fr !important; }
+      .slide .gap-8,
+      .slide .gap-6 { gap: 1rem !important; }
+
+      .slide .flex.w-full { flex-direction: column; gap: 0.75rem !important; }
+      .slide .flex.w-full > .flex-1 { width: 100%; }
+      .slide .flex.w-full > .flex.items-center.justify-center { transform: rotate(90deg); padding: 0.25rem 0; }
+
+      .slide .mb-24 { margin-bottom: 2rem !important; }
+      .slide .mb-16 { margin-bottom: 1.5rem !important; }
+      .slide .mb-12 { margin-bottom: 1rem !important; }
+      .slide .p-10, .slide .p-8 { padding: 1.25rem !important; }
+      .slide .px-24 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+
+      .slide .ml-12, .slide .ml-24, .slide .ml-36 { margin-left: 0 !important; }
+      .slide .border-l { border-left: none !important; padding-left: 0 !important; }
+      .slide [class*="-left-["] { display: none !important; }
+
+      .slide .max-w-7xl { padding: 0; }
+      .slide .pl-8 { padding-left: 0 !important; }
+
+      .fixed.bottom-12.left-24 { left: 1rem !important; bottom: 1rem !important; }
+      .fixed.bottom-12.right-24 { right: 1rem !important; bottom: 1rem !important; }
+
+      .slide .w-48, .slide .h-48 { width: 8rem !important; height: 8rem !important; }
+      .slide .w-32, .slide .h-32 { width: 6rem !important; height: 6rem !important; }
+      .slide .w-\[800px\], .slide .w-\[500px\] { width: 300px !important; }
+      .slide .h-\[800px\], .slide .h-\[500px\] { height: 300px !important; }
+
+      .slide.justify-center { justify-content: flex-start; }
+      .slide-container { overflow-x: hidden; }
+    }
+
     .bg-grid {
       background-size: 50px 50px;
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),

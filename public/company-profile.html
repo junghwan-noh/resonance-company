@@ -88,18 +88,15 @@
       .slide .flex.w-full.items-stretch {
         flex-direction: column !important;
         flex-wrap: nowrap !important;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: y mandatory;
         gap: 0.75rem !important;
-        max-height: 70vh;
-        padding-right: 0.25rem;
+        align-items: stretch !important;
+        flex-grow: 0 !important;
+        height: auto !important;
       }
       .slide .flex.w-full.items-stretch > .flex-1 {
-        flex: 0 0 auto;
+        flex: 0 0 auto !important;
         width: 100%;
-        scroll-snap-align: start;
+        min-height: auto !important;
         padding: 1.25rem !important;
       }
       .slide .flex.w-full.items-stretch > .flex-1 h3 { font-size: 1rem !important; margin-bottom: 0.5rem !important; }

@@ -27,7 +27,7 @@
     }
     .slide {
       scroll-snap-align: start;
-      height: 810px;
+      height: 100vh;
       width: 100%;
       position: relative;
       display: flex;
@@ -38,8 +38,9 @@
       gap: 2rem;
       overflow: hidden;
     }
-    @media (min-width: 1441px) {
-      .slide { height: 100vh; }
+    /* 모바일/태블릿(터치 기기)은 viewport=1440 때문에 100vh가 비정상으로 커짐 → 고정 픽셀 */
+    @media (pointer: coarse) {
+      .slide { height: 810px; }
     }
     .slide h2.text-5xl { font-size: 2.5rem; line-height: 1.15; }
     .slide .text-lg { font-size: 1rem; }
@@ -64,10 +65,10 @@
       transform: translateY(-1.4rem) scale(1.025);
       z-index: 10;
     }
-    /* Pricing 카드 부모(grid)에 좌우/하단 여백 확보해서 글로우가 잘리지 않게 */
+    /* Pricing 카드 부모(grid): 호버 lift 만큼 위/아래 여백 확보 */
     .pricing-grid {
-      padding: 1rem 1.25rem 2.5rem;
-      margin: -1rem -1.25rem -2.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2.5rem;
       overflow: visible;
     }
 

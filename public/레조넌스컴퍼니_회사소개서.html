@@ -60,10 +60,9 @@
       box-shadow: 0 16px 32px -10px rgba(204,255,0,.18);
       z-index: 10;
     }
-    .pricing-card.featured { transform: translateY(-1rem); }
+    /* Growth(featured) 카드도 기본 정렬은 동일 — 호버 동작만 살짝 강조 */
     .pricing-card.featured:hover {
-      transform: translateY(-1.4rem) scale(1.025);
-      z-index: 10;
+      transform: translateY(-8px) scale(1.025);
     }
     /* Pricing 카드 부모(grid): 호버 lift 만큼 위/아래 여백 확보 */
     .pricing-grid {
@@ -530,7 +529,7 @@
             <button class="w-full text-left font-bold neon-text group-hover:text-white transition-colors">가격 문의</button>
           </div>
 
-          <div class="pricing-card featured bg-gradient-to-b from-[#161a05] to-[#111111] rounded-2xl border border-[#ccff00]/40 flex flex-col p-8 relative shadow-[0_0_30px_rgba(204,255,0,0.05)] md:-translate-y-4">
+          <div class="pricing-card featured bg-gradient-to-b from-[#161a05] to-[#111111] rounded-2xl border border-[#ccff00]/40 flex flex-col p-8 relative">
             <div class="absolute top-0 right-0 w-32 h-32 bg-[#ccff00]/10 rounded-bl-full blur-2xl"></div>
 
             <span class="text-xs font-bold neon-text mb-4 tracking-widest uppercase flex items-center justify-between">

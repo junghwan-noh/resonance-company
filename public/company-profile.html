@@ -64,10 +64,14 @@
     @media (max-width: 768px) {
       .slide {
         padding: 5rem 1.25rem 6rem;
-        height: auto;
+        height: auto !important;
         min-height: 100vh;
         gap: 1.5rem;
+        overflow: visible !important;
+        justify-content: flex-start !important;
       }
+      .slide > div { height: auto !important; }
+      .slide .h-full { height: auto !important; }
       .slide h1 { font-size: 3rem !important; line-height: 1 !important; }
       .slide h2.text-5xl,
       .slide .text-5xl { font-size: 1.75rem !important; line-height: 1.2 !important; }

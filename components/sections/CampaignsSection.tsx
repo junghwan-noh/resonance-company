@@ -16,15 +16,15 @@ const onAir: Campaign[] = [
     title: 'Cellimure TikTok Review Campaign',
     desc: 'Cellimure, a Korean derma skincare brand for TikTok review content.',
   },
+]
+
+const upcoming: Campaign[] = [
   {
     image: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=480&h=320&fit=crop',
     category: 'CLEANSING',
     title: 'Hydra Cleansing Balm',
-    desc: 'Seeding campaign with micro-influencers across the US.',
+    desc: 'Coming soon — seeding campaign with micro-influencers across the US.',
   },
-]
-
-const upcoming: Campaign[] = [
   {
     image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=480&h=320&fit=crop',
     category: 'SKINCARE',

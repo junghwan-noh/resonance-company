@@ -11,10 +11,10 @@ type Campaign = {
 
 const onAir: Campaign[] = [
   {
-    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=480&h=320&fit=crop',
+    image: '/assets/campaigns/cellimure.jpg',
     category: 'SKINCARE',
-    title: 'Vegan Glow Serum Launch',
-    desc: 'Recruiting skincare creators for TikTok & IG review content.',
+    title: 'Cellimure TikTok Review Campaign',
+    desc: 'Cellimure, a Korean derma skincare brand for TikTok review content.',
   },
   {
     image: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=480&h=320&fit=crop',

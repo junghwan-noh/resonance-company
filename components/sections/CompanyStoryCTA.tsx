@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLang } from '@/lib/i18n'
 
+// Google Apps Script 웹 앱 URL — google-apps-script/influencer-form.gs 배포 후 이 값 교체
+const SHEETS_ENDPOINT = process.env.NEXT_PUBLIC_INFLUENCER_FORM_URL || ''
+
 export default function CompanyStoryCTA() {
   const { t } = useLang()
   const [openInf, setOpenInf] = useState(false)
@@ -11,6 +14,7 @@ export default function CompanyStoryCTA() {
   const [brandSuccess, setBrandSuccess] = useState(false)
   const [infSubmitting, setInfSubmitting] = useState(false)
   const [brandSubmitting, setBrandSubmitting] = useState(false)
+  const [infError, setInfError] = useState('')
   const infFormRef = useRef<HTMLFormElement>(null)
   const brandFormRef = useRef<HTMLFormElement>(null)
 
@@ -30,15 +34,45 @@ export default function CompanyStoryCTA() {
     }
   }, [])
 
-  const handleInfSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleInfSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!SHEETS_ENDPOINT) {
+      setInfError('폼 엔드포인트가 설정되지 않았습니다. 관리자에게 문의해주세요.')
+      return
+    }
+    setInfError('')
     setInfSubmitting(true)
-    setTimeout(() => {
-      setInfSubmitting(false); setInfSuccess(true)
+    try {
+      const fd = new FormData(e.currentTarget)
+      const payload = {
+        fullName: String(fd.get('name') || ''),
+        email: String(fd.get('email') || ''),
+        gender: String(fd.get('gender') || ''),
+        country: String(fd.get('country') || ''),
+        tiktok: String(fd.get('tiktok') || ''),
+        instagram: String(fd.get('instagram') || ''),
+        followers: String(fd.get('followers') || ''),
+        category: String(fd.get('category') || ''),
+        avgViews: String(fd.get('avg_views') || ''),
+        bestVideo: String(fd.get('best_video') || ''),
+        message: String(fd.get('reason') || ''),
+      }
+      // Apps Script 웹앱은 CORS 미지원 → no-cors 모드로 전송 (응답 확인 불가, 시트 기록만 신뢰)
+      await fetch(SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      })
+      setInfSubmitting(false)
+      setInfSuccess(true)
       setTimeout(() => {
         setOpenInf(false); setInfSuccess(false); infFormRef.current?.reset()
       }, 2500)
-    }, 800)
+    } catch (err) {
+      setInfSubmitting(false)
+      setInfError('전송에 실패했습니다. 잠시 후 다시 시도해주세요.')
+    }
   }
 
   const handleBrandSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -122,7 +156,10 @@ export default function CompanyStoryCTA() {
                 </button>
               )}
               {infSuccess && (
-                <div style={{ marginTop: '1rem', padding: 12, background: '#0d1f0d', border: '.5px solid #1a3a1a', borderRadius: 6, textAlign: 'center' }}><p style={{ fontSize: 13, color: '#c8ff00', margin: 0 }}>✓ 신청 완료! 선정 시 연락드리겠습니다.</p></div>
+                <div style={{ marginTop: '1rem', padding: 12, background: '#0d1f0d', border: '.5px solid #1a3a1a', borderRadius: 6, textAlign: 'center' }}><p style={{ fontSize: 13, color: '#c8ff00', margin: 0 }}>✓ 신청이 완료되었습니다. 선정 시 연락드리겠습니다.</p></div>
+              )}
+              {infError && (
+                <div style={{ marginTop: '1rem', padding: 12, background: '#2a0d0d', border: '.5px solid #4a1a1a', borderRadius: 6, textAlign: 'center' }}><p style={{ fontSize: 13, color: '#ff7777', margin: 0 }}>⚠ {infError}</p></div>
               )}
             </form>
           </div>

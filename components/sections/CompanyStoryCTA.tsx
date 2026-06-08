@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLang } from '@/lib/i18n'
 
-// Google Apps Script 웹 앱 URL — google-apps-script/influencer-form.gs 배포 후 이 값 교체
+// Google Apps Script 웹 앱 URL — google-apps-script/*.gs 배포 후 Vercel 환경변수로 주입
 const SHEETS_ENDPOINT = process.env.NEXT_PUBLIC_INFLUENCER_FORM_URL || ''
+const BRAND_ENDPOINT = process.env.NEXT_PUBLIC_BRAND_FORM_URL || ''
 
 export default function CompanyStoryCTA() {
   const { t } = useLang()
@@ -15,6 +16,7 @@ export default function CompanyStoryCTA() {
   const [infSubmitting, setInfSubmitting] = useState(false)
   const [brandSubmitting, setBrandSubmitting] = useState(false)
   const [infError, setInfError] = useState('')
+  const [brandError, setBrandError] = useState('')
   const infFormRef = useRef<HTMLFormElement>(null)
   const brandFormRef = useRef<HTMLFormElement>(null)
 
@@ -75,15 +77,39 @@ export default function CompanyStoryCTA() {
     }
   }
 
-  const handleBrandSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleBrandSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!BRAND_ENDPOINT) {
+      setBrandError('폼 엔드포인트가 설정되지 않았습니다. 관리자에게 문의해주세요.')
+      return
+    }
+    setBrandError('')
     setBrandSubmitting(true)
-    setTimeout(() => {
-      setBrandSubmitting(false); setBrandSuccess(true)
+    try {
+      const fd = new FormData(e.currentTarget)
+      const payload = {
+        brand: String(fd.get('brand') || ''),
+        productType: String(fd.get('product_type') || ''),
+        targetMarket: String(fd.get('target_market') || ''),
+        category: fd.getAll('category').join(', '),
+        age: fd.getAll('age').join(', '),
+        email: String(fd.get('email') || ''),
+      }
+      await fetch(BRAND_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      })
+      setBrandSubmitting(false)
+      setBrandSuccess(true)
       setTimeout(() => {
         setOpenBrand(false); setBrandSuccess(false); brandFormRef.current?.reset()
       }, 2500)
-    }, 800)
+    } catch (err) {
+      setBrandSubmitting(false)
+      setBrandError('전송에 실패했습니다. 잠시 후 다시 시도해주세요.')
+    }
   }
 
   const fieldStyle: React.CSSProperties = { width: '100%', boxSizing: 'border-box', background: '#111', border: '.5px solid #222', borderRadius: 6, color: '#f0f0f0', fontSize: 13, padding: '10px 12px', outline: 'none', fontFamily: 'inherit' }
@@ -226,7 +252,10 @@ export default function CompanyStoryCTA() {
                 )}
               </div>
               {brandSuccess && (
-                <div style={{ marginTop: '1rem', padding: 12, background: '#0d1f0d', border: '.5px solid #1a3a1a', borderRadius: 6, textAlign: 'center' }}><p style={{ fontSize: 13, color: '#c8ff00', margin: 0 }}>✓ 신청 완료! 72시간 내로 맞춤 진단을 보내드리겠습니다.</p></div>
+                <div style={{ marginTop: '1rem', padding: 12, background: '#0d1f0d', border: '.5px solid #1a3a1a', borderRadius: 6, textAlign: 'center' }}><p style={{ fontSize: 13, color: '#c8ff00', margin: 0 }}>✓ 신청이 완료되었습니다. 72시간 내로 맞춤 진단을 보내드리겠습니다.</p></div>
+              )}
+              {brandError && (
+                <div style={{ marginTop: '1rem', padding: 12, background: '#2a0d0d', border: '.5px solid #4a1a1a', borderRadius: 6, textAlign: 'center' }}><p style={{ fontSize: 13, color: '#ff7777', margin: 0 }}>⚠ {brandError}</p></div>
               )}
             </form>
           </div>
